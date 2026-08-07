@@ -1,0 +1,93 @@
+/* =======================
+   CUSTOMER FLASH MODAL
+======================= */
+
+
+.customer-modal-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+    rgba(0,0,0,.65);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 99999;
+}
+
+
+.customer-modal {
+
+    width: min(90%,420px);
+
+    background:
+    #08111f;
+
+    border:
+    1px solid rgba(255,255,255,.1);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.4);
+}
+
+
+.modal-icon {
+
+    font-size:3rem;
+
+    margin-bottom:15px;
+}
+
+
+.customer-modal h2 {
+
+    margin-bottom:15px;
+
+}
+
+
+.customer-modal p {
+
+    color:
+    rgba(255,255,255,.75);
+
+    margin-bottom:25px;
+
+}
+
+
+.modal-actions {
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+}
+
+/*------------------
+DISABLE THE ADD TO CART BTN
+-------------------------*/
+.add-cart-btn.disabled {
+
+    opacity:.5;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+}

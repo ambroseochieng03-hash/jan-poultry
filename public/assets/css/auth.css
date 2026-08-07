@@ -1,0 +1,726 @@
+/* ==========================================================
+   JAN Poultry Authentication
+   Shared by:
+   - Login
+   - Register
+   - Guest Login
+========================================================== */
+
+:root{
+
+    --gold:#d4af37;
+    --gold-light:#e7c766;
+    --navy:#081320;
+    --navy-2:#10233d;
+    --glass:rgba(255,255,255,.06);
+    --glass-border:rgba(255,255,255,.12);
+    --text:#ffffff;
+    --muted:rgba(255,255,255,.72);
+
+}
+
+*{
+
+    box-sizing:border-box;
+
+}
+
+.auth-body{
+
+    min-height:100vh;
+
+    margin:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:32px;
+
+    background:
+        radial-gradient(circle at top,#1d3355,#081320);
+
+    overflow-x:hidden;
+
+}
+
+.auth-container{
+
+    width:100%;
+
+    max-width:1180px;
+
+    display:grid;
+
+    grid-template-columns:420px 1fr;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    box-shadow:
+
+        0 20px 60px rgba(0,0,0,.45),
+
+        0 0 35px rgba(212,175,55,.08);
+    
+    animation:authFade .7s ease;
+    
+    transition:
+
+        transform .35s,
+
+        box-shadow .35s;
+
+}
+
+.auth-container:hover{
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+
+        0 35px 80px rgba(0,0,0,.55),
+
+        0 0 45px rgba(212,175,55,.16);
+
+}
+
+.auth-brand{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    gap:28px;
+
+    padding:60px 45px;
+
+    overflow:hidden;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.05),
+            rgba(255,255,255,.02)
+        );
+
+}
+
+.auth-brand h1{
+
+    font-size:2.2rem;
+
+    font-weight:700;
+
+    color:white;
+
+    line-height:1.3;
+
+    margin:0;
+
+}
+
+.auth-brand p{
+
+    color:var(--muted);
+
+    line-height:1.9;
+
+    font-size:.97rem;
+
+}
+
+.auth-logo{
+
+    font-size:2.7rem;
+
+    font-weight:800;
+
+    letter-spacing:4px;
+
+    color:var(--gold);
+
+    text-shadow:
+
+        0 0 18px rgba(212,175,55,.25);
+
+}
+
+.auth-content{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:60px;
+
+}
+
+.auth-features{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.auth-feature{
+
+    position:relative;
+
+    padding:18px 22px;
+
+    border-radius:16px;
+
+    background:
+
+        rgba(255,255,255,.05);
+
+    backdrop-filter:
+
+        blur(12px);
+
+    border:
+
+        1px solid rgba(255,255,255,.10);
+
+    color:white;
+
+    overflow:hidden;
+
+    transition:
+
+        transform .3s,
+
+        box-shadow .3s,
+
+        border-color .3s;
+
+}
+
+.auth-feature:hover{
+
+    transform:
+
+        translateY(-4px);
+
+    border-color:
+
+        rgba(212,175,55,.45);
+
+    box-shadow:
+
+        0 15px 35px rgba(0,0,0,.28);
+
+}
+
+.auth-feature::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:60%;
+
+    height:100%;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            rgba(212,175,55,.35),
+
+            transparent
+
+        );
+
+    transform:
+
+        skewX(-25deg);
+
+}
+
+.auth-feature:hover::before{
+
+    animation:
+
+        shimmer .9s ease;
+
+}
+
+.auth-form-wrapper{
+
+    width:100%;
+
+    max-width:430px;
+
+}
+
+.auth-form-title{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:white;
+
+    margin-bottom:12px;
+
+}
+
+.auth-form-subtitle{
+
+    color:var(--muted);
+
+    margin-bottom:35px;
+
+    line-height:1.7;
+
+}
+
+.auth-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.auth-form input{
+
+    width:100%;
+
+    height:56px;
+
+    padding:0 18px;
+
+    border-radius:14px;
+
+    border:1px solid rgba(255,255,255,.10);
+
+    background:rgba(255,255,255,.04);
+
+    color:white;
+
+    font-size:.97rem;
+
+    transition:
+
+        .25s,
+
+        transform .25s;
+
+}
+
+.auth-form input::placeholder{
+
+    color:rgba(255,255,255,.45);
+
+}
+
+.auth-form input:focus{
+
+    outline:none;
+
+    border-color:var(--gold);
+
+    box-shadow:
+        0 0 0 3px rgba(212,175,55,.18);
+
+    transform:
+        translateY(-1px);    
+
+}
+
+.password-group{
+
+    position:relative;
+
+}
+
+.password-group input{
+
+    padding-right:58px;
+
+}
+
+.password-toggle{
+
+    position:absolute;
+
+    top:50%;
+
+    right:18px;
+
+    transform:translateY(-50%);
+
+    cursor:pointer;
+
+    color:#bdbdbd;
+
+    transition:.25s;
+
+    user-select:none;
+
+}
+
+.password-toggle:hover{
+
+    color:var(--gold);
+
+}
+
+.auth-btn{
+
+    height:56px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:var(--gold);
+
+    color:#111;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.auth-btn:hover{
+
+    background:
+
+        var(--gold-light);
+
+    transform:
+
+        translateY(-2px);
+
+    box-shadow:
+
+        0 12px 24px rgba(212,175,55,.25);
+
+}
+
+.auth-btn:active{
+
+    transform:
+        translateY(0);
+
+}
+
+.auth-links{
+
+    margin-top:28px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.auth-links a{
+
+    color:var(--gold);
+
+    text-decoration:none;
+
+    position:relative;
+
+    transition:.3s;
+
+}
+
+.auth-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-3px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--gold);
+
+    transition:.3s;
+
+}
+
+.auth-links a:hover{
+
+    color:white;
+
+}
+
+.auth-links a:hover::after{
+
+    width:100%;
+
+}
+
+@media (max-width:900px){
+
+    .auth-container{
+
+        display:block;
+
+        max-width:500px;
+
+    }
+
+    .auth-brand{
+
+        display:none;
+
+    }
+
+    .auth-content{
+
+        padding:40px 26px;
+
+    }
+
+    .auth-body{
+
+        padding:18px;
+
+    }
+
+}
+
+@keyframes authFade{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+@keyframes shimmer{
+
+    from{
+
+        left:-120%;
+
+    }
+
+    to{
+
+        left:160%;
+
+    }
+
+}
+
+.auth-feature{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:18px;
+
+}
+
+.auth-feature i{
+
+    width:54px;
+
+    height:54px;
+
+    border-radius:14px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+
+        rgba(212,175,55,.15);
+
+    color:var(--gold);
+
+    font-size:20px;
+
+    flex-shrink:0;
+
+    transition:.35s;
+
+}
+
+.auth-feature h3{
+
+    margin:0 0 8px;
+
+    font-size:18px;
+
+    color:white;
+
+}
+
+.auth-feature span{
+
+    color:var(--muted);
+
+    line-height:1.6;
+
+    font-size:.93rem;
+
+}
+
+.auth-feature:hover i{
+
+    transform:
+
+        rotate(-8deg)
+        scale(1.08);
+
+    background:
+
+        rgba(212,175,55,.22);
+
+}
+
+.auth-brand-content{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.auth-brand::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+
+    height:420px;
+
+    border-radius:50%;
+
+    background:
+
+        rgba(212,175,55,.05);
+
+    top:-120px;
+
+    left:-120px;
+
+    animation:
+
+        floatOne 16s ease-in-out infinite;
+
+}
+
+.auth-brand::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+
+    height:280px;
+
+    border-radius:50%;
+
+    background:
+
+        rgba(255,255,255,.03);
+
+    right:-80px;
+
+    bottom:-70px;
+
+    animation:
+
+        floatTwo 18s ease-in-out infinite;
+
+}
+
+@keyframes floatOne{
+
+    50%{
+
+        transform:
+
+            translateY(35px)
+            rotate(12deg);
+
+    }
+
+}
+
+@keyframes floatTwo{
+
+    50%{
+
+        transform:
+
+            translateY(-28px)
+            rotate(-10deg);
+
+    }
+
+}

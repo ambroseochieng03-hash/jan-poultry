@@ -1,0 +1,799 @@
+/* ==========================================================
+   JAN POULTRY ADMIN LOGIN
+   ========================================================== */
+
+:root {
+
+    --jp-bg: #071426;
+    --jp-bg-light: #10233d;
+    --jp-card: #0f1d31;
+    --jp-card-light: #162845;
+
+    --jp-gold: #d4af37;
+    --jp-gold-hover: #e7c75f;
+
+    --jp-text: #ffffff;
+    --jp-muted: #b8c2d1;
+
+    --jp-danger: #dc3545;
+    --jp-success: #28a745;
+
+    --shadow:
+        0 20px 45px rgba(0,0,0,.35);
+
+    --radius:18px;
+}
+
+/* ========================= */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+body.admin-login-body{
+
+    min-height:100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            #071426,
+            #0d213d,
+            #071426
+        );
+
+    font-family:
+        "Segoe UI",
+        sans-serif;
+
+    color:white;
+
+}
+
+/* ========================= */
+
+.login-page{
+
+    min-height:100vh;
+
+    display:grid;
+
+    grid-template-columns:
+        1.1fr
+        0.9fr;
+
+}
+
+/* BRANDING PANEL */
+
+.login-brand{
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:70px;
+
+}
+
+.brand-content{
+
+    max-width:520px;
+
+    z-index:2;
+
+}
+
+.login-brand h1{
+
+    font-size:56px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    color:var(--jp-gold);
+
+}
+
+.brand-subtitle{
+
+    margin-top:15px;
+
+    font-size:22px;
+
+    color:var(--jp-muted);
+
+    line-height:1.6;
+
+}
+
+.brand-divider{
+
+    width:90px;
+
+    height:5px;
+
+    background:var(--jp-gold);
+
+    border-radius:100px;
+
+    margin:35px 0;
+
+}
+
+.brand-features{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.feature{
+
+    background:
+        rgba(255,255,255,.05);
+
+    border-left:
+        4px solid
+        var(--jp-gold);
+
+    padding:18px 22px;
+
+    border-radius:12px;
+
+    backdrop-filter:blur(10px);
+
+    transition:.3s;
+
+}
+
+.feature:hover{
+
+    transform:translateX(8px);
+
+    background:
+        rgba(255,255,255,.08);
+
+}
+
+/* PREMIUM TOUCH  */
+
+.login-brand::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:550px;
+
+    height:550px;
+
+    border-radius:50%;
+
+    background:
+
+        rgba(212,175,55,.08);
+
+    top:-150px;
+
+    left:-180px;
+
+    animation:
+
+        floatOne
+        16s
+        infinite
+        ease-in-out;
+
+}
+
+.login-brand::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+
+    height:350px;
+
+    border-radius:50%;
+
+    background:
+
+        rgba(255,255,255,.03);
+
+    bottom:-120px;
+
+    right:-100px;
+
+    animation:
+
+        floatTwo
+        20s
+        infinite
+        ease-in-out;
+
+}
+
+@keyframes floatOne{
+
+    50%{
+
+        transform:
+            translateY(35px)
+            rotate(15deg);
+
+    }
+
+}
+
+@keyframes floatTwo{
+
+    50%{
+
+        transform:
+            translateY(-35px)
+            rotate(-15deg);
+
+    }
+
+}
+
+/* ==========================================================
+   LOGIN PANEL
+   ========================================================== */
+
+.login-panel{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:50px;
+
+}
+
+.login-box{
+
+    width:100%;
+
+    max-width:500px;
+
+    background:
+        rgba(15,29,49,.88);
+
+    backdrop-filter:blur(20px);
+
+    border:
+
+        1px solid
+        rgba(212,175,55,.15);
+
+    border-radius:22px;
+
+    padding:45px;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.45);
+
+    transition:.35s;
+
+}
+
+.login-box:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 35px 80px rgba(0,0,0,.55);
+
+}
+
+.login-box h2{
+
+    text-align:center;
+
+    color:var(--jp-gold);
+
+    font-size:34px;
+
+    margin-bottom:10px;
+
+}
+
+.login-subtitle{
+
+    text-align:center;
+
+    color:var(--jp-muted);
+
+    margin-bottom:35px;
+
+    line-height:1.6;
+
+}
+
+.input-group{
+
+    margin-bottom:22px;
+
+}
+
+.input-group input{
+
+    width:100%;
+
+    padding:16px 18px;
+
+    background:#132640;
+
+    color:white;
+
+    border:
+
+        2px solid
+        transparent;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.input-group input::placeholder{
+
+    color:#9aa9bd;
+
+}
+
+.input-group input:focus{
+
+    outline:none;
+
+    border-color:var(--jp-gold);
+
+    box-shadow:
+
+        0 0 0 4px
+        rgba(212,175,55,.15);
+
+}
+
+.password-group{
+
+    position:relative;
+
+}
+
+.toggle-password{
+
+    position:absolute;
+
+    top:50%;
+
+    right:16px;
+
+    transform:translateY(-50%);
+
+    border:none;
+
+    background:none;
+
+    color:#bbb;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+.toggle-password:hover{
+
+    color:var(--jp-gold);
+
+}
+
+.login-btn{
+
+    width:100%;
+
+    margin-top:12px;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    color:#071426;
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #d4af37,
+
+            #f0d77a
+
+        );
+
+    transition:.3s;
+
+}
+
+.login-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+
+        0 15px 35px
+        rgba(212,175,55,.35);
+
+}
+
+/* ==========================================================
+   LOGIN ACTIONS
+   ========================================================== */
+
+.login-actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin:18px 0 24px;
+
+}
+
+.forgot-password{
+
+    color:var(--jp-gold);
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.forgot-password:hover{
+
+    color:var(--jp-gold-hover);
+
+    text-decoration:underline;
+
+}
+
+/* ==========================================================
+   SECURITY INFO
+   ========================================================== */
+
+.security-info{
+
+    margin-top:30px;
+
+    padding-top:24px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+.security-info h4{
+
+    color:var(--jp-gold);
+
+    font-size:18px;
+
+    margin-bottom:15px;
+
+    text-align:center;
+
+}
+
+.security-info ul{
+
+    list-style:none;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.security-info li{
+
+    color:var(--jp-muted);
+
+    font-size:14px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.security-info li::before{
+
+    content:"🛡";
+
+}
+
+/* ==========================================================
+   ERROR BOX
+   ========================================================== */
+
+.error-box{
+
+    background:rgba(220,53,69,.15);
+
+    border:1px solid rgba(220,53,69,.4);
+
+    color:#ffdede;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    margin-bottom:22px;
+
+    text-align:center;
+
+}
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width:992px){
+
+    .login-page{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .login-brand{
+
+        padding:50px 30px;
+
+    }
+
+    .login-panel{
+
+        padding:30px;
+
+    }
+
+    .login-brand h1{
+
+        font-size:42px;
+
+    }
+
+}
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width:768px){
+
+    body.admin-login-body{
+
+        overflow-x:hidden;
+
+    }
+
+    .login-page{
+
+        display:flex;
+
+        flex-direction:column;
+
+        min-height:100vh;
+
+    }
+
+    .login-brand{
+
+        flex:none;
+
+        display:block;
+
+        padding:18px;
+
+        text-align:center;
+
+    }
+
+    .brand-content{
+
+        max-width:100%;
+
+    }
+
+    .login-brand h1{
+
+        font-size:28px;
+
+    }
+
+    .brand-subtitle{
+
+        font-size:15px;
+
+        margin-top:8px;
+
+        margin-bottom: 0;
+
+    }
+
+    .brand-divider{
+
+        width:60px;
+
+        height:4px;
+
+        margin:12px auto;
+
+    }
+
+    .brand-features{
+
+        gap:8px;
+        display: none;
+
+    }
+
+    .feature{
+
+        padding:14px;
+
+        font-size:14px;
+
+    }
+
+    .login-panel{
+
+        flex: 1;
+
+        padding:20px;
+
+        align-items:flex-start;
+
+    }
+
+    .login-box{
+
+        max-width:100%;
+
+        padding:24px 20px;
+
+    }
+
+    .login-box h2{
+
+        font-size:28px;
+
+    }
+
+    .login-subtitle{
+
+        font-size:14px;
+
+        margin-bottom:25px;
+
+    }
+
+    .input-group input{
+
+        padding:14px;
+
+        font-size:16px;
+
+    }
+
+    .login-btn{
+
+        padding:15px;
+
+        font-size:16px;
+
+    }
+
+}
+
+/* ==========================================================
+   SMALL PHONES
+   ========================================================== */
+
+@media (max-width:480px){
+
+    .login-brand{
+
+        padding:30px 16px 20px;
+
+    }
+
+    .login-brand h1{
+
+        font-size:28px;
+
+    }
+
+    .brand-subtitle{
+
+        font-size:15px;
+
+    }
+
+    .feature{
+
+        padding:10px 14px;
+
+        font-size:13px;
+
+    }
+
+    .login-panel{
+
+        padding:15px;
+
+    }
+
+    .login-box{
+
+        padding:22px 18px;
+
+        border-radius:16px;
+
+    }
+
+    .login-box h2{
+
+        font-size:24px;
+
+    }
+
+    .security-info li{
+
+        font-size:13px;
+
+    }
+
+}
+
+

@@ -1,0 +1,41 @@
+# ==========================
+# Environment
+# ==========================
+.env
+.env.*
+!.env.example
+
+# ==========================
+# Dependencies
+# ==========================
+/vendor/
+
+# ==========================
+# User uploads
+# ==========================
+public/uploads/products/*
+public/uploads/receipts/*
+
+!public/uploads/products/.gitkeep
+!public/uploads/receipts/.gitkeep
+
+# ==========================
+# Logs
+# ==========================
+*.log
+
+# ==========================
+# IDE
+# ==========================
+.vscode/
+.idea/
+
+# ==========================
+# Operating System
+# ==========================
+.DS_Store
+Thumbs.db
+
+# Runtime storage
+storage/*
+!storage/.gitkeep

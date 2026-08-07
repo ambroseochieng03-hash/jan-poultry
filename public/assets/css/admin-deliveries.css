@@ -1,0 +1,292 @@
+/* ==========================================
+   JAN POULTRY - DELIVERIES PAGE
+   Unique namespace: jp-delivery-*
+========================================== */
+
+.jp-delivery-page{
+    padding:20px 0 40px;
+}
+
+.jp-delivery-header{
+    margin-bottom:30px;
+}
+
+.jp-delivery-header h1{
+    color:#ffffff;
+    font-size:2rem;
+    margin-bottom:8px;
+}
+
+.jp-delivery-header p{
+    color:#9ca3af;
+    font-size:.95rem;
+}
+
+/* ==========================================
+   STATS
+========================================== */
+
+.jp-delivery-stats{
+    display:grid;
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(220px,1fr)
+    );
+    gap:20px;
+    margin-bottom:35px;
+}
+
+.jp-delivery-stat-card{
+    background:
+    rgba(255,255,255,.04);
+
+    border:
+    1px solid rgba(
+        255,
+        255,
+        255,
+        .08
+    );
+
+    border-radius:20px;
+
+    padding:22px;
+
+    backdrop-filter:
+    blur(12px);
+
+    transition:.25s ease;
+}
+
+.jp-delivery-stat-card:hover{
+    transform:
+    translateY(-4px);
+}
+
+.jp-delivery-stat-card span{
+    display:block;
+
+    color:#9ca3af;
+
+    font-size:.85rem;
+
+    margin-bottom:10px;
+}
+
+.jp-delivery-stat-card h2{
+    color:#d4af37;
+
+    font-size:1.8rem;
+
+    margin:0;
+}
+
+/* ==========================================
+   EMPTY STATE
+========================================== */
+
+.jp-delivery-empty{
+    text-align:center;
+
+    background:
+    rgba(255,255,255,.04);
+
+    border:
+    1px solid rgba(
+        255,
+        255,
+        255,
+        .08
+    );
+
+    border-radius:20px;
+
+    padding:60px 25px;
+}
+
+.jp-delivery-empty h3{
+    margin-bottom:12px;
+
+    color:#ffffff;
+}
+
+.jp-delivery-empty p{
+    color:#9ca3af;
+}
+
+/* ==========================================
+   ORDER CARDS
+========================================== */
+
+.jp-delivery-orders-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(350px,1fr)
+    );
+
+    gap:25px;
+}
+
+.jp-delivery-order-card{
+    background:
+    rgba(255,255,255,.04);
+
+    border:
+    1px solid rgba(
+        255,
+        255,
+        255,
+        .08
+    );
+
+    border-radius:22px;
+
+    padding:24px;
+
+    backdrop-filter:
+    blur(12px);
+
+    transition:.25s ease;
+}
+
+.jp-delivery-order-card:hover{
+    transform:
+    translateY(-4px);
+
+    border-color:
+    rgba(
+        212,
+        175,
+        55,
+        .25
+    );
+}
+
+.jp-delivery-order-top{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:20px;
+}
+
+.jp-delivery-order-top h3{
+    color:#ffffff;
+
+    margin:0;
+}
+
+.jp-delivery-status{
+    background:
+    rgba(
+        34,
+        197,
+        94,
+        .15
+    );
+
+    color:#22c55e;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    font-size:.8rem;
+
+    font-weight:700;
+}
+
+.jp-delivery-info{
+    margin-bottom:16px;
+}
+
+.jp-delivery-info strong{
+    display:block;
+
+    color:#d4af37;
+
+    font-size:.85rem;
+
+    margin-bottom:6px;
+}
+
+.jp-delivery-info p{
+    color:#e5e7eb;
+
+    line-height:1.6;
+
+    word-break:break-word;
+}
+
+.jp-delivery-total{
+    margin-top:15px;
+
+    margin-bottom:20px;
+
+    font-size:1.4rem;
+
+    font-weight:700;
+
+    color:#22c55e;
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.jp-delivery-view-btn{
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    background:#d4af37;
+
+    color:#111827;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:.25s ease;
+}
+
+.jp-delivery-view-btn:hover{
+    transform:
+    translateY(-2px);
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+    .jp-delivery-orders-grid{
+        grid-template-columns:1fr;
+    }
+
+    .jp-delivery-order-top{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .jp-delivery-stat-card h2{
+        font-size:1.5rem;
+    }
+}

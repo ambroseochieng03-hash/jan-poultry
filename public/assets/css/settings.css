@@ -1,0 +1,390 @@
+
+/*
+|--------------------------------------------------------------------------
+| JAN Poultry
+| Admin Settings
+|--------------------------------------------------------------------------
+*/
+
+/* ==========================================================
+   PAGE
+========================================================== */
+
+.jp-settings-page{
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+    padding:30px 20px 50px;
+    box-sizing:border-box;
+}
+
+.jp-settings-header{
+    margin-bottom:30px;
+}
+
+.jp-settings-header h1{
+    margin:0;
+    font-size:2rem;
+    color:#d4af37;
+    font-weight:700;
+}
+
+.jp-settings-header p{
+    margin-top:8px;
+    color:#b8c3d1;
+    font-size:.95rem;
+    line-height:1.6;
+}
+
+/* ==========================================================
+   FORM
+========================================================== */
+
+.jp-settings-form{
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+}
+
+/* ==========================================================
+   CARD
+========================================================== */
+
+.jp-settings-card{
+    background:#111c2e;
+    border:1px solid rgba(212,175,55,.18);
+    border-radius:18px;
+    padding:24px;
+    box-shadow:0 12px 28px rgba(0,0,0,.18);
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+.jp-settings-card:hover{
+    transform:translateY(-2px);
+    border-color:#d4af37;
+    box-shadow:0 18px 40px rgba(0,0,0,.28);
+}
+
+.jp-settings-card-header{
+    margin-bottom:22px;
+    padding-bottom:15px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.jp-settings-card-header h2{
+    margin:0;
+    color:#ffffff;
+    font-size:1.2rem;
+    font-weight:700;
+}
+
+.jp-settings-card-header p{
+    margin:6px 0 0;
+    color:#9fb0c7;
+    font-size:.92rem;
+}
+
+/* ==========================================================
+   GRID
+========================================================== */
+
+.jp-settings-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:22px;
+}
+
+.jp-settings-full{
+    grid-column:1/-1;
+}
+
+/* ==========================================================
+   FIELD
+========================================================== */
+
+.jp-settings-field{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.jp-settings-field label{
+    color:#d4af37;
+    font-weight:600;
+    font-size:.92rem;
+}
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+.jp-settings-field input,
+.jp-settings-field select,
+.jp-settings-field textarea{
+
+    width:100%;
+    box-sizing:border-box;
+
+    background:#08111f;
+
+    color:#ffffff;
+
+    border:1px solid #23354e;
+
+    border-radius:10px;
+
+    padding:13px 15px;
+
+    font-size:.95rem;
+
+    outline:none;
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+}
+
+.jp-settings-field textarea{
+
+    resize:vertical;
+    min-height:120px;
+    line-height:1.6;
+
+}
+
+.jp-settings-field input:focus,
+.jp-settings-field select:focus,
+.jp-settings-field textarea:focus{
+
+    border-color:#d4af37;
+
+    box-shadow:
+        0 0 0 3px rgba(212,175,55,.18);
+
+    background:#0b1628;
+
+}
+
+/* ==========================================================
+   ACTIONS
+========================================================== */
+
+.jp-settings-actions{
+
+    display:flex;
+    justify-content:flex-end;
+
+}
+
+.jp-settings-save{
+
+    border:none;
+
+    cursor:pointer;
+
+    background:#d4af37;
+
+    color:#08111f;
+
+    font-weight:700;
+
+    font-size:1rem;
+
+    padding:14px 34px;
+
+    border-radius:12px;
+
+    transition:
+        transform .2s ease,
+        opacity .2s ease;
+
+}
+
+.jp-settings-save:hover{
+
+    opacity:.92;
+    transform:translateY(-2px);
+
+}
+
+.jp-settings-save:active{
+
+    transform:translateY(0);
+
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (min-width:768px){
+
+    .jp-settings-grid{
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+        gap:24px;
+
+    }
+
+    .jp-settings-full{
+
+        grid-column:1/-1;
+
+    }
+
+}
+
+/* ==========================================================
+   DESKTOP
+========================================================== */
+
+@media (min-width:1100px){
+
+    .jp-settings-page{
+
+        padding:35px 35px 60px;
+
+    }
+
+    .jp-settings-form{
+
+        gap:30px;
+
+    }
+
+    .jp-settings-card{
+
+        padding:30px;
+
+    }
+
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width:767px){
+
+    .jp-settings-page{
+
+        padding:18px 14px 40px;
+
+    }
+
+    .jp-settings-header{
+
+        text-align:center;
+
+    }
+
+    .jp-settings-header h1{
+
+        font-size:1.6rem;
+
+    }
+
+    .jp-settings-header p{
+
+        font-size:.9rem;
+
+    }
+
+    .jp-settings-card{
+
+        padding:18px;
+
+        border-radius:14px;
+
+    }
+
+    .jp-settings-card-header{
+
+        margin-bottom:18px;
+
+    }
+
+    .jp-settings-field input,
+    .jp-settings-field select,
+    .jp-settings-field textarea{
+
+        font-size:16px;
+        padding:14px;
+
+    }
+
+    .jp-settings-field textarea{
+
+        min-height:110px;
+
+    }
+
+    .jp-settings-actions{
+
+        justify-content:stretch;
+
+    }
+
+    .jp-settings-save{
+
+        width:100%;
+
+        padding:15px;
+
+        font-size:1rem;
+
+    }
+
+}
+
+/* ==========================================================
+   LARGE DESKTOPS
+========================================================== */
+
+@media (min-width:1400px){
+
+    .jp-settings-page{
+
+        max-width:1500px;
+
+    }
+
+}
+
+/* ==========================================================
+   DARK SELECTS
+========================================================== */
+
+.jp-settings-field select option{
+
+    background:#08111f;
+    color:#ffffff;
+
+}
+
+/* ==========================================================
+   PLACEHOLDERS
+========================================================== */
+
+.jp-settings-field input::placeholder,
+.jp-settings-field textarea::placeholder{
+
+    color:#7f8ea3;
+
+}
+
+/* ==========================================================
+   SMOOTH SCROLL
+========================================================== */
+
+html{
+
+    scroll-behavior:smooth;
+
+}

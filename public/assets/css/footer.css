@@ -1,0 +1,551 @@
+/*
+|--------------------------------------------------------------------------
+| JAN Poultry
+| Footer
+|--------------------------------------------------------------------------
+*/
+
+.footer{
+
+    background:
+        linear-gradient(
+            180deg,
+            #08172b 0%,
+            #07111f 100%
+        );
+
+    color:#ffffff;
+
+    margin-top:80px;
+
+    border-top:
+        1px solid
+        rgba(212,175,55,.18);
+
+}
+
+.footer a{
+
+    text-decoration:none;
+
+}
+
+.footer-container{
+
+    max-width:1300px;
+
+    margin:auto;
+
+    padding:
+        65px
+        24px
+        45px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    flex-wrap:wrap;
+
+    gap:40px;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Brand Section
+|--------------------------------------------------------------------------
+*/
+
+.footer-brand{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    margin-bottom:2.5rem;
+
+}
+
+.footer-brand h2{
+
+    margin:0;
+
+    color:#d4af37;
+
+    font-size:2.4rem;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    text-shadow:
+        0 2px 10px
+        rgba(212,175,55,.25);
+
+}
+
+.footer-brand p{
+
+    margin-top:16px;
+
+    max-width:700px;
+
+    color:#d7dce5;
+
+    font-size:1.05rem;
+
+    line-height:1.9;
+
+    letter-spacing:.4px;
+
+}
+
+.footer-brand p span{
+
+    color:#d4af37;
+
+    font-weight:700;
+
+    margin:0 10px;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Brand Section
+|--------------------------------------------------------------------------
+*/
+
+.footer-brand{
+
+    flex:1 1 320px;
+
+}
+
+.footer-brand h2{
+
+    color:#d4af37;
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    margin-bottom:16px;
+
+}
+
+.footer-brand p{
+
+    color:#d7dce5;
+
+    line-height:1.8;
+
+    max-width:420px;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Social Media
+|--------------------------------------------------------------------------
+*/
+
+/*
+|--------------------------------------------------------------------------
+| SOCIAL MEDIA
+|--------------------------------------------------------------------------
+*/
+
+.footer-socials{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:1rem;
+
+    flex-wrap:wrap;
+
+    margin:2rem 0;
+
+}
+
+.footer-socials a{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-decoration:none;
+
+    font-size:1.3rem;
+
+    transition:.3s;
+
+    background:#18262f;
+
+}
+
+.footer-socials i{
+
+    transition:.3s;
+
+}
+
+.footer-socials a:nth-child(1) i{
+
+    color:#1877F2;
+
+}
+
+.footer-socials a:nth-child(2) i{
+
+    color:#E4405F;
+
+}
+
+.footer-socials a:nth-child(3) i{
+
+    color:#ffffff;
+
+}
+
+.footer-socials a:nth-child(4) i{
+
+    color:#25D366;
+
+}
+
+.footer-socials a:nth-child(5) i{
+
+    color:#FF0000;
+
+}
+
+.footer-socials a:hover{
+
+    transform:translateY(-4px);
+
+    background:#2f8f46;
+
+    box-shadow:0 10px 25px rgba(47,143,70,.35);
+
+}
+
+.footer-socials a:hover i{
+
+    color:#ffffff;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Quick Actions
+|--------------------------------------------------------------------------
+*/
+
+.footer-actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:16px;
+
+    margin:40px 0 28px;
+
+}
+
+.footer-actions a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px 18px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.06);
+
+    color:#ffffff;
+
+    font-weight:600;
+
+    transition:.28s ease;
+
+}
+
+.footer-actions a:hover{
+
+    background:#d4af37;
+
+    color:#071426;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(212,175,55,.30);
+
+}
+
+.footer-actions i{
+
+    font-size:1rem;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Footer Bottom
+|--------------------------------------------------------------------------
+*/
+
+.footer-bottom{
+
+    margin-top:40px;
+
+    padding-top:24px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.10);
+
+    text-align:center;
+
+}
+
+.footer-bottom p{
+
+    color:#ffffff;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+
+}
+
+.footer-bottom span{
+
+    color:#d4af37;
+
+    letter-spacing:1px;
+
+    font-size:.95rem;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Mobile
+|--------------------------------------------------------------------------
+*/
+
+@media(max-width:768px){
+
+    .footer-container{
+
+        padding:55px 20px 35px;
+
+        text-align:center;
+
+        justify-content:center;
+
+    }
+
+    .footer-brand{
+
+        flex:100%;
+
+    }
+
+    .footer-brand p{
+
+        margin:auto;
+
+    }
+
+    .footer-contact,
+
+    .footer-social,
+
+    .footer-actions{
+
+        justify-content:center;
+
+    }
+
+    .footer-brand h2{
+
+        font-size:2rem;
+
+    }
+
+    .footer-brand p{
+
+        max-width:100%;
+
+        font-size:1rem;
+
+        line-height:1.8;
+
+    }
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| CONTACT LINKS
+|--------------------------------------------------------------------------
+*/
+
+.footer-contact{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin:2rem 0;
+
+}
+
+.footer-contact-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    min-width:220px;
+
+    padding:14px 18px;
+
+    border-radius:16px;
+
+    background:#15263d;
+
+    color:#e8eef5;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.footer-contact-item:hover{
+
+    transform:translateY(-4px);
+
+    background:#1d3557;
+
+    box-shadow:
+        0 10px 24px
+        rgba(0,0,0,.28);
+
+}
+
+.footer-contact-item i{
+
+    font-size:1.2rem;
+
+    width:26px;
+
+    text-align:center;
+
+}
+
+.footer-contact-item .fa-phone{
+
+    color:#34c759;
+
+}
+
+.footer-contact-item .fa-envelope{
+
+    color:#EA4335;
+
+}
+
+.footer-contact-item .fa-location-dot{
+
+    color:#4285F4;
+
+}
+
+.footer-contact-item .fa-clock{
+
+    color:#F4B400;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| QUICK ACTIONS
+|--------------------------------------------------------------------------
+*/
+
+.footer-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.footer-actions a{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    padding:10px 14px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    color:#ffffff;
+
+    background:#15263d;
+
+    transition:.25s;
+}
+
+.footer-actions a:hover{
+    background:#1d3557;
+    color:#58c472;
+}

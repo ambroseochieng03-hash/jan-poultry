@@ -1,0 +1,487 @@
+/*
+|--------------------------------------------------------------------------
+| JAN Poultry Admin Order View Styles
+|--------------------------------------------------------------------------
+*/
+
+
+.jp-admin-order-view-page
+{
+    padding:30px 0;
+}
+
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+
+.jp-admin-order-view-empty
+{
+    background:
+    rgba(255,255,255,.04);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    text-align:center;
+
+    color:
+    rgba(255,255,255,.8);
+}
+
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+
+.jp-admin-order-view-card
+{
+    background:
+    rgba(255,255,255,.04);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    padding:30px;
+
+    backdrop-filter:
+    blur(14px);
+}
+
+
+
+/* =========================
+   HEADER
+========================= */
+
+
+.jp-admin-order-view-header
+{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-bottom:30px;
+}
+
+
+.jp-admin-order-view-header h1
+{
+    margin:0;
+
+    color:#d4af37;
+
+    font-size:1.6rem;
+}
+
+
+
+/* =========================
+   STATUS
+========================= */
+
+
+.jp-admin-view-status
+{
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    font-weight:700;
+
+    font-size:.85rem;
+}
+
+
+
+.jp-admin-view-pending
+{
+    background:
+    rgba(245,158,11,.15);
+
+    color:#fbbf24;
+}
+
+
+.jp-admin-view-accepted
+{
+    background:
+    rgba(34,197,94,.15);
+
+    color:#22c55e;
+}
+
+
+.jp-admin-view-transit
+{
+    background:
+    rgba(59,130,246,.15);
+
+    color:#60a5fa;
+}
+
+
+.jp-admin-view-completed
+{
+    background:
+    rgba(16,185,129,.15);
+
+    color:#34d399;
+}
+
+
+.jp-admin-view-rejected
+{
+    background:
+    rgba(239,68,68,.15);
+
+    color:#f87171;
+}
+
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+
+.jp-admin-order-view-section
+{
+    margin-bottom:30px;
+
+    padding-bottom:25px;
+
+    border-bottom:
+    1px solid rgba(255,255,255,.08);
+}
+
+
+
+.jp-admin-order-view-section h2
+{
+    color:#d4af37;
+
+    font-size:1.1rem;
+
+    margin-bottom:20px;
+}
+
+
+
+.jp-admin-order-view-section p
+{
+    color:
+    rgba(255,255,255,.85);
+
+    line-height:1.6;
+}
+
+
+
+/* =========================
+   CUSTOMER DETAILS
+========================= */
+
+
+.jp-admin-customer-grid
+{
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(220px,1fr)
+    );
+
+    gap:18px;
+}
+
+
+
+.jp-admin-customer-grid div
+{
+    background:
+    rgba(0,0,0,.15);
+
+    padding:16px;
+
+    border-radius:14px;
+}
+
+
+
+.jp-admin-customer-grid label
+{
+    display:block;
+
+    color:
+    rgba(255,255,255,.6);
+
+    font-size:.85rem;
+
+    margin-bottom:8px;
+}
+
+
+
+.jp-admin-customer-grid strong
+{
+    color:white;
+}
+
+
+
+.jp-admin-customer-grid a
+{
+    color:#d4af37;
+
+    text-decoration:none;
+
+    word-break:break-word;
+}
+
+
+.jp-admin-customer-grid a:hover
+{
+    text-decoration:underline;
+}
+
+
+
+/* =========================
+   SUMMARY
+========================= */
+
+
+.jp-admin-summary-row
+{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:12px 0;
+}
+
+
+
+.jp-admin-summary-row span
+{
+    color:
+    rgba(255,255,255,.7);
+}
+
+
+
+.jp-admin-summary-row strong
+{
+    color:white;
+}
+
+
+
+/* =========================
+   PRODUCTS
+========================= */
+
+
+.jp-admin-product-card
+{
+    display:flex;
+
+    gap:20px;
+
+    align-items:center;
+
+    background:
+    rgba(0,0,0,.18);
+
+    border-radius:18px;
+
+    padding:18px;
+
+    margin-bottom:18px;
+}
+
+
+
+.jp-admin-product-media
+{
+    width:150px;
+
+    height:120px;
+
+    overflow:hidden;
+
+    border-radius:14px;
+
+    flex-shrink:0;
+}
+
+
+
+.jp-admin-product-media img,
+.jp-admin-product-media video
+{
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+}
+
+
+
+.jp-admin-product-placeholder
+{
+    width:100%;
+
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+    rgba(255,255,255,.05);
+
+    font-size:40px;
+}
+
+
+
+.jp-admin-product-details h3
+{
+    margin-bottom:12px;
+
+    color:white;
+}
+
+
+
+.jp-admin-product-details p
+{
+    margin:8px 0;
+
+    color:
+    rgba(255,255,255,.75);
+}
+
+
+
+.jp-admin-product-details strong
+{
+    color:#d4af37;
+}
+
+
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+
+.jp-admin-back-btn
+{
+    display:block;
+
+    width:100%;
+
+    padding:13px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    border-radius:12px;
+
+    background:#d4af37;
+
+    color:#000;
+
+    font-weight:700;
+
+    transition:.25s;
+}
+
+
+
+.jp-admin-back-btn:hover
+{
+    transform:
+    translateY(-2px);
+}
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+
+@media(max-width:768px)
+{
+
+    .jp-admin-order-view-page
+    {
+        padding:15px 0;
+    }
+
+
+    .jp-admin-order-view-card
+    {
+        padding:20px;
+    }
+
+
+    .jp-admin-order-view-header
+    {
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+
+    .jp-admin-product-card
+    {
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+
+    .jp-admin-product-media
+    {
+        width:100%;
+
+        height:200px;
+    }
+
+
+    .jp-admin-summary-row
+    {
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+}

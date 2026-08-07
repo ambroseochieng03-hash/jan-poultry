@@ -1,0 +1,501 @@
+/*
+|--------------------------------------------------------------------------
+| JAN Poultry Admin Orders Styles
+|--------------------------------------------------------------------------
+*/
+
+
+.jp-admin-orders-page
+{
+    padding: 30px 0;
+}
+
+
+
+/* =========================
+   HEADER
+========================= */
+
+
+.jp-admin-orders-header
+{
+    margin-bottom: 30px;
+}
+
+
+.jp-admin-orders-header h1
+{
+    color: #ffffff;
+
+    margin-bottom: 8px;
+}
+
+
+.jp-admin-orders-header p
+{
+    color:
+    rgba(255,255,255,.65);
+}
+
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+
+.jp-admin-orders-empty
+{
+    background:
+    rgba(255,255,255,.04);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    text-align:center;
+
+    color:
+    rgba(255,255,255,.8);
+}
+
+
+
+/* =========================
+   ORDER CARD
+========================= */
+
+
+.jp-admin-order-card
+{
+    background:
+    rgba(255,255,255,.04);
+
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+
+    border-radius:22px;
+
+
+    padding:25px;
+
+
+    margin-bottom:25px;
+
+
+    backdrop-filter:
+    blur(12px);
+
+
+    transition:.3s;
+}
+
+
+.jp-admin-order-card:hover
+{
+    transform:
+    translateY(-4px);
+}
+
+
+
+/* =========================
+   TOP SECTION
+========================= */
+
+
+.jp-admin-order-top
+{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:25px;
+}
+
+
+.jp-admin-order-top h2
+{
+    margin:0;
+
+    color:#d4af37;
+
+    font-size:1.3rem;
+}
+
+
+
+/* =========================
+   STATUS
+========================= */
+
+
+.jp-admin-status
+{
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+    white-space:nowrap;
+}
+
+
+
+.jp-admin-status-pending
+{
+    background:
+    rgba(245,158,11,.15);
+
+    color:#fbbf24;
+}
+
+
+
+.jp-admin-status-accepted
+{
+    background:
+    rgba(34,197,94,.15);
+
+    color:#22c55e;
+}
+
+
+
+.jp-admin-status-transit
+{
+    background:
+    rgba(59,130,246,.15);
+
+    color:#60a5fa;
+}
+
+
+
+.jp-admin-status-completed
+{
+    background:
+    rgba(16,185,129,.15);
+
+    color:#34d399;
+}
+
+
+
+.jp-admin-status-rejected
+{
+    background:
+    rgba(239,68,68,.15);
+
+    color:#f87171;
+}
+
+
+
+.jp-admin-status-cancelled
+{
+    background:
+    rgba(156,163,175,.15);
+
+    color:#d1d5db;
+}
+
+
+
+/* =========================
+   INFORMATION
+========================= */
+
+
+.jp-admin-order-info
+{
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(220px,1fr)
+    );
+
+    gap:18px;
+
+
+    margin-bottom:25px;
+}
+
+
+
+.jp-admin-order-info div
+{
+    background:
+    rgba(0,0,0,.15);
+
+    padding:15px;
+
+    border-radius:14px;
+}
+
+
+
+.jp-admin-order-info label
+{
+    display:block;
+
+    color:
+    rgba(255,255,255,.6);
+
+    font-size:.85rem;
+
+    margin-bottom:8px;
+}
+
+
+
+.jp-admin-order-info strong
+{
+    color:white;
+}
+
+
+
+.jp-admin-order-info a
+{
+    color:#d4af37;
+
+    text-decoration:none;
+
+    word-break:break-word;
+}
+
+
+
+.jp-admin-order-info a:hover
+{
+    text-decoration:underline;
+}
+
+
+
+/* =========================
+   ACTIONS
+========================= */
+
+
+.jp-admin-order-actions
+{
+    display:flex;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    padding-top:20px;
+
+    border-top:
+    1px solid rgba(255,255,255,.08);
+}
+
+
+
+.jp-admin-order-actions form
+{
+    margin:0;
+
+    flex:1;
+
+    min-width:160px;
+}
+
+
+
+.jp-admin-order-actions button,
+.jp-admin-view-btn
+{
+    width:100%;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    border:none;
+
+    display:block;
+
+    transition:.25s;
+}
+
+
+
+/* VIEW */
+
+
+.jp-admin-view-btn
+{
+    background:#d4af37;
+
+    color:#000;
+}
+
+
+
+.jp-admin-view-btn:hover
+{
+    transform:
+    translateY(-2px);
+}
+
+
+
+/* ACCEPT */
+
+
+.jp-admin-accept-btn
+{
+    background:
+    rgba(34,197,94,.15);
+
+    color:#22c55e;
+
+    border:
+    1px solid rgba(34,197,94,.4)!important;
+}
+
+
+.jp-admin-accept-btn:hover
+{
+    background:#22c55e;
+
+    color:white;
+}
+
+
+
+/* REJECT */
+
+
+.jp-admin-reject-btn
+{
+    background:
+    rgba(239,68,68,.15);
+
+    color:#f87171;
+
+    border:
+    1px solid rgba(239,68,68,.4)!important;
+}
+
+
+
+.jp-admin-reject-btn:hover
+{
+    background:#ef4444;
+
+    color:white;
+}
+
+
+
+/* TRANSIT */
+
+
+.jp-admin-transit-btn
+{
+    background:
+    rgba(59,130,246,.15);
+
+    color:#60a5fa;
+
+    border:
+    1px solid rgba(59,130,246,.4)!important;
+}
+
+
+
+.jp-admin-transit-btn:hover
+{
+    background:#2563eb;
+
+    color:white;
+}
+
+
+
+/* COMPLETE */
+
+
+.jp-admin-complete-btn
+{
+    background:
+    rgba(16,185,129,.15);
+
+    color:#34d399;
+
+    border:
+    1px solid rgba(16,185,129,.4)!important;
+}
+
+
+
+.jp-admin-complete-btn:hover
+{
+    background:#10b981;
+
+    color:white;
+}
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+
+@media(max-width:768px)
+{
+
+    .jp-admin-orders-page
+    {
+        padding:15px 0;
+    }
+
+
+    .jp-admin-order-top
+    {
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+
+    .jp-admin-order-actions
+    {
+        flex-direction:column;
+    }
+
+
+    .jp-admin-order-actions form
+    {
+        width:100%;
+    }
+
+}

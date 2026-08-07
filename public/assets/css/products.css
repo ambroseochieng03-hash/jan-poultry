@@ -1,0 +1,665 @@
+
+/*STYLING FOR ADMIN/PRODUCTS.PHP */
+
+.products-admin-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:30px;
+}
+
+.products-admin-title{
+
+    font-size:2rem;
+    color:#fff;
+    margin-bottom:6px;
+}
+
+.products-admin-subtitle{
+
+    color:#9ca3af;
+}
+
+.products-admin-add-btn{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:auto;
+
+    min-width:220px;
+
+    background:#d4af37;
+
+    color:#111;
+
+    text-decoration:none;
+
+    padding:14px 20px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    white-space:nowrap;
+
+    flex:0 0 auto;
+
+}
+
+.products-admin-grid{
+
+    display:grid;
+    grid-template-columns:
+    repeat(4,minmax(0,1fr));
+    gap:25px;
+}
+
+.products-admin-card{
+
+    background:#0d1724;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    overflow:hidden;
+}
+
+.products-admin-media{
+
+    height:240px;
+    background:#07111d;
+}
+
+.products-admin-media img,
+.products-admin-media video{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.products-admin-placeholder{
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:60px;
+}
+
+.products-admin-body{
+
+    padding:18px;
+}
+
+.products-admin-name{
+
+    color:white;
+    margin-bottom:10px;
+}
+
+.products-admin-price{
+
+    color:#d4af37;
+    font-size:1.2rem;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.products-admin-meta{
+
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    color:#cbd5e1;
+    font-size:.9rem;
+    margin-bottom:15px;
+}
+
+.products-admin-status{
+
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:999px;
+    font-size:.8rem;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.products-admin-status-active{
+
+    background:rgba(34,197,94,.15);
+    color:#22c55e;
+}
+
+.products-admin-status-disabled{
+
+    background:rgba(239,68,68,.15);
+    color:#ef4444;
+}
+
+.products-admin-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    flex-wrap:nowrap;
+
+}
+
+.products-admin-edit,
+.products-admin-toggle,
+.products-admin-delete{
+
+    flex:1;
+
+    text-align:center;
+
+    white-space:nowrap;
+
+    padding:10px 8px;
+
+}
+
+button.products-admin-edit{
+
+    border:none;
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+}
+
+.products-admin-edit,
+.products-admin-toggle,
+.products-admin-delete{
+
+    text-decoration:none;
+    padding:10px 14px;
+    border-radius:10px;
+    font-size:.85rem;
+    font-weight:700;
+}
+
+.products-admin-edit{
+
+    background:#2563eb;
+    color:white;
+}
+
+.products-admin-toggle{
+
+    background:#f59e0b;
+    color:white;
+}
+
+.products-admin-delete{
+
+    background:#dc2626;
+    color:white;
+}
+
+.products-admin-empty{
+
+    background:#0d1724;
+    padding:30px;
+    border-radius:16px;
+}
+
+@media(max-width:1200px){
+
+    .products-admin-grid{
+
+        grid-template-columns:
+        repeat(2,minmax(0,1fr));
+    }
+}
+
+@media(max-width:768px){
+
+    .products-admin-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .products-admin-media{
+
+        height:300px;
+    }
+}
+/* -------------------------------------------------------------
+ALERTS FOR EDIT SYSTEM AND THEY'LL APPEAR IN ADMIN/PRODUCTS.PHP
+---------------------------------------------------------------*/
+
+.products-admin-alert-success{
+
+    background:
+    rgba(34,197,94,.15);
+
+    border:
+    1px solid rgba(34,197,94,.35);
+
+    color:#22c55e;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    margin-bottom:20px;
+}
+
+.products-admin-alert-error{
+
+    background:
+    rgba(239,68,68,.15);
+
+    border:
+    1px solid rgba(239,68,68,.35);
+
+    color:#ef4444;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    margin-bottom:20px;
+}
+
+/*==================================
+PRODUCT EDIT MODAL
+==================================*/
+
+.products-edit-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    rgba(0,0,0,.75);
+
+    backdrop-filter:
+    blur(8px);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:25px;
+
+    z-index:99999;
+}
+
+.products-edit-modal-show{
+
+    display:flex;
+}
+
+.products-edit-modal-content{
+
+    width:100%;
+
+    max-width:900px;
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    background:#0b1624;
+
+    border:
+    1px solid rgba(
+        212,
+        175,
+        55,
+        .2
+    );
+
+    border-radius:24px;
+
+    padding:30px;
+
+    position:relative;
+
+    box-shadow:
+    0 20px 60px
+    rgba(0,0,0,.5);
+}
+
+.products-edit-modal-content h2{
+
+    color:#d4af37;
+
+    margin-bottom:25px;
+}
+
+.products-edit-close{
+
+    position:absolute;
+
+    top:15px;
+
+    right:15px;
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.08);
+
+    color:white;
+
+    font-size:24px;
+
+    cursor:pointer;
+}
+
+.products-edit-close:hover{
+
+    background:
+    rgba(220,38,38,.2);
+}
+
+/*=========================
+FORM
+=========================*/
+
+#productsEditForm{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        2,
+        minmax(0,1fr)
+    );
+
+    gap:16px;
+}
+
+#productsEditForm input,
+#productsEditForm select,
+#productsEditForm textarea{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:
+    rgba(255,255,255,.05);
+
+    color:white;
+
+    outline:none;
+}
+
+#productsEditForm textarea{
+
+    min-height:140px;
+
+    resize:vertical;
+
+    grid-column:
+    1 / -1;
+}
+
+#edit-media-preview{
+
+    grid-column:
+    1 / -1;
+}
+
+/*=========================
+MEDIA PREVIEW
+=========================*/
+
+.products-edit-preview-image{
+
+    width:100%;
+
+    max-height:300px;
+
+    object-fit:cover;
+
+    border-radius:16px;
+
+    border:
+    1px solid rgba(
+        255,
+        255,
+        255,
+        .08
+    );
+}
+
+.products-edit-preview-video{
+
+    width:100%;
+
+    max-height:350px;
+
+    border-radius:16px;
+
+    border:
+    1px solid rgba(
+        255,
+        255,
+        255,
+        .08
+    );
+}
+
+/*=========================
+CHECKBOX
+=========================*/
+
+#productsEditForm label{
+
+    grid-column:
+    1 / -1;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#ddd;
+}
+
+#productsEditForm input[type="checkbox"]{
+
+    width:auto;
+}
+
+/*=========================
+BUTTONS
+=========================*/
+
+.products-edit-buttons{
+
+    grid-column:
+    1 / -1;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:12px;
+
+    margin-top:10px;
+}
+
+.products-edit-cancel{
+
+    width:auto;
+
+    background:
+    rgba(255,255,255,.08);
+
+    color:white;
+
+    padding:14px 22px;
+
+    border-radius:12px;
+}
+
+.products-edit-save{
+
+    width:auto;
+
+    background:#d4af37;
+
+    color:black;
+
+    padding:14px 22px;
+
+    border-radius:12px;
+
+    font-weight:700;
+}
+
+.products-edit-save:hover,
+.products-edit-cancel:hover{
+
+    transform:
+    translateY(-2px);
+}
+
+/*=========================
+SCROLLBAR
+=========================*/
+
+.products-edit-modal-content::-webkit-scrollbar{
+
+    width:8px;
+}
+
+.products-edit-modal-content::-webkit-scrollbar-thumb{
+
+    background:#d4af37;
+
+    border-radius:999px;
+}
+
+/*=========================
+MOBILE
+=========================*/
+
+@media(max-width:768px){
+
+    #productsEditForm{
+
+        grid-template-columns:
+        1fr;
+    }
+
+    .products-edit-modal{
+
+        padding:10px;
+    }
+
+    .products-edit-modal-content{
+
+        padding:20px;
+    }
+
+    .products-edit-buttons{
+
+        flex-direction:column;
+    }
+
+    .products-edit-save,
+    .products-edit-cancel{
+
+        width:100%;
+    }
+}
+
+/*STYLING FOR DELETE MODAL */
+
+/*=================================
+DELETE MODAL
+=================================*/
+
+.products-delete-modal-content{
+
+    width:100%;
+    max-width:520px;
+
+    background:#0b1624;
+
+    border:
+    1px solid rgba(
+        220,
+        38,
+        38,
+        .25
+    );
+
+    border-radius:24px;
+
+    padding:35px;
+
+    position:relative;
+
+    text-align:center;
+
+    box-shadow:
+    0 20px 60px
+    rgba(0,0,0,.5);
+}
+
+.products-delete-modal-content h2{
+
+    color:#ef4444;
+
+    margin-bottom:20px;
+}
+
+.products-delete-message{
+
+    color:white;
+
+    font-size:1.1rem;
+
+    margin-bottom:12px;
+}
+
+.products-delete-warning{
+
+    color:#fca5a5;
+
+    font-size:.95rem;
+
+    margin-bottom:30px;
+}
+

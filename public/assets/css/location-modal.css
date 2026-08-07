@@ -1,0 +1,388 @@
+/*
+|--------------------------------------------------------------------------
+| JAN Poultry
+| Reusable Location Modal
+|--------------------------------------------------------------------------
+*/
+
+.jp-location-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(5,12,20,.78);
+
+    backdrop-filter:blur(8px);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:24px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.3s ease;
+
+    z-index:999999;
+
+}
+
+.jp-location-modal.jp-show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Card
+|--------------------------------------------------------------------------
+*/
+
+.jp-location-card{
+
+    width:min(1100px,100%);
+
+    height:min(88vh,900px);
+
+    background:#ffffff;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    box-shadow:
+        0 35px 80px
+        rgba(0,0,0,.35);
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Header
+|--------------------------------------------------------------------------
+*/
+
+.jp-location-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:22px 26px;
+
+    background:#071426;
+
+    color:#ffffff;
+
+}
+
+.jp-location-header h2{
+
+    margin:0;
+
+    color:#d4af37;
+
+    font-size:1.5rem;
+
+}
+
+.jp-location-header p{
+
+    margin-top:6px;
+
+    color:#d9dee5;
+
+    font-size:.95rem;
+
+}
+
+.jp-location-actions{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.jp-location-icon{
+
+    width:44px;
+
+    height:44px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    background:rgba(255,255,255,.12);
+
+    color:#ffffff;
+
+    font-size:1.1rem;
+
+    transition:.25s;
+
+}
+
+.jp-location-icon:hover{
+
+    background:#2f8f46;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Google Map
+|--------------------------------------------------------------------------
+*/
+
+.jp-location-map{
+
+    flex:1;
+
+    min-height:350px;
+
+    background:#edf1f5;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Bottom Area
+|--------------------------------------------------------------------------
+*/
+
+.jp-location-info{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:20px 26px;
+
+    background:#f7f8fa;
+
+    border-top:1px solid #e4e8ec;
+
+}
+
+.jp-location-info div{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+}
+
+.jp-location-info strong{
+
+    color:#071426;
+
+}
+
+.jp-location-info span{
+
+    color:#2f8f46;
+
+    font-weight:700;
+
+}
+
+.jp-location-buttons{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:16px;
+
+    padding:22px 26px;
+
+}
+
+.jp-location-primary,
+
+.jp-location-secondary{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:14px 24px;
+
+    border-radius:12px;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    transition:.25s;
+
+}
+
+.jp-location-primary{
+
+    background:#2f8f46;
+
+    color:#ffffff;
+
+}
+
+.jp-location-primary:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.jp-location-secondary{
+
+    background:#071426;
+
+    color:#ffffff;
+
+}
+
+.jp-location-secondary:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Responsive
+|--------------------------------------------------------------------------
+*/
+
+@media (max-width:900px){
+
+    .jp-location-modal{
+
+        padding:16px;
+
+    }
+
+    .jp-location-card{
+
+        width:100%;
+
+        height:92vh;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .jp-location-card{
+
+        height:100vh;
+
+        border-radius:0;
+
+    }
+
+    .jp-location-header{
+
+        padding:18px;
+
+    }
+
+    .jp-location-header h2{
+
+        font-size:1.25rem;
+
+    }
+
+    .jp-location-header p{
+
+        font-size:.9rem;
+
+    }
+
+    .jp-location-map{
+
+        min-height:280px;
+
+    }
+
+    .jp-location-info{
+
+        flex-direction:column;
+
+        gap:16px;
+
+        padding:18px;
+
+    }
+
+    .jp-location-buttons{
+
+        flex-direction:column;
+
+        padding:18px;
+
+    }
+
+    .jp-location-primary,
+
+    .jp-location-secondary{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .jp-location-actions{
+
+        gap:8px;
+
+    }
+
+    .jp-location-icon{
+
+        width:40px;
+
+        height:40px;
+
+    }
+
+    .jp-location-header h2{
+
+        font-size:1.1rem;
+
+    }
+
+    .jp-location-header p{
+
+        font-size:.85rem;
+
+    }
+
+}

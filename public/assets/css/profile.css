@@ -1,0 +1,731 @@
+/* ==================================================
+   ADMIN PROFILE PAGE
+================================================== */
+
+.profile-page{
+
+    max-width:1200px;
+
+    margin:0 auto;
+
+    padding:30px;
+
+    width:100%;
+
+    box-sizing:border-box;
+}
+
+.profile-hero{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    gap:15px;
+
+    background:#0d1724;
+
+    border:1px solid rgba(
+        212,
+        175,
+        55,
+        .15
+    );
+
+    border-radius:24px;
+
+    padding:30px;
+
+    margin-bottom:30px;
+}
+
+.profile-hero-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+}
+
+.profile-hero-content h1{
+
+    color:white;
+
+    margin:0 0 12px;
+
+    font-size:2rem;
+
+    line-height:1.2;
+}
+
+.profile-badges{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+}
+
+.profile-avatar{
+
+    width:110px;
+
+    height:110px;
+
+    border-radius:50%;
+
+    background:#d4af37;
+
+    color:#111;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:42px;
+
+    font-weight:800;
+
+    flex-shrink:0;
+}
+
+.profile-hero-content h1{
+
+    color:white;
+
+    margin-bottom:12px;
+
+    font-size:2rem;
+}
+
+.profile-badges{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+}
+
+.profile-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    font-size:.8rem;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+}
+
+.profile-role{
+
+    background:
+    rgba(
+        212,
+        175,
+        55,
+        .15
+    );
+
+    color:#d4af37;
+}
+
+.profile-status-active{
+
+    background:
+    rgba(
+        34,
+        197,
+        94,
+        .15
+    );
+
+    color:#22c55e;
+}
+
+.profile-status-suspended{
+
+    background:
+    rgba(
+        239,
+        68,
+        68,
+        .15
+    );
+
+    color:#ef4444;
+}
+
+/* ==================================================
+   GRID
+================================================== */
+
+.profile-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr;
+
+    gap:25px;
+
+    width:100%;
+}
+
+.profile-info-row strong{
+
+    color:white;
+
+    text-align:right;
+
+    word-break:break-word;
+
+    overflow-wrap:anywhere;
+
+    max-width:60%;
+}
+
+.profile-card{
+
+    background:#0d1724;
+
+    border:1px solid rgba(
+        255,
+        255,
+        255,
+        .08
+    );
+
+    border-radius:22px;
+
+    padding:25px;
+}
+
+.profile-card h2{
+
+    color:#d4af37;
+
+    margin-bottom:20px;
+
+    font-size:1.2rem;
+}
+
+/* ==================================================
+   INFO ROWS
+================================================== */
+
+.profile-info-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:14px 0;
+
+    border-bottom:
+    1px solid rgba(
+        255,
+        255,
+        255,
+        .06
+    );
+}
+
+.profile-info-row:last-child{
+
+    border-bottom:none;
+}
+
+.profile-info-row span{
+
+    color:#94a3b8;
+}
+
+/* ==================================================
+   ACTION BUTTONS
+================================================== */
+
+.profile-btn{
+
+    width:100%;
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    font-weight:700;
+
+    font-size:.95rem;
+
+    margin-bottom:12px;
+
+    transition:.2s;
+}
+
+.profile-action-buttons{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:10px;
+}
+
+.profile-action-buttons .profile-btn{
+
+    flex:1;
+
+    margin-bottom:0;
+}
+
+.profile-btn:hover{
+
+    transform:
+    translateY(-2px);
+}
+
+.profile-btn-primary{
+
+    background:#d4af37;
+
+    color:#111;
+}
+
+.profile-btn-secondary{
+
+    background:#2563eb;
+
+    color:white;
+}
+
+
+
+/* ==================================================
+   MODALS
+================================================== */
+
+.profile-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    rgba(
+        0,
+        0,
+        0,
+        .75
+    );
+
+    backdrop-filter:
+    blur(8px);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+    z-index:99999;
+}
+
+.profile-modal-show{
+
+    display:flex;
+}
+
+.profile-modal-content{
+
+    width:100%;
+
+    max-width:650px;
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    background:#0b1624;
+
+    border:1px solid rgba(
+        212,
+        175,
+        55,
+        .15
+    );
+
+    border-radius:24px;
+
+    padding:30px;
+
+    position:relative;
+
+    box-shadow:
+    0 20px 60px
+    rgba(
+        0,
+        0,
+        0,
+        .5
+    );
+}
+
+.profile-modal-content h2{
+
+    color:#d4af37;
+
+    margin-bottom:18px;
+}
+
+.profile-modal-content p{
+
+    color:#cbd5e1;
+
+    margin-bottom:20px;
+}
+
+/* ==================================================
+   CLOSE BUTTON
+================================================== */
+
+.profile-modal-close{
+
+    position:absolute;
+
+    top:15px;
+
+    right:15px;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:
+    rgba(
+        255,
+        255,
+        255,
+        .08
+    );
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:22px;
+}
+
+.profile-modal-close:hover{
+
+    background:
+    rgba(
+        220,
+        38,
+        38,
+        .2
+    );
+}
+
+/* ==================================================
+   FORM
+================================================== */
+
+.profile-modal-content form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+}
+
+.profile-modal-content label{
+
+    color:#cbd5e1;
+
+    font-size:.9rem;
+
+    font-weight:600;
+}
+
+.profile-modal-content input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:
+    rgba(
+        255,
+        255,
+        255,
+        .05
+    );
+
+    color:white;
+
+    outline:none;
+}
+
+.profile-modal-content input:focus{
+
+    border:
+    1px solid #d4af37;
+}
+
+/* ==================================================
+   CHECKBOX
+================================================== */
+
+.profile-checkbox{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#cbd5e1;
+
+    cursor:pointer;
+
+    margin-top:5px;
+}
+
+.profile-checkbox input{
+
+    width:auto;
+}
+
+/* ==================================================
+   MODAL ACTIONS
+================================================== */
+
+.profile-modal-actions{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:12px;
+
+    margin-top:10px;
+}
+
+.profile-btn-cancel{
+
+    border:none;
+
+    cursor:pointer;
+
+    background:
+    rgba(
+        255,
+        255,
+        255,
+        .08
+    );
+
+    color:white;
+
+    padding:14px 22px;
+
+    border-radius:12px;
+
+    font-weight:700;
+}
+
+.profile-btn-save{
+
+    border:none;
+
+    cursor:pointer;
+
+    background:#d4af37;
+
+    color:#111;
+
+    padding:14px 22px;
+
+    border-radius:12px;
+
+    font-weight:700;
+}
+
+.profile-btn-save:hover,
+.profile-btn-cancel:hover{
+
+    transform:
+    translateY(-2px);
+}
+
+/* ==================================================
+   SUCCESS / ERROR MODAL
+================================================== */
+
+.profile-message-modal{
+
+    max-width:500px;
+
+    text-align:center;
+}
+
+.profile-message-modal h2{
+
+    margin-bottom:12px;
+}
+
+.profile-message-modal p{
+
+    margin-bottom:25px;
+}
+
+.profile-message-modal .profile-btn-save{
+
+    width:100%;
+}
+
+/* ==================================================
+   SCROLLBAR
+================================================== */
+
+.profile-modal-content::-webkit-scrollbar{
+
+    width:8px;
+}
+
+.profile-modal-content::-webkit-scrollbar-thumb{
+
+    background:#d4af37;
+
+    border-radius:999px;
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media(max-width:768px){
+
+    .profile-page{
+
+        padding:15px;
+    }
+
+    .profile-hero{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        padding:20px;
+    }
+
+    .profile-avatar{
+
+        width:90px;
+
+        height:90px;
+
+        font-size:34px;
+    }
+
+    .profile-hero-content h1{
+
+        font-size:1.5rem;
+    }
+
+    .profile-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .profile-info-row{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:6px;
+    }
+
+    .profile-info-row strong{
+
+        text-align:left;
+
+        max-width:100%;
+    }
+
+    .profile-action-buttons{
+
+        flex-direction:column;
+    }
+
+    .profile-btn{
+
+        width:100%;
+    }
+
+    .profile-modal{
+
+        padding:10px;
+    }
+
+    .profile-modal-content{
+
+        padding:20px;
+
+        border-radius:18px;
+    }
+
+    .profile-modal-actions{
+
+        flex-direction:column;
+    }
+
+    .profile-btn-save,
+    .profile-btn-cancel{
+
+        width:100%;
+    }
+}

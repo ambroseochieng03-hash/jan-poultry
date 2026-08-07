@@ -1,0 +1,142 @@
+.jp-checkout-page {
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px 20px;
+
+}
+
+
+.jp-checkout-card {
+
+    width:100%;
+    max-width:600px;
+
+    background:#ffffff;
+
+    padding:35px;
+
+    border-radius:15px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.12);
+
+}
+
+
+.jp-checkout-card h1 {
+
+    color:#1f2937;
+
+    margin-bottom:20px;
+
+}
+
+
+.jp-checkout-card h3 {
+
+    color:#166534;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.jp-checkout-form {
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+
+
+.jp-checkout-label {
+
+    font-weight:600;
+
+    color:#374151;
+
+    margin-top:10px;
+
+}
+
+
+
+.jp-checkout-input,
+.jp-checkout-textarea {
+
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    border:1px solid #d1d5db;
+
+    font-size:15px;
+
+    outline:none;
+
+}
+
+
+
+.jp-checkout-input:focus,
+.jp-checkout-textarea:focus {
+
+
+    border-color:#16a34a;
+
+}
+
+
+
+.jp-checkout-textarea {
+
+    min-height:120px;
+
+    resize:vertical;
+
+}
+
+
+
+.jp-checkout-btn {
+
+    margin-top:25px;
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#16a34a;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+}
+
+
+
+.jp-checkout-btn:hover {
+
+    opacity:0.9;
+
+}

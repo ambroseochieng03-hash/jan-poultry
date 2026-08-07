@@ -1,0 +1,341 @@
+
+.jp-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(7,20,38,.72);
+
+    backdrop-filter:blur(6px);
+
+    z-index:99999;
+
+    padding:20px;
+
+}
+
+.jp-modal.show{
+
+    display:flex;
+
+}
+
+/* ==========================================================
+   JAN POULTRY
+   AUTH RESPONSE MODAL
+========================================================== */
+
+.auth-response-card{
+
+    position:relative;
+
+    width:100%;
+    max-width:520px;
+
+    background:#0f1d31;
+
+    border-radius:22px;
+
+    border:1px solid rgba(212,175,55,.18);
+
+    box-shadow:
+        0 35px 80px rgba(0,0,0,.45);
+
+    overflow:hidden;
+
+    animation:authModalIn .25s ease;
+
+    padding:45px;
+
+    text-align:center;
+
+}
+
+@keyframes authModalIn{
+
+    from{
+
+        transform:translateY(18px) scale(.95);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:none;
+
+        opacity:1;
+
+    }
+
+}
+
+/* ================================================= */
+
+.auth-response-close{
+
+    position:absolute;
+
+    top:18px;
+
+    right:18px;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    color:#c9d0db;
+
+    background:transparent;
+
+    transition:.25s;
+
+}
+
+.auth-response-close:hover{
+
+    background:rgba(255,255,255,.08);
+
+    color:#d4af37;
+
+}
+
+/* ================================================= */
+
+.auth-response-icon{
+
+    width:95px;
+
+    height:95px;
+
+    margin:auto;
+
+    margin-bottom:25px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:42px;
+
+    color:#071426;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #d4af37,
+            #f4df88
+        );
+
+    box-shadow:
+
+        0 18px 45px rgba(212,175,55,.28);
+
+}
+
+.auth-response-icon.error{
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #dc3545,
+
+            #ff7d88
+
+        );
+
+    color:white;
+
+}
+
+/* ================================================= */
+
+#authResponseTitle{
+
+    color:white;
+
+    font-size:31px;
+
+    margin-bottom:18px;
+
+}
+
+#authResponseMessage{
+
+    color:#b8c2d1;
+
+    line-height:1.9;
+
+    margin-bottom:35px;
+
+}
+
+/* ================================================= */
+
+#authProviderButtonContainer{
+
+    margin-bottom:18px;
+
+}
+
+.provider-btn{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    margin-bottom:15px;
+
+    font-weight:700;
+
+    font-size:15px;
+
+    transition:.25s;
+
+}
+
+.provider-btn i{
+
+    font-size:22px;
+
+}
+
+/* Gmail */
+
+.provider-btn.gmail{
+
+    background:#EA4335;
+
+    color:white;
+
+}
+
+/* Outlook */
+
+.provider-btn.outlook{
+
+    background:#0078D4;
+
+    color:white;
+
+}
+
+/* Yahoo */
+
+.provider-btn.yahoo{
+
+    background:#6001D2;
+
+    color:white;
+
+}
+
+.provider-btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* ================================================= */
+
+.auth-close-btn{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    color:#071426;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #d4af37,
+            #f1dc8b
+        );
+
+    transition:.25s;
+
+}
+
+.auth-close-btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* ================================================= */
+
+@media(max-width:768px){
+
+    .auth-response-card{
+
+        padding:30px 24px;
+
+        border-radius:18px;
+
+    }
+
+    .auth-response-icon{
+
+        width:80px;
+
+        height:80px;
+
+        font-size:35px;
+
+    }
+
+    #authResponseTitle{
+
+        font-size:25px;
+
+    }
+
+}

@@ -1,0 +1,466 @@
+/*
+|--------------------------------------------------------------------------
+| JAN Poultry Notifications Styles
+|--------------------------------------------------------------------------
+*/
+
+
+.jp-notifications-page
+{
+    padding: 20px 0;
+}
+
+
+
+
+/* ==========================
+   HEADER
+========================== */
+
+
+.jp-notifications-header
+{
+    margin-bottom: 30px;
+}
+
+
+.jp-notifications-header h1
+{
+    color: #ffffff;
+
+    margin-bottom: 8px;
+}
+
+
+.jp-notifications-header p
+{
+    color:
+    rgba(255,255,255,.65);
+
+    font-size: .95rem;
+}
+
+
+
+
+
+/* ==========================
+   CONTAINER
+========================== */
+
+
+.jp-notifications-container
+{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+}
+
+
+
+
+
+/* ==========================
+   CARD
+========================== */
+
+
+.jp-notification-card
+{
+    background:
+    rgba(255,255,255,.04);
+
+
+    border:
+    1px solid
+    rgba(255,255,255,.08);
+
+
+    border-radius:22px;
+
+
+    padding:22px;
+
+
+    backdrop-filter:
+    blur(14px);
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.jp-notification-card:hover
+{
+    transform:
+    translateY(-4px);
+
+
+    border-color:
+    rgba(212,175,55,.35);
+}
+
+
+
+
+
+
+/* ==========================
+   TOP SECTION
+========================== */
+
+
+.jp-notification-top
+{
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:18px;
+}
+
+
+
+
+.jp-notification-icon
+{
+    width:50px;
+
+    height:50px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    border-radius:50%;
+
+
+    background:
+    rgba(212,175,55,.15);
+
+
+    font-size:24px;
+}
+
+
+
+
+
+.jp-notification-top h3
+{
+    margin:0;
+
+    color:#d4af37;
+
+    font-size:1.15rem;
+}
+
+
+
+
+
+
+.jp-notification-order
+{
+    display:inline-block;
+
+    margin-top:7px;
+
+    padding:5px 12px;
+
+
+    border-radius:999px;
+
+
+    background:
+    rgba(34,197,94,.15);
+
+
+    color:#34d399;
+
+
+    font-size:.8rem;
+
+    font-weight:700;
+}
+
+
+
+
+
+
+
+/* ==========================
+   MESSAGE
+========================== */
+
+
+.jp-notification-message
+{
+    color:
+    rgba(255,255,255,.85);
+
+
+    line-height:1.7;
+
+
+    margin-bottom:20px;
+}
+
+
+
+
+
+
+
+/* ==========================
+   FOOTER
+========================== */
+
+
+.jp-notification-footer
+{
+    padding-top:15px;
+
+
+    border-top:
+    1px solid
+    rgba(255,255,255,.08);
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    gap:15px;
+
+
+}
+
+
+
+.jp-notification-footer small
+{
+    color:
+    rgba(255,255,255,.55);
+}
+
+
+
+
+
+
+
+/* ==========================
+   ACTIONS
+========================== */
+
+
+.jp-notification-actions
+{
+    display:flex;
+
+    gap:10px;
+
+    align-items:center;
+}
+
+
+
+
+
+
+.jp-notification-view-btn
+{
+    text-decoration:none;
+
+
+    background:#d4af37;
+
+
+    color:#000;
+
+
+    padding:10px 16px;
+
+
+    border-radius:12px;
+
+
+    font-weight:700;
+
+
+    font-size:.9rem;
+
+
+    transition:.25s;
+}
+
+
+
+.jp-notification-view-btn:hover
+{
+    transform:
+    translateY(-2px);
+}
+
+
+
+
+
+
+
+.jp-notification-dismiss-btn
+{
+    background:
+    rgba(239,68,68,.15);
+
+
+    color:#f87171;
+
+
+    border:
+    1px solid
+    rgba(239,68,68,.35);
+
+
+    padding:10px 16px;
+
+
+    border-radius:12px;
+
+
+    font-weight:700;
+
+
+    cursor:pointer;
+
+
+    transition:.25s;
+}
+
+
+
+.jp-notification-dismiss-btn:hover
+{
+    background:#ef4444;
+
+    color:white;
+}
+
+
+
+
+
+
+
+/* ==========================
+   EMPTY STATE
+========================== */
+
+
+.jp-notification-empty
+{
+    background:
+    rgba(255,255,255,.04);
+
+
+    border:
+    1px solid
+    rgba(255,255,255,.08);
+
+
+    border-radius:22px;
+
+
+    padding:40px;
+
+
+    text-align:center;
+}
+
+
+
+.jp-notification-empty-icon
+{
+    font-size:45px;
+
+    margin-bottom:15px;
+}
+
+
+
+.jp-notification-empty h3
+{
+    color:#d4af37;
+
+    margin-bottom:10px;
+}
+
+
+
+.jp-notification-empty p
+{
+    color:
+    rgba(255,255,255,.65);
+}
+
+
+
+
+
+
+
+/* ==========================
+   MOBILE
+========================== */
+
+
+@media(max-width:768px)
+{
+
+
+    .jp-notification-footer
+    {
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+
+
+    .jp-notification-actions
+    {
+        width:100%;
+
+        flex-direction:column;
+    }
+
+
+
+    .jp-notification-view-btn,
+    .jp-notification-dismiss-btn
+    {
+        width:100%;
+
+        text-align:center;
+    }
+
+
+
+}

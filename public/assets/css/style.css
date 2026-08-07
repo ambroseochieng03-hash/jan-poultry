@@ -1,0 +1,672 @@
+.cart-page{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:20px;
+}
+
+.cart-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+    border-radius:18px;
+
+    background:white;
+
+    box-shadow:
+    0 8px 30px
+    rgba(0,0,0,.08);
+}
+
+.cart-total{
+
+    font-size:1.5rem;
+
+    font-weight:bold;
+
+    text-align:right;
+
+    margin-top:20px;
+}
+
+.checkout-btn{
+
+    display:inline-block;
+
+    margin-top:20px;
+
+    background:#d4af37;
+
+    color:black;
+
+    padding:14px 20px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+.cart-empty{
+
+    padding:50px;
+
+    text-align:center;
+
+    background:white;
+
+    border-radius:20px;
+}
+
+@media(max-width:768px){
+
+    .cart-card{
+
+        flex-direction:column;
+
+        gap:15px;
+    }
+}
+
+.cart-actions{
+
+    display:flex;
+
+    gap:10px;
+
+    align-items:center;
+
+    margin-top:10px;
+}
+
+.cart-actions a{
+
+    text-decoration:none;
+
+    padding:8px 12px;
+
+    border-radius:8px;
+
+    background:#d4af37;
+
+    color:black;
+
+    font-weight:bold;
+}
+
+.remove-btn{
+
+    background:#dc2626 !important;
+
+    color:white !important;
+}
+
+.checkout-box{
+
+    max-width:700px;
+
+    margin:40px auto;
+
+    padding:30px;
+
+    background:white;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 10px 30px
+    rgba(0,0,0,.08);
+
+    text-align:center;
+}
+
+/*-------------------------
+CUSTOMER ORDERS.PHP
+--------------------*/
+.orders-page{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:20px;
+}
+
+.order-card{
+
+    background: green;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    margin-bottom:20px;
+
+    box-shadow:
+    0 8px 25px
+    rgba(0,0,0,.08);
+}
+
+.order-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+}
+
+.view-order-btn{
+
+    display:inline-block;
+
+    margin-top:10px;
+
+    background:#d4af37;
+
+    color:black;
+
+    padding:10px 16px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+.empty-orders{
+
+    background:white;
+
+    padding:50px;
+
+    border-radius:20px;
+
+    text-align:center;
+}
+
+/*----------------------
+CREATE ADMIN
+-----------------------*/
+
+.admin-create-page{
+
+    max-width:800px;
+
+    margin:auto;
+
+    padding:30px;
+}
+
+.create-card{
+
+    background:#181818;
+
+    border:1px solid rgba(
+        212,
+        175,
+        55,
+        .25
+    );
+
+    border-radius:20px;
+
+    padding:30px;
+}
+
+.create-card h1{
+
+    color:#fff;
+
+    margin-bottom:10px;
+}
+
+.create-card p{
+
+    color:#bbb;
+
+    margin-bottom:25px;
+}
+
+.create-card form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+}
+
+.create-card input{
+
+    background:#111;
+
+    color:white;
+
+    border:1px solid #333;
+
+    border-radius:12px;
+
+    padding:14px;
+}
+
+.alert-danger{
+
+    background:#842029;
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    margin-bottom:20px;
+}
+
+.alert-success{
+
+    background:#198754;
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    margin-bottom:20px;
+}
+
+.generated-password{
+
+    background:#111;
+
+    border:1px solid #d4af37;
+
+    color:#d4af37;
+
+    padding:20px;
+
+    border-radius:12px;
+
+    margin-bottom:20px;
+
+    text-align:center;
+
+    font-size:18px;
+
+    font-weight:700;
+}
+
+/*-------------------------
+LOGS
+-------------------------*/
+.log-badge{
+
+    display:inline-block;
+
+    background:#d4af37;
+
+    color:#111;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    font-size:13px;
+
+    font-weight:600;
+}
+
+/*-------------
+ADMIN/USERS.PHP
+--------------*/
+
+.filter-card{
+
+    background:#181818;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    margin-bottom:25px;
+
+    border:1px solid rgba(
+        212,
+        175,
+        55,
+        .2
+    );
+}
+
+.filter-card form{
+
+    display:flex;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+}
+
+.filter-card input,
+.filter-card select{
+
+    background:#111;
+
+    color:white;
+
+    border:1px solid #333;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    min-width:180px;
+}
+
+/*--------------
+CUSTOMER PROFILE
+----------------*/
+.profile-page{
+    max-width: 900px;
+    margin: auto;
+    padding: 30px;
+}
+
+.profile-card{
+    background: #111;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(212,175,55,0.2);
+}
+
+.profile-avatar{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #d4af37;
+    color: #111;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-weight: bold;
+}
+
+/*---------------------
+CUSTOMER ADRESSES.PHP
+---------------------- */
+.page{
+    max-width: 900px;
+    margin: auto;
+    padding: 30px;
+}
+
+.card{
+    background: #111;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(212,175,55,0.15);
+}
+
+.card input,
+.card textarea{
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #000;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 8px;
+}
+
+/* =========================
+   CUSTOMER NOTIFICATIONS
+========================= */
+
+
+.notifications-page {
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:30px;
+
+}
+
+
+
+.notifications-header {
+
+    margin-bottom:30px;
+
+}
+
+
+.notifications-header h1 {
+
+    color:white;
+
+    font-size:2rem;
+
+    margin-bottom:8px;
+
+}
+
+
+.notifications-header p {
+
+    color:rgba(255,255,255,.65);
+
+}
+
+
+
+.notification-card {
+
+
+    display:flex;
+
+    gap:18px;
+
+    align-items:flex-start;
+
+
+    background:
+
+    rgba(255,255,255,.04);
+
+
+    border:
+
+    1px solid rgba(255,255,255,.08);
+
+
+    padding:22px;
+
+
+    border-radius:18px;
+
+
+    margin-bottom:18px;
+
+
+    backdrop-filter:blur(12px);
+
+
+    transition:.3s;
+
+}
+
+
+
+.notification-card:hover {
+
+
+    transform:
+
+    translateY(-5px);
+
+
+    border-color:
+
+    rgba(212,175,55,.5);
+
+}
+
+
+
+.notification-icon {
+
+
+    width:45px;
+
+    height:45px;
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    background:
+
+    rgba(212,175,55,.15);
+
+
+    border-radius:50%;
+
+
+    font-size:22px;
+
+}
+
+
+
+.notification-content h3 {
+
+
+    color:#d4af37;
+
+    margin-bottom:8px;
+
+}
+
+
+
+.notification-content p {
+
+
+    color:
+
+    rgba(255,255,255,.8);
+
+
+    line-height:1.6;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.notification-content small {
+
+
+    color:#888;
+
+    font-size:.8rem;
+
+}
+
+
+
+/* Empty notifications */
+
+
+.notification-empty {
+
+
+    text-align:center;
+
+
+    padding:50px 20px;
+
+
+    background:
+
+    rgba(255,255,255,.04);
+
+
+    border:
+
+    1px solid rgba(255,255,255,.08);
+
+
+    border-radius:20px;
+
+
+}
+
+
+
+.notification-empty h3 {
+
+
+    margin-top:15px;
+
+    color:#d4af37;
+
+}
+
+
+
+.notification-empty p {
+
+
+    color:
+
+    rgba(255,255,255,.65);
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+
+    .notifications-page {
+
+        padding:20px;
+
+    }
+
+
+    .notification-card {
+
+        padding:18px;
+
+    }
+
+
+}
