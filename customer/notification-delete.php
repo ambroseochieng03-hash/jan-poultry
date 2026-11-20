@@ -31,7 +31,7 @@ $notificationId =
 if (!$notificationId) {
 
     header(
-        'Location: notifications.php'
+        'Location: notifications'
     );
 
     exit;
@@ -58,7 +58,7 @@ $model->delete(
 
 
 header(
-    'Location: notifications.php'
+    'Location: notifications'
 );
 
 exit;

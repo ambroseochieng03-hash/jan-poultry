@@ -58,7 +58,7 @@ Admin Dashboard
 <div class="admin-grid">
 
     <a
-    href="products.php"
+    href="products"
     class="admin-card">
 
         <h3>
@@ -76,7 +76,7 @@ Admin Dashboard
     </a>
 
     <a
-    href="orders.php"
+    href="orders"
     class="admin-card">
 
         <h3>
@@ -94,7 +94,7 @@ Admin Dashboard
     </a>
 
     <a
-    href="users.php"
+    href="users"
     class="admin-card">
 
         <h3>
@@ -112,7 +112,7 @@ Admin Dashboard
     </a>
 
     <a
-    href="logs.php"
+    href="logs"
     class="admin-card">
 
         <h3>
@@ -130,7 +130,7 @@ Admin Dashboard
     </a>
 
     <a
-    href="deliveries.php"
+    href="deliveries"
     class="admin-card">
 
         <h3>
@@ -148,7 +148,7 @@ Admin Dashboard
     </a>
 
     <a
-    href="admins.php"
+    href="admins"
     class="admin-card">
 
         <h3>

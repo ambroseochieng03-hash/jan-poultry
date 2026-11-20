@@ -240,7 +240,7 @@ __DIR__ .
 
 
                         <a
-                        href="/jan-poultry/customer/order-view.php?id=<?= (int)$notification['order_id'] ?>"
+                        href="/order-view?id=<?= (int)$notification['order_id'] ?>"
                         class="jp-notification-view-btn">
 
 
@@ -258,7 +258,7 @@ __DIR__ .
 
                         <form
                         method="POST"
-                        action="notification-delete.php">
+                        action="notification-delete">
 
 
                             <input

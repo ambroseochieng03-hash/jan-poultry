@@ -266,7 +266,7 @@ __DIR__ .
                     </div>
 
                     <a
-                    href="order-view.php?id=<?= $order['id'] ?>"
+                    href="order-view?id=<?= $order['id'] ?>"
                     class="jp-delivery-view-btn">
 
                         View Order

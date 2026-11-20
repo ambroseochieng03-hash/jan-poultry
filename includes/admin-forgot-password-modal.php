@@ -40,7 +40,7 @@
 
         <form
             id="forgotPasswordForm"
-            action="/jan-poultry/admin/forgot-password-ajax.php">
+            action="/admin/forgot-password-ajax">
 
             <input
                 type="hidden"

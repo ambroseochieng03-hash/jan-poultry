@@ -369,7 +369,7 @@ PATHINFO_EXTENSION
 
 <video controls preload="metadata">
 
-<source src="/jan-poultry/public/uploads/products/<?= htmlspecialchars($item['image']) ?>">
+<source src="/uploads/products/<?= htmlspecialchars($item['image']) ?>">
 
 </video>
 
@@ -378,7 +378,7 @@ PATHINFO_EXTENSION
 
 
 <img
-src="/jan-poultry/public/uploads/products/<?= htmlspecialchars($item['image']) ?>"
+src="/uploads/products/<?= htmlspecialchars($item['image']) ?>"
 alt="<?= htmlspecialchars($item['name']) ?>">
 
 
@@ -471,7 +471,7 @@ $item['quantity'],
 
 
 <a
-href="orders.php"
+href="orders"
 class="jp-admin-back-btn">
 
 ← Back To Orders

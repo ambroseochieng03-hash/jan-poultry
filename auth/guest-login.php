@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_POST['phone']
     );
 
-    header("Location: /jan-poultry/customer/dashboard.php");
+    header("Location: /dashboard");
     exit;
 }
 
@@ -56,13 +56,13 @@ include __DIR__ . '/../includes/auth-header.php';
 
 <div class="auth-links">
 
-    <a href="login.php">
+    <a href="login">
         Login Instead
     </a>
 
     <br><br>
 
-    <a href="register.php">
+    <a href="register">
         Create Account
     </a>
 

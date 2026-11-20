@@ -13,7 +13,7 @@ Auth::requireLogin();
 if (Auth::isGuest()) {
 
     header(
-        "Location: /jan-poultry/customer/dashboard.php"
+        "Location: /dashboard"
     );
 
     exit;

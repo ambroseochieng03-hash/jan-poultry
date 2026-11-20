@@ -82,7 +82,7 @@ if ($validTotal <= 0) {
     );
 
     header(
-        'Location: cart.php'
+        'Location: cart'
     );
 
     exit;
@@ -91,7 +91,7 @@ if ($validTotal <= 0) {
 if (empty($items)) {
 
     header(
-        'Location: cart.php'
+        'Location: cart'
     );
 
     exit;
@@ -133,7 +133,7 @@ if (
         );
 
         header(
-            'Location: checkout.php'
+            'Location: checkout'
         );
 
         exit;
@@ -157,7 +157,7 @@ if (
         );
 
         header(
-            'Location: checkout.php'
+            'Location: checkout'
         );
 
         exit;
@@ -198,7 +198,7 @@ if (
             );
 
             header(
-                'Location: checkout.php'
+                'Location: checkout'
             );
 
             exit;
@@ -425,7 +425,7 @@ document.addEventListener(
 
             autoClose: 2000,
 
-            redirect: 'orders.php'
+            redirect: 'orders'
 
         });
 

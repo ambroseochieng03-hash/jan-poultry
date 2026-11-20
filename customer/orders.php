@@ -182,7 +182,7 @@ $statusClass = match (
     <div class="jp-order-actions">
 
         <a
-            href="order-view.php?id=<?= (int)$order['id'] ?>"
+            href="order-view?id=<?= (int)$order['id'] ?>"
             class="jp-view-order-btn">
 
             View Order →
@@ -197,7 +197,7 @@ $statusClass = match (
             )
         ): ?>
 
-            <form method="POST" action="order-action.php">
+            <form method="POST" action="order-action">
 
                 <input
                     type="hidden"
@@ -246,7 +246,7 @@ $statusClass = match (
 
         <form
             method="POST"
-            action="order-action.php">
+            action="order-action">
 
             <input
                 type="hidden"

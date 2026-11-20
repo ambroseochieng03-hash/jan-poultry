@@ -312,7 +312,7 @@ __DIR__ .
         <?php if ($isCurrentUser): ?>
 
         <a
-        href="profile.php"
+        href="profile"
         class="
         staff-btn
         staff-btn-profile

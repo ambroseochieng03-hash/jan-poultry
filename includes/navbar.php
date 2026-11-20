@@ -3,14 +3,14 @@
 $isLoggedIn = isset($_SESSION['user_id']);
 $isGuest    = isset($_SESSION['guest_id']);
 
-$currentPage = basename($_SERVER['PHP_SELF']);
+$currentPage = trim((string) parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH), '/');
 ?>
 
 <nav class="navbar">
 
     <div class="nav-container">
 
-        <a href="/jan-poultry/" class="logo">
+        <a href="/" class="logo">
             JAN POULTRY
         </a>
 
@@ -26,7 +26,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         <ul class="nav-links" id="navLinks">
 
             <li>
-                <a href="/jan-poultry/">
+                <a href="/">
                     Home
                 </a>
             </li>
@@ -52,13 +52,13 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             <?php if ($isLoggedIn): ?>
 
                 <li>
-                    <a href="/jan-poultry/customer/dashboard.php">
+                    <a href="/dashboard">
                         Dashboard
                     </a>
                 </li>
 
                 <li>
-                    <a href="/jan-poultry/auth/logout.php">
+                    <a href="/logout">
                         Logout
                     </a>
                 </li>
@@ -66,13 +66,13 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             <?php elseif ($isGuest): ?>
 
                 <li>
-                    <a href="/jan-poultry/customer/dashboard.php">
+                    <a href="/dashboard">
                         Continue
                     </a>
                 </li>
 
                 <li>
-                    <a href="/jan-poultry/auth/logout.php">
+                    <a href="/logout">
                         Exit Guest
                     </a>
                 </li>
@@ -80,19 +80,19 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             <?php else: ?>
 
                 <li>
-                    <a href="/jan-poultry/auth/login.php">
+                    <a href="/login">
                         Login
                     </a>
                 </li>
 
                 <li>
-                    <a href="/jan-poultry/auth/register.php">
+                    <a href="/register">
                         Register
                     </a>
                 </li>
 
                 <li>
-                    <a href="/jan-poultry/auth/guest-login.php">
+                    <a href="/guest-login">
                         Guest Access
                     </a>
                 </li>
@@ -111,41 +111,41 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             class="mobile-menu-card"
             id="mobileMenuCard">
 
-            <a href="/jan-poultry/">
+            <a href="/">
                 Home
             </a>
 
             <?php if ($isLoggedIn): ?>
 
-                <a href="/jan-poultry/customer/dashboard.php">
+                <a href="/dashboard">
                     Dashboard
                 </a>
 
-                <a href="/jan-poultry/auth/logout.php">
+                <a href="/logout">
                     Logout
                 </a>
 
             <?php elseif ($isGuest): ?>
 
-                <a href="/jan-poultry/customer/dashboard.php">
+                <a href="/dashboard">
                     Continue
                 </a>
 
-                <a href="/jan-poultry/auth/logout.php">
+                <a href="/logout">
                     Exit Guest
                 </a>
 
             <?php else: ?>
 
-                <a href="/jan-poultry/auth/guest-login.php">
+                <a href="/guest-login">
                     Guest Login
                 </a>
 
-                <a href="/jan-poultry/auth/login.php">
+                <a href="/login">
                     Sign In
                 </a>
 
-                <a href="/jan-poultry/auth/register.php">
+                <a href="/register">
                     Create Account
                 </a>
 

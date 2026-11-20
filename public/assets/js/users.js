@@ -347,7 +347,7 @@ if (
 
                 const response =
                 await fetch(
-                    "user-toggle.php",
+                    "user-toggle",
                     {
                         method: "POST",
                         body: formData
@@ -498,7 +498,7 @@ if (
 
                 const response =
                 await fetch(
-                    "user-delete.php",
+                    "user-delete",
                     {
                         method: "POST",
                         body: formData

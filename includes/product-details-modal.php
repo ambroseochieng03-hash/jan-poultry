@@ -110,7 +110,7 @@ class="product-details-modal">
             <form
             id="productDetailsCartForm"
             method="POST"
-            action="add-to-cart.php">
+            action="add-to-cart">
 
                 <input
                 type="hidden"

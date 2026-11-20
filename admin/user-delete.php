@@ -21,7 +21,7 @@ if (
 ) {
 
     header(
-        'Location: users.php'
+        'Location: users'
     );
 
     exit;
@@ -40,7 +40,7 @@ if (
 ) {
 
     header(
-        'Location: users.php'
+        'Location: users'
     );
 
     exit;
@@ -55,7 +55,7 @@ $id =
 if ($id <= 0) {
 
     header(
-        'Location: users.php'
+        'Location: users'
     );
 
     exit;
@@ -77,19 +77,19 @@ $stmt->execute([$id]);
 $user = $stmt->fetch();
 
 if (!$user) {
-    header("Location: users.php");
+    header("Location: users");
     exit;
 }
 
 /* prevent self delete */
 if ($id == Auth::userId()) {
-    header("Location: users.php");
+    header("Location: users");
     exit;
 }
 
 /* block admin deletion */
 if (in_array($user['role'], ['admin', 'super_admin'])) {
-    header("Location: users.php");
+    header("Location: users");
     exit;
 }
 

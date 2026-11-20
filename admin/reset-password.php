@@ -47,7 +47,7 @@ if ($token === '') {
         'The password reset link is invalid.';
 
     header(
-        'Location: login.php'
+        'Location: login'
     );
 
     exit;
@@ -116,7 +116,7 @@ if (!$result['success']) {
 
 
     header(
-        'Location: login.php'
+        'Location: login'
     );
 
     exit;
@@ -155,7 +155,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
         header(
-            'Location: reset-password.php?token=' .
+            'Location: reset-password?token=' .
             urlencode($token)
         );
 
@@ -170,7 +170,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'Password must contain at least 12 characters.';
 
         header(
-            'Location: reset-password.php?token=' .
+            'Location: reset-password?token=' .
             urlencode($token)
         );
 
@@ -196,7 +196,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'Unable to update your password. Please try again.';
 
         header(
-            'Location: reset-password.php?token=' .
+            'Location: reset-password?token=' .
             urlencode($token)
         );
 
@@ -217,7 +217,7 @@ $_SESSION['auth_success'] =
     'Your password has been reset successfully. Please sign in using your new password.';
 
 header(
-    'Location: login.php'
+    'Location: login'
 );
 
 exit;
@@ -242,14 +242,14 @@ exit;
 
 
     <link rel="stylesheet"
-    href="/jan-poultry/public/assets/css/admin-reset-password.css">
+    href="/assets/css/admin-reset-password.css">
 
         <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <link rel="stylesheet"
-    href="/jan-poultry/public/assets/css/auth-response-modal.css">
+    href="/assets/css/auth-response-modal.css">
 
 </head>
 
@@ -480,7 +480,7 @@ window.addEventListener(
 
 
 
-        <a href="login.php"
+        <a href="login"
            class="back-login">
 
             ← Back to Login
@@ -522,10 +522,10 @@ __DIR__ .
 
 ?>
 
-<script src="/jan-poultry/public/assets/js/auth-response-modal.js"></script>
+<script src="/assets/js/auth-response-modal.js"></script>
 
 </body>
 
-<script src="/jan-poultry/public/assets/js/admin-reset-password.js"></script>
+<script src="/assets/js/admin-reset-password.js"></script>
 
 </html>

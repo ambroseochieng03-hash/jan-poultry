@@ -372,7 +372,7 @@ if (
 
                 const response =
                 await fetch(
-                    "admin-create.php",
+                    "admin-create",
                     {
                         method: "POST",
                         body: formData
@@ -455,7 +455,7 @@ if (
 
                 const response =
                 await fetch(
-                    "admin-delete.php",
+                    "admin-delete",
                     {
                         method: "POST",
                         body: formData
@@ -526,7 +526,7 @@ if (
 
                 const response =
                 await fetch(
-                    "admin-toggle.php",
+                    "admin-toggle",
                     {
                         method: "POST",
                         body: formData

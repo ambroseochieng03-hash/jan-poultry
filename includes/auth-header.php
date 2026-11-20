@@ -19,11 +19,11 @@ content="width=device-width, initial-scale=1.0">
 
 <link
 rel="stylesheet"
-href="/jan-poultry/public/assets/css/global.css">
+href="/assets/css/global.css">
 
 <link
 rel="stylesheet"
-href="/jan-poultry/public/assets/css/admin-forgot-password.css">
+href="/assets/css/admin-forgot-password.css">
 
 <link
 rel="stylesheet"
@@ -31,11 +31,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 <link
 rel="stylesheet"
-href="/jan-poultry/public/assets/css/auth-response-modal.css">
+href="/assets/css/auth-response-modal.css">
 
 <link
 rel="stylesheet"
-href="/jan-poultry/public/assets/css/auth.css">
+href="/assets/css/auth.css">
 
 </head>
 

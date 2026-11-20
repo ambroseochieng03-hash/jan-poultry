@@ -135,7 +135,7 @@ if (
                     ) {
 
                         const imagePath =
-                        "/jan-poultry/public/uploads/products/"
+                        "/uploads/products/"
                         +
                         button.dataset.image;
 

@@ -110,7 +110,7 @@ if (
             preload="metadata">
 
                 <source
-                src="/jan-poultry/public/uploads/products/<?= htmlspecialchars($item['image']) ?>"
+                src="/uploads/products/<?= htmlspecialchars($item['image']) ?>"
                 type="video/mp4">
 
             </video>
@@ -120,7 +120,7 @@ if (
 
 
             <img
-            src="/jan-poultry/public/uploads/products/<?= htmlspecialchars($item['image']) ?>"
+            src="/uploads/products/<?= htmlspecialchars($item['image']) ?>"
             alt="<?= htmlspecialchars($item['name']) ?>">
 
 
@@ -211,7 +211,7 @@ if (
 
 
             <form method="POST"
-            action="cart-update.php">
+            action="cart-update">
 
             <input
             type="hidden"
@@ -254,7 +254,7 @@ if (
 
 
             <form method="POST"
-            action="cart-update.php">
+            action="cart-update">
 
                 <input
                 type="hidden"
@@ -290,7 +290,7 @@ if (
 
 
             <form method="POST"
-            action="cart-update.php">
+            action="cart-update">
 
             <input
             type="hidden"
@@ -386,7 +386,7 @@ if (
     <?php if ($hasCheckoutItems): ?>
 
     <a
-    href="checkout.php"
+    href="checkout"
     class="jp-checkout-btn">
 
         Proceed To Checkout

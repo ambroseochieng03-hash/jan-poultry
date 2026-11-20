@@ -107,7 +107,7 @@ if(createForm){
         const formData = new FormData(createForm);
 
         try{
-            const response = await fetch("product-create-ajax.php", {
+            const response = await fetch("product-create-ajax", {
                 method:"POST",
                 body:formData
             });
@@ -181,7 +181,7 @@ document.addEventListener("click", function(event) {
 });
 
 // Submit form data cleanly via AJAX fetch
-const toggleForm = document.querySelector('form[action="product-toggle.php"]');
+const toggleForm = document.querySelector('form[action="product-toggle"]');
 
 if (toggleForm) {
     toggleForm.addEventListener("submit", async function (event) {

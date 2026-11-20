@@ -105,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ]);
     }
 
-    header("Location: settings.php");
+    header("Location: settings");
     exit;
 }
 

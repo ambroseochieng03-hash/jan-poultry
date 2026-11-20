@@ -42,11 +42,11 @@ __DIR__ .
 
 <link
 rel="stylesheet"
-href="/jan-poultry/public/assets/css/admin-forgot-password.css">
+href="/assets/css/admin-forgot-password.css">
 
 <link
 rel="stylesheet"
-href="/jan-poultry/public/assets/css/auth-response-modal.css">
+href="/assets/css/auth-response-modal.css">
 
 <main class="home-page">
 
@@ -102,7 +102,7 @@ href="/jan-poultry/public/assets/css/auth-response-modal.css">
                 <?php if (!$isLoggedIn): ?>
 
                 <a
-                    href="/jan-poultry/auth/guest-login.php"
+                    href="/guest-login"
                     class="btn-outline">
 
                     Continue as Guest
@@ -112,7 +112,7 @@ href="/jan-poultry/public/assets/css/auth-response-modal.css">
                 <?php else: ?>
 
                 <a
-                    href="/jan-poultry/customer/dashboard.php"
+                    href="/dashboard"
                     class="btn-outline">
 
                     Open Dashboard
@@ -159,7 +159,7 @@ href="/jan-poultry/public/assets/css/auth-response-modal.css">
             </div>
 
             <a
-                href="/jan-poultry/auth/register.php"
+                href="/register"
                 class="section-link">
 
                 View Everything →
@@ -177,7 +177,7 @@ href="/jan-poultry/public/assets/css/auth-response-modal.css">
 
                     data-name="<?= htmlspecialchars($product['name']) ?>"
 
-                    data-image="/jan-poultry/public/uploads/products/<?= htmlspecialchars($product['image']) ?>"
+                    data-image="/uploads/products/<?= htmlspecialchars($product['image']) ?>"
 
                     data-category="<?= htmlspecialchars($product['category']) ?>"
 
@@ -206,7 +206,7 @@ href="/jan-poultry/public/assets/css/auth-response-modal.css">
                                 preload="metadata">
 
                                 <source
-                                    src="/jan-poultry/public/uploads/products/<?= htmlspecialchars($product['image']) ?>"
+                                    src="/uploads/products/<?= htmlspecialchars($product['image']) ?>"
                                     type="video/mp4">
 
                             </video>
@@ -214,7 +214,7 @@ href="/jan-poultry/public/assets/css/auth-response-modal.css">
                         <?php else: ?>
 
                             <img
-                                src="/jan-poultry/public/uploads/products/<?= htmlspecialchars($product['image']) ?>"
+                                src="/uploads/products/<?= htmlspecialchars($product['image']) ?>"
                                 alt="<?= htmlspecialchars($product['name']) ?>">
 
                         <?php endif; ?>
@@ -483,7 +483,7 @@ href="/jan-poultry/public/assets/css/auth-response-modal.css">
                 </p>
 
                 <a
-                    href="/jan-poultry/auth/login.php">
+                    href="/login">
 
                     Sign In
 
@@ -507,7 +507,7 @@ href="/jan-poultry/public/assets/css/auth-response-modal.css">
                 </p>
 
                 <a
-                    href="/jan-poultry/auth/register.php">
+                    href="/register">
 
                     Create Account
 
@@ -531,7 +531,7 @@ href="/jan-poultry/public/assets/css/auth-response-modal.css">
                 </p>
 
                 <a
-                    href="/jan-poultry/auth/guest-login.php">
+                    href="/guest-login">
 
                     Continue as Guest
 
@@ -670,7 +670,7 @@ href="/jan-poultry/public/assets/css/auth-response-modal.css">
                 <div class="preview-buttons">
 
                     <a
-                        href="/jan-poultry/auth/register.php"
+                        href="/register"
                         class="preview-primary">
 
                         Create Free Account
@@ -678,7 +678,7 @@ href="/jan-poultry/public/assets/css/auth-response-modal.css">
                     </a>
 
                     <a
-                        href="/jan-poultry/auth/guest-login.php"
+                        href="/guest-login"
                         class="preview-secondary">
 
                         Continue as Guest
@@ -686,7 +686,7 @@ href="/jan-poultry/public/assets/css/auth-response-modal.css">
                     </a>
 
                     <a
-                        href="/jan-poultry/auth/login.php"
+                        href="/login"
                         class="preview-login">
 
                         Sign In
@@ -748,7 +748,7 @@ window.addEventListener(
 
             form.action =
 
-                '/jan-poultry/auth/forgot-password-ajax.php';
+                '/forgot-password-ajax';
 
         }
 

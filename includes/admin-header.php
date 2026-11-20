@@ -29,21 +29,21 @@ Admin Panel - <?= APP_NAME ?>
 
 <link
 rel="stylesheet"
-href="/jan-poultry/public/assets/css/admin.css">
+href="/assets/css/admin.css">
 
 <link
 rel="stylesheet"
-href="/jan-poultry/public/assets/css/products.css">
+href="/assets/css/products.css">
 
 <link
 rel="stylesheet"
-href="/jan-poultry/public/assets/css/app-response-modal.css">
+href="/assets/css/app-response-modal.css">
 
 <?php if (isset($pageCss)): ?>
 
 <link
 rel="stylesheet"
-href="/jan-poultry/public/assets/css/<?= htmlspecialchars($pageCss) ?>">
+href="/assets/css/<?= htmlspecialchars($pageCss) ?>">
 
 <?php endif; ?>
 

@@ -144,7 +144,7 @@ foreach (
 
         <div class="footer-actions">
 
-            <a href="/jan-poultry/">
+            <a href="/">
 
                 <i class="fa-solid fa-house"></i>
 
@@ -156,7 +156,7 @@ foreach (
 
             </a>
 
-            <a href="/jan-poultry/auth/guest-login.php">
+            <a href="/guest-login">
 
                 <i class="fa-solid fa-user-secret"></i>
 
@@ -168,7 +168,7 @@ foreach (
 
             </a>
 
-            <a href="/jan-poultry/auth/login.php">
+            <a href="/login">
 
                 <i class="fa-solid fa-right-to-bracket"></i>
 
@@ -303,17 +303,17 @@ foreach (
 
 </footer>
 
-<script src="/jan-poultry/public/assets/js/home.js"></script>
+<script src="/assets/js/home.js"></script>
 
-<script src="/jan-poultry/public/assets/js/footer.js"></script>
+<script src="/assets/js/footer.js"></script>
 
 <script
-src="/jan-poultry/public/assets/js/navbar.js">
+src="/assets/js/navbar.js">
 </script>
 
-<script src="/jan-poultry/public/assets/js/auth-response-modal.js"></script>
+<script src="/assets/js/auth-response-modal.js"></script>
 
-<script src="/jan-poultry/public/assets/js/admin-forgot-password.js"></script>
+<script src="/assets/js/admin-forgot-password.js"></script>
 
 
 </body>

@@ -333,7 +333,7 @@ document.addEventListener(
         ){
 
             fetch(
-                "profile-update.php",
+                "profile-update",
                 {
                     method:"POST",
                     body:formData
@@ -520,7 +520,7 @@ document.addEventListener(
 
 
                 fetch(
-                    "profile-password.php",
+                    "profile-password",
                     {
                         method:"POST",
                         body:formData

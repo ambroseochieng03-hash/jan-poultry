@@ -257,7 +257,7 @@ $order['created_at']
 
 
 <a
-href="order-view.php?id=<?= (int)$order['id'] ?>"
+href="order-view?id=<?= (int)$order['id'] ?>"
 class="jp-admin-view-btn">
 
 View Order
@@ -269,7 +269,7 @@ View Order
 <?php if($order['status']==='pending'): ?>
 
 
-<form method="POST" action="order-status.php">
+<form method="POST" action="order-status">
 
 <input
 type="hidden"
@@ -294,7 +294,7 @@ Reject
 
 
 
-<form method="POST" action="order-status.php">
+<form method="POST" action="order-status">
 
 <input
 type="hidden"
@@ -321,7 +321,7 @@ Accept Order
 <?php elseif($order['status']==='accepted'): ?>
 
 
-<form method="POST" action="order-status.php">
+<form method="POST" action="order-status">
 
 
 <input
@@ -351,7 +351,7 @@ Begin Delivery
 <?php elseif($order['status']==='in_transit'): ?>
 
 
-<form method="POST" action="order-status.php">
+<form method="POST" action="order-status">
 
 
 <input

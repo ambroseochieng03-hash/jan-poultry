@@ -81,11 +81,11 @@ if (
 ) {
 
     if (Auth::isAdmin()) {
-        header('Location: /jan-poultry/admin/dashboard.php');
+        header('Location: /admin/dashboard');
         exit;
     }
 
-    header('Location: /jan-poultry/');
+    header('Location: /');
     exit;
 }
 
@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($role === 'admin' || $role === 'super_admin') {
 
-                header('Location: /jan-poultry/admin/dashboard.php');
+                header('Location: /admin/dashboard');
                 exit;
             }
 
@@ -161,16 +161,16 @@ $csrfToken = Security::generateCsrfToken();
     <title>Admin Login - JAN POULTRY</title>
 
     
-    <link rel="stylesheet" href="/jan-poultry/public/assets/css/admin-login.css">
+    <link rel="stylesheet" href="/assets/css/admin-login.css">
 
-    <link rel="stylesheet" href="/jan-poultry/public/assets/css/admin-forgot-password.css">
+    <link rel="stylesheet" href="/assets/css/admin-forgot-password.css">
 
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <link rel="stylesheet"
-    href="/jan-poultry/public/assets/css/auth-response-modal.css">
+    href="/assets/css/auth-response-modal.css">
 
 </head>
 
@@ -381,7 +381,7 @@ window.addEventListener(
 
 <?php endif; ?>
 
-<script src="/jan-poultry/public/assets/js/admin-forgot-password.js"></script>
+<script src="/assets/js/admin-forgot-password.js"></script>
 
 <script>
 
@@ -399,7 +399,7 @@ function togglePassword() {
 
 </script>
 
-<script src="/jan-poultry/public/assets/js/auth-response-modal.js"></script>
+<script src="/assets/js/auth-response-modal.js"></script>
 
 </body>
 </html>

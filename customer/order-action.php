@@ -24,7 +24,7 @@ if (
 ) {
 
     header(
-        'Location: orders.php'
+        'Location: orders'
     );
 
     exit;
@@ -43,7 +43,7 @@ if (
     );
 
     header(
-        'Location: orders.php'
+        'Location: orders'
     );
 
     exit;
@@ -157,7 +157,7 @@ switch ($action) {
 }
 
 header(
-    'Location: orders.php'
+    'Location: orders'
 );
 
 exit;

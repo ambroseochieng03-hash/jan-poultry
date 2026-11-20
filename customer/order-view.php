@@ -242,7 +242,7 @@ controls
 preload="metadata">
 
     <source
-    src="/jan-poultry/public/uploads/products/<?= htmlspecialchars(
+    src="/uploads/products/<?= htmlspecialchars(
         $item['image']
     ) ?>"
     type="video/mp4">
@@ -254,7 +254,7 @@ preload="metadata">
 
 
 <img
-src="/jan-poultry/public/uploads/products/<?= htmlspecialchars(
+src="/uploads/products/<?= htmlspecialchars(
     $item['image']
 ) ?>"
 alt="<?= htmlspecialchars(
@@ -326,7 +326,7 @@ KSh
 
 
 <a
-href="orders.php"
+href="orders"
 class="jp-order-view-back-btn">
 
 ← Back To Orders

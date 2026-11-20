@@ -24,7 +24,7 @@ if (
 ) {
 
     header(
-        'Location: products.php'
+        'Location: products'
     );
 
     exit;
@@ -55,7 +55,7 @@ if (
     'Invalid request token.';
 
     header(
-        'Location: products.php'
+        'Location: products'
     );
 
     exit;
@@ -79,7 +79,7 @@ if ($id <= 0) {
     'Invalid product ID.';
 
     header(
-        'Location: products.php'
+        'Location: products'
     );
 
     exit;
@@ -97,7 +97,7 @@ if (!$product) {
     'Product not found.';
 
     header(
-        'Location: products.php'
+        'Location: products'
     );
 
     exit;
@@ -168,7 +168,7 @@ try {
 }
 
 header(
-    'Location: products.php'
+    'Location: products'
 );
 
 exit;

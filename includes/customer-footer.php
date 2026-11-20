@@ -3,7 +3,7 @@
 </div>
 
 <script
-src="/jan-poultry/public/assets/js/customer.js">
+src="/assets/js/customer.js">
 </script>
 
 <?php
@@ -15,13 +15,13 @@ __DIR__ .
 ?>
 
 <script
-src="/jan-poultry/public/assets/js/app-response-modal.js">
+src="/assets/js/app-response-modal.js">
 </script>
 
 <?php if (isset($pageJs)): ?>
 
 <script
-src="/jan-poultry/public/assets/js/<?= htmlspecialchars($pageJs) ?>">
+src="/assets/js/<?= htmlspecialchars($pageJs) ?>">
 </script>
 
 <?php endif; ?>

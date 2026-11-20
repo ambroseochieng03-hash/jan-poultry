@@ -15,7 +15,7 @@ Auth::requireLogin();
 if(Auth::isGuest()){
 
     header(
-        "Location: /jan-poultry/customer/profile.php"
+        "Location: /profile"
     );
 
     exit;
@@ -50,7 +50,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 
         header(
 
-            "Location: /jan-poultry/customer/profile.php"
+            "Location: /profile"
 
         );
 
@@ -108,7 +108,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 
         header(
 
-            "Location: /jan-poultry/customer/profile.php"
+            "Location: /profile"
 
         );
 
@@ -179,7 +179,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 
     header(
 
-        "Location: /jan-poultry/customer/profile.php"
+        "Location: /profile"
 
     );
 

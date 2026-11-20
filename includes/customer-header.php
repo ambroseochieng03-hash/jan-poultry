@@ -30,29 +30,29 @@ Customer Portal - <?= APP_NAME ?>
 
 <link
 rel="stylesheet"
-href="/jan-poultry/public/assets/css/global.css">
+href="/assets/css/global.css">
 
 <link
 rel="stylesheet"
-href="/jan-poultry/public/assets/css/customer.css">
+href="/assets/css/customer.css">
 
 <link
 rel="stylesheet"
-href="/jan-poultry/public/assets/css/style.css">
+href="/assets/css/style.css">
 
 <link
 rel="stylesheet"
-href="/jan-poultry/public/assets/css/components.css">
+href="/assets/css/components.css">
 
 <link
 rel = "stylesheet"
-href = "/jan-poultry/public/assets/css/app-response-modal.css">
+href = "/assets/css/app-response-modal.css">
 
 <?php if (isset($pageCss)): ?>
 
 <link
 rel="stylesheet"
-href="/jan-poultry/public/assets/css/<?= htmlspecialchars($pageCss) ?>">
+href="/assets/css/<?= htmlspecialchars($pageCss) ?>">
 
 <?php endif; ?>
 

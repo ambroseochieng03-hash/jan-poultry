@@ -56,7 +56,7 @@ __DIR__ .
 <div class="dashboard-grid">
 
     <a
-    href="orders.php"
+    href="orders"
     class="dashboard-card">
 
         <h3>
@@ -72,7 +72,7 @@ __DIR__ .
     </a>
 
     <a
-    href="cart.php"
+    href="cart"
     class="dashboard-card">
 
         <h3>
@@ -88,7 +88,7 @@ __DIR__ .
     </a>
 
     <a
-    href="notifications.php"
+    href="notifications"
     class="dashboard-card">
 
         <h3>
@@ -104,7 +104,7 @@ __DIR__ .
     </a>
 
     <a
-    href="profile.php"
+    href="profile"
     class="dashboard-card">
 
         <h3>

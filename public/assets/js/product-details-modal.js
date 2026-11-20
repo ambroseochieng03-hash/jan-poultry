@@ -137,7 +137,7 @@ preload="metadata"
 style="width:100%;height:auto;border-radius:12px;">
 
 <source
-src="/jan-poultry/public/uploads/products/${image}"
+src="/uploads/products/${image}"
 type="video/mp4">
 
 </video>
@@ -148,7 +148,7 @@ type="video/mp4">
                         media.innerHTML =
 `
 <img
-src="/jan-poultry/public/uploads/products/${image}"
+src="/uploads/products/${image}"
 alt=""
 style="width:100%;height:auto;border-radius:12px;">
 `;

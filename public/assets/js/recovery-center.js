@@ -172,7 +172,7 @@ document
 
         const response =
         await fetch(
-            'recovery-recover.php',
+            'recovery-recover',
             {
                 method: 'POST',
                 body: new FormData(this)
@@ -212,7 +212,7 @@ document
 
         const response =
         await fetch(
-            'recovery-delete.php',
+            'recovery-delete',
             {
                 method:'POST',
                 body:new FormData(

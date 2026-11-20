@@ -25,7 +25,7 @@ if (
 ) {
 
     header(
-        'Location: products.php'
+        'Location: products'
     );
 
     exit;
@@ -45,7 +45,7 @@ if (
     );
 
     header(
-        'Location: products.php'
+        'Location: products'
     );
 
     exit;
@@ -61,7 +61,7 @@ $productId =
 if ($productId <= 0) {
 
     header(
-        'Location: products.php'
+        'Location: products'
     );
 
     exit;
@@ -93,7 +93,7 @@ Flash::set(
 
 
 header(
-    'Location: products.php'
+    'Location: products'
 );
 
 exit;

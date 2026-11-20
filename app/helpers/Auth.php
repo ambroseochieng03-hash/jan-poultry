@@ -142,7 +142,7 @@ class Auth
         if (!self::check()) {
 
             header(
-                'Location: /jan-poultry/auth/login.php'
+                'Location: /login'
             );
 
             exit;
@@ -154,7 +154,7 @@ class Auth
         if (!self::isAdmin()) {
 
             header(
-                'Location: /jan-poultry/'
+                'Location: /'
             );
 
             exit;
@@ -166,7 +166,7 @@ class Auth
         if (!self::isSuperAdmin()) {
 
             header(
-                'Location: /jan-poultry/admin/'
+                'Location: /admin/'
             );
 
             exit;

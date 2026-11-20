@@ -21,7 +21,7 @@ if (
 ) {
 
     header(
-        'Location: users.php'
+        'Location: users'
     );
 
     exit;
@@ -40,7 +40,7 @@ if (
 ) {
 
     header(
-        'Location: users.php'
+        'Location: users'
     );
 
     exit;
@@ -60,7 +60,7 @@ trim(
 
 if ($id <= 0) {
 
-    header("Location: users.php");
+    header("Location: users");
     exit;
 }
 
@@ -77,19 +77,19 @@ $stmt->execute([$id]);
 $user = $stmt->fetch();
 
 if (!$user) {
-    header("Location: users.php");
+    header("Location: users");
     exit;
 }
 
 /* prevent self-action */
 if ($id == Auth::userId()) {
-    header("Location: users.php");
+    header("Location: users");
     exit;
 }
 
 /* block admin modification */
 if (in_array($user['role'], ['admin', 'super_admin'])) {
-    header("Location: users.php");
+    header("Location: users");
     exit;
 }
 
@@ -104,7 +104,7 @@ if ($action === 'activate') {
 }
 
 if (!$newStatus) {
-    header("Location: users.php");
+    header("Location: users");
     exit;
 }
 

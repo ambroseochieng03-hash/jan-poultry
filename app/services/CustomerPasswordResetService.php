@@ -223,7 +223,7 @@ class CustomerPasswordResetService
 
             .
 
-            '/auth/reset-password.php?token='
+            '/reset-password?token='
 
             .
 

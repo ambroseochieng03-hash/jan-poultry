@@ -30,7 +30,7 @@ __DIR__ .
 if (!Auth::check()) {
 
     header(
-        'Location: login.php'
+        'Location: /admin/login'
     );
 
     exit;
@@ -39,7 +39,7 @@ if (!Auth::check()) {
 if (Auth::isAdmin()) {
 
     header(
-        'Location: dashboard.php'
+        'Location: /admin/dashboard'
     );
 
     exit;
@@ -52,7 +52,7 @@ if (Auth::isAdmin()) {
 */
 
 header(
-    'Location: /jan-poultry/'
+    'Location: /'
 );
 
 exit;

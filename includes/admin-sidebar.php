@@ -8,51 +8,51 @@
 
     <nav class="admin-menu">
 
-        <a href="/jan-poultry/admin/index.php">
+        <a href="/admin">
             Dashboard
         </a>
 
-        <a href="/jan-poultry/admin/products.php">
+        <a href="/admin/products">
             Products
         </a>
 
-        <a href="/jan-poultry/admin/orders.php">
+        <a href="/admin/orders">
             Orders
         </a>
 
-        <a href="/jan-poultry/admin/users.php">
+        <a href="/admin/users">
             Customers
         </a>
 
-        <a href="/jan-poultry/admin/admins.php">
+        <a href="/admin/admins">
             Admins
         </a>
 
         <?php if (Auth::isSuperAdmin()): ?>
 
-        <a href="/jan-poultry/admin/staff.php">
+        <a href="/admin/staff">
             Recovery Center
         </a>
 
         <?php endif; ?>
 
-        <a href="/jan-poultry/admin/deliveries.php">
+        <a href="/admin/deliveries">
             Deliveries
         </a>
 
-        <a href="/jan-poultry/admin/logs.php">
+        <a href="/admin/logs">
             Logs
         </a>
 
-        <a href="/jan-poultry/admin/settings.php">
+        <a href="/admin/settings">
             Settings
         </a>
 
-        <a href="/jan-poultry/admin/profile.php">
+        <a href="/admin/profile">
             Profile
         </a>
 
-        <a href="/jan-poultry/admin/logout.php">
+        <a href="/admin/logout">
             Logout
         </a>
 

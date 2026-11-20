@@ -14,7 +14,7 @@ if (
 ) {
 
     header(
-        'Location: products.php'
+        'Location: products'
     );
 
     exit;
@@ -32,7 +32,7 @@ if (
     'Invalid request token.';
 
     header(
-        'Location: products.php'
+        'Location: products'
     );
 
     exit;
@@ -61,7 +61,7 @@ if (!$product) {
     'Product not found.';
 
     header(
-        'Location: products.php'
+        'Location: products'
     );
 
     exit;
@@ -98,7 +98,7 @@ if (
     'Product name is too short.';
 
     header(
-        'Location: products.php'
+        'Location: products'
     );
 
     exit;
@@ -113,7 +113,7 @@ if (
     'Product description is too short.';
 
     header(
-        'Location: products.php'
+        'Location: products'
     );
 
     exit;
@@ -157,7 +157,7 @@ if (
         'Price cannot be negative.';
 
         header(
-            'Location: products.php'
+            'Location: products'
         );
 
         exit;
@@ -189,7 +189,7 @@ if (
         'Invalid product type.';
 
         header(
-            'Location: products.php'
+            'Location: products'
         );
 
         exit;
@@ -206,7 +206,7 @@ if (
         'Stock quantity cannot be negative.';
 
         header(
-            'Location: products.php'
+            'Location: products'
         );
 
         exit;
@@ -225,7 +225,7 @@ if (
         'Invalid age value.';
 
         header(
-            'Location: products.php'
+            'Location: products'
         );
 
         exit;
@@ -244,7 +244,7 @@ if (
         'Invalid weight value.';
 
         header(
-            'Location: products.php'
+            'Location: products'
         );
 
         exit;
@@ -306,7 +306,7 @@ if (
         $e->getMessage();
 
         header(
-            'Location: products.php'
+            'Location: products'
         );
 
         exit;
@@ -372,7 +372,7 @@ if (
         'Product update failed.';
 
         header(
-            'Location: products.php'
+            'Location: products'
         );
 
         exit;
@@ -400,7 +400,7 @@ if (
         */
 
         header(
-            'Location: products.php'
+            'Location: products'
         );
 
         exit;

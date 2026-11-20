@@ -261,7 +261,7 @@ if (
         <?php else: ?>
 
             <a
-            href="/jan-poultry/auth/register.php"
+            href="/register"
             class="profile-btn primary-btn">
 
                 Create Account
@@ -282,7 +282,7 @@ if (
 
         <h2>Edit Profile</h2>
 
-        <form method="POST" action="edit-profile.php">
+        <form method="POST" action="edit-profile">
 
             <input
             type="hidden"
@@ -334,7 +334,7 @@ if (
         <h2>Change Password</h2>
 
 
-        <form method="POST" action="change-password.php">
+        <form method="POST" action="change-password">
 
             <input
             type="hidden"

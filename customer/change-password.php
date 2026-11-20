@@ -15,7 +15,7 @@ Auth::requireLogin();
 if(Auth::isGuest()){
 
 header(
-"Location: /jan-poultry/customer/profile.php"
+"Location: /profile"
 );
 
 exit;
@@ -70,7 +70,7 @@ if (
         "Your session has expired. Please refresh the page and try again.";
 
     header(
-        "Location: /jan-poultry/customer/profile.php"
+        "Location: /profile"
     );
 
     exit;
@@ -91,7 +91,7 @@ if ($current === $new) {
     "Your new password must be different from your current password.";
 
     header(
-        "Location: /jan-poultry/customer/profile.php"
+        "Location: /profile"
     );
 
     exit;
@@ -151,7 +151,7 @@ try {
 }
 
     header(
-        "Location: /jan-poultry/customer/profile.php"
+        "Location: /profile"
     );
 
     exit;
@@ -164,7 +164,7 @@ $_SESSION['profile_error'] =
 "Current password is incorrect.";
 
 header(
-    "Location: /jan-poultry/customer/profile.php"
+    "Location: /profile"
 );
 
 exit;

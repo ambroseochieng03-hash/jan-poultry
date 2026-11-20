@@ -83,7 +83,7 @@ if (
     ) {
 
         header(
-            'Location: /jan-poultry/customer/dashboard.php'
+            'Location: /dashboard'
         );
 
         exit;
@@ -144,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ) {
 
                 header(
-                    'Location: /jan-poultry/customer/dashboard.php'
+                    'Location: /dashboard'
                 );
 
                 exit;
@@ -238,11 +238,11 @@ __DIR__ .
 
     <br><br>
 
-    <a href="register.php">
+    <a href="register">
         Create Account
     </a><br><br>
     
-    <a href="guest-login.php">
+    <a href="guest-login">
         Continue As Guest
     </a>
 
@@ -338,7 +338,7 @@ window.addEventListener(
 
             form.action =
 
-                '/jan-poultry/auth/forgot-password-ajax.php';
+                '/forgot-password-ajax';
 
         }
 
@@ -348,9 +348,9 @@ window.addEventListener(
 
 </script>
 
-<script src="/jan-poultry/public/assets/js/auth-response-modal.js"></script>
+<script src="/assets/js/auth-response-modal.js"></script>
 
-<script src="/jan-poultry/public/assets/js/admin-forgot-password.js"></script>
+<script src="/assets/js/admin-forgot-password.js"></script>
 
 <?php
 include '../includes/auth-footer.php';

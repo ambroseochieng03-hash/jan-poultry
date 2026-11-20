@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 define('APP_NAME', 'JAN Poultry');
 
-define('APP_URL', 'https://petallike-edith-undatable.ngrok-free.dev/jan-poultry');
+require_once __DIR__ . '/env.php';
+
+define('APP_URL', rtrim((string) Env::get('APP_URL', 'http://localhost:8080'), '/'));
 
 define(
     'SUPER_ADMIN_EMAIL',
-    'ambroseochieng03@gmail.com'
+    (string) Env::get('SUPER_ADMIN_EMAIL', '')
 );
 
 define(
@@ -73,7 +75,6 @@ define(
     300
 );
 
-define('APP_ENV', 'development'); 
-
+define('APP_ENV', Env::get('APP_ENV', 'production') === 'development' ? 'development' : 'production');
 date_default_timezone_set('Africa/Nairobi');
 

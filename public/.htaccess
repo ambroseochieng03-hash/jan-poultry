@@ -1,0 +1,24 @@
+# Apache (development on Arch). Production uses nginx - see deploy/nginx.
+Options -Indexes -MultiViews
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # The front controller itself: let it run (it rejects direct /index.php requests).
+    RewriteRule ^index\.php$ - [L]
+
+    # Any other .php/.phtml/.phar URL is never executed directly and never reveals
+    # that PHP is used: it goes to the front controller, which answers a normal 404.
+    RewriteRule \.(php[0-9]?|phtml|phar)$ /index.php [L]
+
+    # Dotfiles and sensitive file types get the same normal 404 (.well-known allowed).
+    RewriteRule (^|/)\.(?!well-known) /index.php [L]
+    RewriteRule \.(sql|log|env|md|lock|json|bak|old)$ /index.php [L]
+
+    # Real files (css, js, images, uploads) are served directly.
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+
+    # Everything else goes to the front controller.
+    RewriteRule ^ /index.php [L,QSA]
+</IfModule>

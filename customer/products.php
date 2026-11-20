@@ -90,7 +90,7 @@ id="flashModal">
             ): ?>
 
             <a
-            href="cart.php"
+            href="cart"
             class="btn btn-primary">
 
                 View Cart
@@ -148,14 +148,14 @@ id="flashModal">
             controls
             preload="metadata">
                 <source
-                src="/jan-poultry/public/uploads/products/<?= htmlspecialchars($product['image']) ?>"
+                src="/uploads/products/<?= htmlspecialchars($product['image']) ?>"
                 type="video/mp4">
             </video>
 
             <?php else: ?>
 
             <img
-            src="/jan-poultry/public/uploads/products/<?= htmlspecialchars($product['image']) ?>"
+            src="/uploads/products/<?= htmlspecialchars($product['image']) ?>"
             alt="<?= htmlspecialchars($product['name']) ?>">
 
             <?php endif; ?>
@@ -288,7 +288,7 @@ id="flashModal">
 
                 <form
                 method="POST"
-                action="add-to-cart.php">
+                action="add-to-cart">
 
                     <input
                     type="hidden"

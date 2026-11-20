@@ -30,7 +30,7 @@ if (
 
     }
 
-    header("Location: " . $_SERVER['PHP_SELF']);
+    header('Location: /admin/logs');
     exit;
 }
 

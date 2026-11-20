@@ -15,7 +15,7 @@ $auth = new AuthService();
 $auth->logout();
 
 header(
-    'Location: /jan-poultry/auth/login.php'
+    'Location: /login'
 );
 
 exit;

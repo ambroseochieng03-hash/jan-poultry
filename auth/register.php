@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         );
 
         header(
-            'Location: register.php'
+            'Location: register'
         );
 
         exit;
@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         );
 
         header(
-            'Location: register.php'
+            'Location: register'
         );
 
         exit;
@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         );
 
         header(
-            'Location: register.php'
+            'Location: register'
         );
 
         exit;
@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     );
 
     header(
-        'Location: ../customer/dashboard.php'
+        'Location: /dashboard'
     );
 
     exit;
@@ -189,13 +189,13 @@ include '../includes/auth-header.php';
 
 <div class="auth-links">
 
-    <a href="login.php">
+    <a href="login">
 
         Already have an account?
 
     </a><br><br>
 
-    <a href="guest-login.php">
+    <a href="guest-login">
         Continue As Guest
     </a>
 
@@ -241,7 +241,7 @@ window.addEventListener(
 
 <?php endif; ?>
 
-<script src="/jan-poultry/public/assets/js/auth-response-modal.js"></script>
+<script src="/assets/js/auth-response-modal.js"></script>
 
 <?php
 include '../includes/auth-footer.php';

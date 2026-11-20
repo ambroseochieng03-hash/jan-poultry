@@ -14,7 +14,7 @@ new AuthService();
 $auth->logout();
 
 header(
-    'Location: login.php'
+    'Location: login'
 );
 
 exit;

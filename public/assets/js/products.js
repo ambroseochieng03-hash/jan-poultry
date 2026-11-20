@@ -295,7 +295,7 @@ if(
                 const response =
                 await fetch(
 
-                    "product-create-ajax.php",
+                    "product-create-ajax",
 
                     {
 

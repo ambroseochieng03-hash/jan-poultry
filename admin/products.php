@@ -123,7 +123,7 @@ unset(
                 playsinline>
 
                     <source
-                    src="/jan-poultry/public/uploads/products/<?= htmlspecialchars($product['image']) ?>"
+                    src="/uploads/products/<?= htmlspecialchars($product['image']) ?>"
                     type="video/mp4">
 
                 </video>
@@ -131,7 +131,7 @@ unset(
             <?php else: ?>
 
                 <img
-                src="/jan-poultry/public/uploads/products/<?= htmlspecialchars($product['image']) ?>"
+                src="/uploads/products/<?= htmlspecialchars($product['image']) ?>"
                 alt="<?= htmlspecialchars($product['name']) ?>">
 
             <?php endif; ?>
@@ -334,7 +334,7 @@ class="products-edit-modal">
         id="productsEditForm"
         method="POST"
         enctype="multipart/form-data"
-        action="product-edit.php">
+        action="product-edit">
 
             <input
             type="hidden"
@@ -508,7 +508,7 @@ class="products-edit-modal">
 
         <form
         method="POST"
-        action="product-delete.php">
+        action="product-delete">
 
             <input
             type="hidden"
@@ -595,7 +595,7 @@ class="products-edit-modal">
 
         <form
         method="POST"
-        action="product-toggle.php">
+        action="product-toggle">
 
             <input
             type="hidden"

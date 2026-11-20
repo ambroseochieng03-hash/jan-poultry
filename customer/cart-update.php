@@ -29,7 +29,7 @@ if (
 ) {
 
     header(
-        'Location: cart.php'
+        'Location: cart'
     );
 
     exit;
@@ -49,7 +49,7 @@ if (
     );
 
     header(
-        'Location: cart.php'
+        'Location: cart'
     );
 
     exit;
@@ -77,7 +77,7 @@ if (
     );
 
     header(
-        'Location: cart.php'
+        'Location: cart'
     );
 
     exit;
@@ -190,7 +190,7 @@ switch ($action) {
 }
 
 header(
-    'Location: cart.php'
+    'Location: cart'
 );
 
 exit;

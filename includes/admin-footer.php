@@ -3,17 +3,17 @@
 </div>
 
 <script
-src="/jan-poultry/public/assets/js/admin.js">
+src="/assets/js/admin.js">
 </script>
 
-<script src="/jan-poultry/public/assets/js/site.js"></script>
+<script src="/assets/js/site.js"></script>
 
-<script src="/jan-poultry/public/assets/js/app-response-modal.js"></script>
+<script src="/assets/js/app-response-modal.js"></script>
 
 <?php if (isset($pageJs)): ?>
 
 <script
-src="/jan-poultry/public/assets/js/<?= htmlspecialchars($pageJs) ?>">
+src="/assets/js/<?= htmlspecialchars($pageJs) ?>">
 </script>
 
 <?php endif; ?>

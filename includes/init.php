@@ -2,11 +2,11 @@
 
 require_once
 __DIR__ .
-'/../app/config/app.php';
+'/../app/config/env.php';
 
 require_once
 __DIR__ .
-'/../app/config/env.php';
+'/../app/config/app.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -64,7 +64,7 @@ ini_set('error_log', __DIR__ . '/../storage/logs/php-error.log');
 define('APP_LOG_PATH', __DIR__ . '/../storage/logs');
 
 if (!file_exists(APP_LOG_PATH)) {
-    mkdir(APP_LOG_PATH, 0777, true);
+    mkdir(APP_LOG_PATH, 0750, true);
 }
 
 /*
@@ -137,7 +137,7 @@ set_exception_handler(function ($exception) {
 
     } else {
 
-        include __DIR__ . '/../public/errors/500.php';
+        readfile(__DIR__ . '/../public/errors/500.html');
     }
 
     exit;
@@ -167,7 +167,7 @@ register_shutdown_function(function () {
 
     } else {
 
-        include __DIR__ . '/../public/errors/500.php';
+        readfile(__DIR__ . '/../public/errors/500.html');
     }
 });
 
@@ -199,16 +199,16 @@ if (isset($_SESSION['session_expired'])) {
     $currentPath =
         $_SERVER['REQUEST_URI'] ?? '';
 
-    if (str_contains($currentPath, '/admin/')) {
+    if (preg_match('#^/admin(?:/|$|\?)#', $currentPath) === 1) {
 
         header(
-            'Location: /jan-poultry/admin/login.php'
+            'Location: /admin/login'
         );
 
     } else {
 
         header(
-            'Location: /jan-poultry/auth/login.php'
+            'Location: /login'
         );
 
     }
@@ -262,7 +262,7 @@ if (
             'Login failed. Please try again later.';
 
         header(
-            'Location: /jan-poultry/admin/login.php'
+            'Location: /admin/login'
         );
 
         exit;

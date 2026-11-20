@@ -164,7 +164,7 @@ class PasswordResetService
 
         $resetLink =
             APP_URL .
-            '/admin/reset-password.php?token=' .
+            '/admin/reset-password?token=' .
             urlencode($rawToken);
 
         $mail = new MailService();

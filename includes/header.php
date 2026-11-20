@@ -23,23 +23,23 @@ content="width=device-width, initial-scale=1.0">
 
 <link
 rel="stylesheet"
-href="/jan-poultry/public/assets/css/global.css">
+href="/assets/css/global.css">
 
 <link
 rel="stylesheet"
-href="/jan-poultry/public/assets/css/navbar.css">
+href="/assets/css/navbar.css">
 
 <link
 rel="stylesheet"
-href="/jan-poultry/public/assets/css/footer.css">
+href="/assets/css/footer.css">
 
 <link
 rel="stylesheet"
-href="/jan-poultry/public/assets/css/style.css">
+href="/assets/css/style.css">
 
 <link
 rel="stylesheet"
-href="/jan-poultry/public/assets/css/home.css">
+href="/assets/css/home.css">
 
 <link
 rel="stylesheet"

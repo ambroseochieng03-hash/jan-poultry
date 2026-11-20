@@ -47,7 +47,7 @@ if (
 ) {
 
     header(
-        'Location: orders.php'
+        'Location: orders'
     );
 
     exit;
@@ -71,7 +71,7 @@ $controller->getAdminOrder(
 if (!$order) {
 
     header(
-        'Location: orders.php'
+        'Location: orders'
     );
 
     exit;
@@ -126,7 +126,7 @@ if (
 
 
     header(
-        'Location: order-view.php?id=' .
+        'Location: order-view?id=' .
         $orderId
     );
 
@@ -479,7 +479,7 @@ if ($updated) {
 
 
 header(
-    'Location: orders.php'
+    'Location: orders'
 );
 
 exit;

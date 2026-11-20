@@ -8,35 +8,35 @@
 
     <nav class="sidebar-menu">
 
-        <a href="/jan-poultry/customer/dashboard.php">
+        <a href="/dashboard">
             Dashboard
         </a>
 
-        <a href="/jan-poultry/customer/products.php">
+        <a href="/products">
             Products
         </a>
 
-        <a href="/jan-poultry/customer/cart.php">
+        <a href="/cart">
             Cart
         </a>
 
-        <a href="/jan-poultry/customer/orders.php">
+        <a href="/orders">
             Orders
         </a>
 
-        <a href="/jan-poultry/customer/notifications.php">
+        <a href="/notifications">
             Notifications
         </a>
 
-        <a href="/jan-poultry/customer/profile.php">
+        <a href="/profile">
             Profile
         </a>
 
-        <a href="/jan-poultry/customer/addresses.php">
+        <a href="/addresses">
             Addresses
         </a>
 
-        <a href="/jan-poultry/auth/logout.php">
+        <a href="/logout">
             Logout
         </a>
 

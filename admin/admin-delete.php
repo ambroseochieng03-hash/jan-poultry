@@ -21,7 +21,7 @@ if (
 ) {
 
     header(
-        'Location: admins.php'
+        'Location: admins'
     );
 
     exit;
@@ -40,7 +40,7 @@ if (
 ) {
 
     header(
-        'Location: admins.php'
+        'Location: admins'
     );
 
     exit;
@@ -94,7 +94,7 @@ $stmt->fetch();
 if (!$admin) {
 
     header(
-        'Location: admins.php'
+        'Location: admins'
     );
 
     exit;
@@ -121,7 +121,7 @@ if (
 ) {
 
     header(
-        'Location: admins.php'
+        'Location: admins'
     );
 
     exit;
@@ -134,7 +134,7 @@ if (
 ) {
 
     header(
-        'Location: admins.php'
+        'Location: admins'
     );
 
     exit;

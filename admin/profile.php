@@ -278,7 +278,7 @@ class="profile-modal">
         <form
         id="editProfileForm"
         method="POST"
-        action="profile-update.php">
+        action="profile-update">
 
             <input
             type="hidden"
@@ -434,7 +434,7 @@ class="profile-modal">
 
         <form
         method="POST"
-        action="profile-password.php"
+        action="profile-password"
         id="changePasswordForm">
 
             <input
