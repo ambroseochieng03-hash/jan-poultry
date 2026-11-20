@@ -65,4 +65,8 @@ $_SERVER['SCRIPT_NAME'] = $jpPath;
 $jpFile = APP_ROOT . '/' . $jpTarget;
 unset($jpMethod, $jpPath, $jpQuery, $jpRoutes, $jpTarget);
 
+/* The pages were written to run from their own folder (include '../includes/...').
+   Keep that behaviour so relative paths keep working behind the front controller. */
+chdir(dirname($jpFile));
+
 require $jpFile;
