@@ -15,8 +15,6 @@ class Session
 
         self::configureCookies();
 
-        //session_name(SESSION_NAME);
-
         session_start();
 
         self::initialize();
@@ -39,6 +37,10 @@ class Session
             (
                 ($_SERVER['SERVER_PORT'] ?? null) == 443
             );
+
+        // __Host- prefix: the browser only accepts the cookie over HTTPS, for this
+        // exact host, with Path=/ and no Domain (cannot be set by a sibling site).
+        session_name(($isHttps ? '__Host-' : '') . SESSION_NAME);
 
         session_set_cookie_params([
             'lifetime' => SESSION_LIFETIME,

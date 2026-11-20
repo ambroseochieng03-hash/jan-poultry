@@ -22,7 +22,16 @@ new ProductController();
 $message = '';
 $uploadFailed = false;
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+$postRejected = $_SERVER['REQUEST_METHOD'] === 'POST' && !Security::checkPostRequest();
+
+if ($postRejected) {
+
+    $message = 'Security check failed. Please reload the page and try again.';
+    $uploadFailed = true;
+
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$postRejected) {
 
     $imageName = '';
 
@@ -123,6 +132,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 method="POST"
 enctype="multipart/form-data"
 class="product-form">
+
+    <input type="hidden" name="csrf_token" value="<?= Security::generateCsrfToken() ?>">
 
     <input
     type="text"

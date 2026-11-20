@@ -10,6 +10,8 @@ if (
     && isset($_POST['delete_log_id'])
 ) {
 
+    Security::requirePostWithCsrf('/admin/logs');
+
     try {
 
         $logId = (int) $_POST['delete_log_id'];
@@ -79,7 +81,7 @@ include __DIR__ . '/../includes/admin-header.php';
             <?php foreach ($logs as $log): ?>
 
                 <?php
-                    $level = strtolower($log['action'] ?? 'info');
+                    $level = preg_replace('/[^a-z0-9_-]/', '', strtolower((string) ($log['action'] ?? 'info'))) ?: 'info';
                 ?>
 
                 <div class="jan-log-card jan-log-card--<?= $level ?>">
@@ -98,7 +100,9 @@ include __DIR__ . '/../includes/admin-header.php';
 
                             <form method="POST" class="jan-log-delete-form">
 
-                                <input type="hidden" name="delete_log_id" value="<?= $log['id'] ?>">
+                                <input type="hidden" name="csrf_token" value="<?= Security::generateCsrfToken() ?>">
+
+                                <input type="hidden" name="delete_log_id" value="<?= (int) $log['id'] ?>">
 
                                 <button
                                     type="submit"
@@ -124,7 +128,7 @@ include __DIR__ . '/../includes/admin-header.php';
                         </span>
 
                         <span>
-                            ID: #<?= $log['id'] ?>
+                            ID: #<?= (int) $log['id'] ?>
                         </span>
 
                     </div>

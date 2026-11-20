@@ -26,6 +26,8 @@ __DIR__ .
 
 Auth::requireAdmin();
 
+Security::requirePostWithCsrf('orders');
+
 
 
 $orderId =

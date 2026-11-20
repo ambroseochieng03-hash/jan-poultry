@@ -161,7 +161,26 @@ class Auth
         }
     }
 
-    public static function requireSuperAdmin(): void
+/** Same as requireAdmin() but answers AJAX callers with JSON instead of a redirect. */
+public static function requireAdminJson(): void
+{
+    if (self::isAdmin()) {
+        return;
+    }
+
+    http_response_code(self::check() ? 403 : 401);
+
+    header('Content-Type: application/json');
+
+    echo json_encode([
+        'success' => false,
+        'message' => 'You are not authorised to do this.',
+    ]);
+
+    exit;
+}
+
+public static function requireSuperAdmin(): void
     {
         if (!self::isSuperAdmin()) {
 

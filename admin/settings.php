@@ -41,6 +41,8 @@ foreach ($rows as $row) {
 /* update */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+    Security::requirePostWithCsrf('settings');
+
         /*
     |--------------------------------------------------------------------------
     | Resolve Google Maps Location
@@ -90,22 +92,87 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     } */
 
-    foreach ($_POST as $key => $value) {
+/*
+|--------------------------------------------------------------------------
+| Only these settings can be changed, each with its own validation.
+| (Before, every posted field name was written straight into the table.)
+|--------------------------------------------------------------------------
+*/
 
-        $update =
-        $db->prepare("
-            UPDATE settings
-            SET setting_value = ?
-            WHERE setting_key = ?
-        ");
+$settingRules = [
+    'site_name'         => ['text', 80],
+    'contact_email'     => ['email', 150],
+    'currency_mode'     => ['enum', ['KES', 'USD', 'BOTH']],
+    'maintenance_mode'  => ['enum', ['0', '1']],
+    'about_title'       => ['text', 120],
+    'about_description' => ['text', 2000],
+    'mission'           => ['text', 1000],
+    'vision'            => ['text', 1000],
+    'contact_phone'     => ['phone', 20],
+    'business_hours'    => ['text', 200],
+    'contact_address'   => ['text', 300],
+    'facebook_url'      => ['url', 255],
+    'instagram_url'     => ['url', 255],
+    'x_url'             => ['url', 255],
+    'youtube_url'       => ['url', 255],
+    'whatsapp_number'   => ['phone', 20],
+];
 
-        $update->execute([
-            $value,
-            $key
-        ]);
+$upsert =
+$db->prepare("
+    INSERT INTO settings (setting_key, setting_value)
+    VALUES (?, ?)
+    ON DUPLICATE KEY UPDATE setting_value = VALUES(setting_value)
+");
+
+$rejected = [];
+
+foreach ($settingRules as $key => [$type, $rule]) {
+
+    if (!isset($_POST[$key]) || !is_string($_POST[$key])) {
+        continue;
     }
 
-    header("Location: settings");
+    $value = trim($_POST[$key]);
+
+    $valid = match ($type) {
+        'text'  => mb_strlen($value) <= $rule,
+        'email' => $value === '' || (filter_var($value, FILTER_VALIDATE_EMAIL) !== false && mb_strlen($value) <= $rule),
+        'phone' => $value === '' || (preg_match('/^[0-9+\\-\\s]{7,20}$/', $value) === 1),
+        'url'   => $value === '' || (
+                       filter_var($value, FILTER_VALIDATE_URL) !== false
+                       && preg_match('#^https?://#i', $value) === 1
+                       && mb_strlen($value) <= $rule
+                   ),
+        'enum'  => in_array($value, $rule, true),
+        default => false,
+    };
+
+    if (!$valid) {
+        $rejected[] = $key;
+        continue;
+    }
+
+    $upsert->execute([$key, $value]);
+}
+
+$_SESSION['app_response'] = $rejected === []
+    ? [
+        'success' => true,
+        'title'   => 'Settings Saved',
+        'message' => 'Your settings were updated successfully.',
+    ]
+    : [
+        'success' => false,
+        'title'   => 'Some Settings Were Not Saved',
+        'message' => 'Please check these fields and try again: '
+                     . implode(', ', array_map(
+                         fn ($k) => str_replace('_', ' ', $k),
+                         $rejected
+                     )) . '.',
+    ];
+
+header("Location: settings");
     exit;
 }
 
@@ -142,6 +209,8 @@ __DIR__ .
     <form
         method="POST"
         class="jp-settings-form">
+
+        <input type="hidden" name="csrf_token" value="<?= Security::generateCsrfToken() ?>">
 
         <!-- =========================
              GENERAL

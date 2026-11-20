@@ -260,6 +260,8 @@ __DIR__ .
                         method="POST"
                         action="notification-delete">
 
+                            <input type="hidden" name="csrf_token" value="<?= Security::generateCsrfToken() ?>">
+
 
                             <input
                             type="hidden"

@@ -31,7 +31,32 @@ $userId =
 Auth::userId();
 
 /* Add address */
+$addressError = '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $county  = trim((string) ($_POST['county'] ?? ''));
+    $town    = trim((string) ($_POST['town'] ?? ''));
+    $address = trim((string) ($_POST['address'] ?? ''));
+    $phone   = trim((string) ($_POST['phone'] ?? ''));
+
+    if (!Security::checkPostRequest()) {
+
+        $addressError = 'Your session expired. Please reload the page and try again.';
+
+    } elseif (
+        $county === '' || mb_strlen($county) > 100
+        || $town === '' || mb_strlen($town) > 100
+        || $address === '' || mb_strlen($address) > 500
+        || preg_match('/^[0-9+\\-\\s]{7,20}$/', $phone) !== 1
+    ) {
+
+        $addressError = 'Please fill in every field correctly (phone: 7-20 digits).';
+
+    }
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $addressError === '') {
 
     $stmt =
     $db->prepare("
@@ -48,10 +73,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmt->execute([
         $userId,
-        $_POST['county'],
-        $_POST['town'],
-        $_POST['address'],
-        $_POST['phone']
+        $county,
+        $town,
+        $address,
+        $phone
     ]);
 }
 
@@ -207,7 +232,15 @@ $stmt->fetchAll();
 
     <h1>My Addresses</h1>
 
+    <?php if ($addressError !== ''): ?>
+        <p class="address-error" role="alert" style="color:#b3261e;font-weight:bold;">
+            <?= htmlspecialchars($addressError) ?>
+        </p>
+    <?php endif; ?>
+
     <form method="POST" class="address-form-card">
+
+        <input type="hidden" name="csrf_token" value="<?= Security::generateCsrfToken() ?>">
 
         <input name="county" placeholder="County" required>
         <input name="town" placeholder="Town" required>

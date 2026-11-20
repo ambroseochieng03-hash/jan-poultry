@@ -8,6 +8,10 @@ __DIR__ .
 
 require_once
 __DIR__ .
+'/../app/helpers/Auth.php';
+
+require_once
+__DIR__ .
 '/../app/controllers/ProductController.php';
 
 require_once
@@ -37,6 +41,8 @@ if (
     exit;
 
 }
+
+Auth::requireAdminJson();
 
 if (
     !Security::verifyCsrfToken(

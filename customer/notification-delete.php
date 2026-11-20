@@ -18,6 +18,8 @@ __DIR__ .
 
 Auth::requireLogin();
 
+Security::requirePostWithCsrf('notifications');
+
 
 
 $notificationId =

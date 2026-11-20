@@ -289,23 +289,6 @@ $csrfToken = Security::generateCsrfToken();
 
             </form>
 
-            <div class="security-info">
-
-                <h4>Protected By</h4>
-
-                <ul>
-
-                    <li>Argon2ID Password Hashing</li>
-
-                    <li>CSRF Protection</li>
-
-                    <li>Progressive Login Lockout</li>
-
-                    <li>Secure Sessions</li>
-
-                </ul>
-
-            </div>
 
         </div>
 

@@ -28,6 +28,8 @@ class AuthService
 
         session_regenerate_id(true);
 
+        Security::resetCsrfToken();
+
         $this->clearAuthSession();
 
         /*

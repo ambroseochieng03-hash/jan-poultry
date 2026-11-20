@@ -270,6 +270,7 @@ View Order
 
 
 <form method="POST" action="order-status">
+<input type="hidden" name="csrf_token" value="<?= Security::generateCsrfToken() ?>">
 
 <input
 type="hidden"
@@ -295,6 +296,7 @@ Reject
 
 
 <form method="POST" action="order-status">
+<input type="hidden" name="csrf_token" value="<?= Security::generateCsrfToken() ?>">
 
 <input
 type="hidden"
@@ -322,6 +324,7 @@ Accept Order
 
 
 <form method="POST" action="order-status">
+<input type="hidden" name="csrf_token" value="<?= Security::generateCsrfToken() ?>">
 
 
 <input
@@ -352,6 +355,7 @@ Begin Delivery
 
 
 <form method="POST" action="order-status">
+<input type="hidden" name="csrf_token" value="<?= Security::generateCsrfToken() ?>">
 
 
 <input

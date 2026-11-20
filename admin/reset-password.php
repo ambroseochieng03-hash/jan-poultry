@@ -135,6 +135,9 @@ $result['reset'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+    Security::requirePostWithCsrf(
+        'reset-password?token=' . rawurlencode((string) ($_GET['token'] ?? ''))
+    );
 
     $password =
         $_POST['password']
@@ -348,6 +351,8 @@ window.addEventListener(
         </p>   
 
         <form method="POST">
+
+            <input type="hidden" name="csrf_token" value="<?= Security::generateCsrfToken() ?>">
 
 
             <div class="input-group">

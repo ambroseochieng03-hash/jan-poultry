@@ -517,7 +517,7 @@ class ReceiptService
 
         $directory =
         __DIR__ .
-        '/../../public/uploads/receipts';
+        '/../../storage/receipts';
 
         if (
             !is_dir(
@@ -527,7 +527,7 @@ class ReceiptService
 
             mkdir(
                 $directory,
-                0775,
+                0750,
                 true
             );
 
