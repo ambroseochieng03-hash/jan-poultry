@@ -98,7 +98,20 @@ function jan_log($level, $message, $context = [])
 */
 
 set_error_handler(function ($severity, $message, $file, $line) {
-    jan_log('ERROR', $message, [
+
+    // honour the @ operator and the configured error_reporting level
+    if (!(error_reporting() & $severity)) {
+        return true;
+    }
+
+    $level = match (true) {
+        (bool) ($severity & (E_DEPRECATED | E_USER_DEPRECATED)) => 'DEPRECATED',
+        (bool) ($severity & (E_NOTICE | E_USER_NOTICE))         => 'NOTICE',
+        (bool) ($severity & (E_WARNING | E_USER_WARNING))       => 'WARNING',
+        default                                                 => 'ERROR',
+    };
+
+    jan_log($level, $message, [
         'file' => $file,
         'line' => $line,
         'severity' => $severity
@@ -153,9 +166,16 @@ register_shutdown_function(function () {
 
     $error = error_get_last();
 
-    if (!$error) return;
+    $fatalTypes = E_ERROR | E_PARSE | E_CORE_ERROR | E_COMPILE_ERROR
+                | E_USER_ERROR | E_RECOVERABLE_ERROR;
+
+    // Notices, warnings and deprecations are not fatal: they were already logged.
+    if (!$error || !($error['type'] & $fatalTypes)) return;
 
     jan_log('FATAL', $error['message'], $error);
+
+    // The page is already (partly) sent: never append an error page inside it.
+    if (headers_sent()) return;
 
     http_response_code(500);
 
