@@ -1,0 +1,41 @@
+# /etc/systemd/system/janpoultry-media-worker.service
+# LUX comes first: this worker is niced, CPU-capped and memory-capped.
+[Unit]
+Description=JAN Poultry Media Worker (image/video processing to R2)
+After=network.target mariadb.service nats-server.service
+Wants=nats-server.service
+
+[Service]
+Type=simple
+User=janpoultry
+Group=janpoultry
+WorkingDirectory=/srv/http/janpoultry
+ExecStart=/usr/bin/php -d memory_limit=384M /srv/http/janpoultry/workers/media_worker.php
+Restart=always
+RestartSec=10
+
+# resource limits (one job at a time, never more than 60% of one core)
+Nice=19
+CPUWeight=10
+CPUQuota=60%
+IOWeight=10
+IOSchedulingClass=idle
+MemoryHigh=300M
+MemoryMax=450M
+TasksMax=64
+OOMScoreAdjust=500
+
+# sandbox
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/janpoultry /var/log/janpoultry
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictRealtime=true
+LockPersonality=true
+
+[Install]
+WantedBy=multi-user.target

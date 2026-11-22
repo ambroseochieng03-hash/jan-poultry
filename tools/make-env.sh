@@ -33,6 +33,7 @@ R2_BUCKET=$(ask R2_BUCKET janpoultry-media)
 R2_ACCESS_KEY_ID=$(asks R2_ACCESS_KEY_ID)
 R2_SECRET_ACCESS_KEY=$(asks R2_SECRET_ACCESS_KEY)
 MEDIA_BASE_URL=$(ask MEDIA_BASE_URL https://jpmedia.luxempire.co.ke)
+MEDIA_DRIVER=$(ask MEDIA_DRIVER r2)
 
 need APP_URL "$APP_URL"; need DB_NAME "$DB_NAME"; need DB_USER "$DB_USER"; need DB_PASSWORD "$DB_PASSWORD"
 case "$APP_ENV" in development|production) ;; *) echo "APP_ENV must be development or production." >&2; exit 1;; esac
@@ -49,6 +50,7 @@ if [ "$APP_ENV" = production ] && [[ "$APP_URL" != https://* ]]; then echo "APP_
   echo "R2_ENDPOINT=$R2_ENDPOINT";   echo "R2_BUCKET=$R2_BUCKET"
   echo "R2_ACCESS_KEY_ID=$R2_ACCESS_KEY_ID"; echo "R2_SECRET_ACCESS_KEY=$R2_SECRET_ACCESS_KEY"
   echo "MEDIA_BASE_URL=${MEDIA_BASE_URL%/}"
+  echo "MEDIA_DRIVER=$MEDIA_DRIVER"; echo "MEDIA_INCOMING_DIR=/var/lib/janpoultry/incoming"
 } > "$OUT"
 chmod 600 "$OUT"
 echo "Wrote $OUT (mode 600)."

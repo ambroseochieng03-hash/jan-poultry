@@ -137,7 +137,7 @@ preload="metadata"
 style="width:100%;height:auto;border-radius:12px;">
 
 <source
-src="/uploads/products/${image}"
+src="${window.jpMediaUrl(image)}"
 type="video/mp4">
 
 </video>
@@ -148,7 +148,7 @@ type="video/mp4">
                         media.innerHTML =
 `
 <img
-src="/uploads/products/${image}"
+src="${window.jpMediaUrl(image)}"
 alt=""
 style="width:100%;height:auto;border-radius:12px;">
 `;

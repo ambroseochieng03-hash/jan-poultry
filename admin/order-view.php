@@ -369,7 +369,7 @@ PATHINFO_EXTENSION
 
 <video controls preload="metadata">
 
-<source src="/uploads/products/<?= htmlspecialchars($item['image']) ?>">
+<source src="<?= htmlspecialchars(Media::url($item['image'])) ?>">
 
 </video>
 
@@ -378,7 +378,7 @@ PATHINFO_EXTENSION
 
 
 <img
-src="/uploads/products/<?= htmlspecialchars($item['image']) ?>"
+src="<?= htmlspecialchars(Media::url($item['image'])) ?>"
 alt="<?= htmlspecialchars($item['name']) ?>">
 
 

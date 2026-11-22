@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Image is being prepared">
+<rect width="400" height="300" fill="#1b2538"/>
+<g fill="none" stroke="#d4af37" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity=".85">
+<rect x="130" y="95" width="140" height="100" rx="12"/><circle cx="170" cy="130" r="10"/><path d="M135 185l45-40 30 25 25-20 35 35"/></g>
+<text x="200" y="240" fill="#9fb0c8" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">Image is being prepared</text>
+</svg>

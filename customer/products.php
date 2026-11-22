@@ -148,14 +148,14 @@ id="flashModal">
             controls
             preload="metadata">
                 <source
-                src="/uploads/products/<?= htmlspecialchars($product['image']) ?>"
+                src="<?= htmlspecialchars(Media::url($product['image'])) ?>"
                 type="video/mp4">
             </video>
 
             <?php else: ?>
 
             <img
-            src="/uploads/products/<?= htmlspecialchars($product['image']) ?>"
+            src="<?= htmlspecialchars(Media::thumbUrl($product['image'])) ?>"
             alt="<?= htmlspecialchars($product['name']) ?>">
 
             <?php endif; ?>

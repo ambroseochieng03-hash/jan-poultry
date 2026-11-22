@@ -127,29 +127,9 @@ try {
     |--------------------------------------------------------------------------
     */
 
-    if (
-        !empty(
-            $product['image']
-        )
-    ) {
+    if (!empty($product['image'])) {
 
-        $mediaPath =
-        __DIR__
-        .
-        '/../public/uploads/products/'
-        .
-        $product['image'];
-
-        if (
-            file_exists(
-                $mediaPath
-            )
-        ) {
-
-            unlink(
-                $mediaPath
-            );
-        }
+        Media::delete($product['image']);
     }
 
     /*

@@ -203,6 +203,10 @@ require_once
 __DIR__ .
 '/../app/helpers/Security.php';
 
+require_once
+__DIR__ .
+'/../app/helpers/Media.php';
+
 Session::start();
 
 $db = new Database();

@@ -45,6 +45,8 @@ href="/assets/css/home.css">
 rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+<meta name="jp-media-base" content="<?= htmlspecialchars(Media::baseUrl()) ?>">
+<script src="/assets/js/jp-media.js" defer></script>
 </head>
 
 <body>

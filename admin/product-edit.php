@@ -271,29 +271,9 @@ if (
             ----------------------------------
             */
 
-            if (
-                !empty($product['image'])
-            ) {
+            if (!empty($product['image'])) {
 
-                $oldFile =
-                __DIR__
-                .
-                '/../public/uploads/products/'
-                .
-                $product['image'];
-
-                if (
-                    file_exists(
-                        $oldFile
-                    )
-                ) {
-
-                    unlink(
-                        $oldFile
-                    );
-
-                }
-
+                Media::delete($product['image']);
             }
 
         }

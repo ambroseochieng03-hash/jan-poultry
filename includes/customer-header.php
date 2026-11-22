@@ -56,6 +56,8 @@ href="/assets/css/<?= htmlspecialchars($pageCss) ?>">
 
 <?php endif; ?>
 
+<meta name="jp-media-base" content="<?= htmlspecialchars(Media::baseUrl()) ?>">
+<script src="/assets/js/jp-media.js" defer></script>
 </head>
 
 <body>

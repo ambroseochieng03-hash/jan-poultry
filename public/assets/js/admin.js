@@ -134,10 +134,7 @@ if (
                         button.dataset.image
                     ) {
 
-                        const imagePath =
-                        "/uploads/products/"
-                        +
-                        button.dataset.image;
+                        const imagePath = window.jpMediaUrl(button.dataset.image);
 
                         if (
                             button.dataset.image

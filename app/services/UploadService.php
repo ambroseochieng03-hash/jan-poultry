@@ -23,6 +23,12 @@ class UploadService
         array $file
     ): string {
 
+        // Production: validate, hand the file to the media worker, return its final name.
+        if (Media::driver() === 'r2') {
+            return $this->stageForQueue($file);
+        }
+
+
         $this->validateUpload($file);
 
         $mime =
@@ -69,7 +75,85 @@ class UploadService
 
 
 
-    private function validateUpload(
+/**
+ * Queue mode: nothing heavy happens inside the web request. The file is checked,
+ * moved to the private incoming folder, a job is published to JetStream, and the
+ * FINAL file name (already known) is returned so the product can reference it.
+ */
+private function stageForQueue(array $file): string
+{
+    $this->validateUpload($file);
+
+    $mime = $this->detectMime($file['tmp_name']);
+    $size = (int) filesize($file['tmp_name']);
+
+    $images = ['image/jpeg' => 'jpg', 'image/png' => 'png', 'image/webp' => 'webp'];
+    $videos = ['video/mp4' => 'mp4', 'video/quicktime' => 'mov', 'video/webm' => 'webm'];
+
+    if (isset($images[$mime])) {
+
+        $kind = 'image';
+        $ext  = $images[$mime];
+        $max  = 15 * 1024 * 1024;
+
+    } elseif (isset($videos[$mime])) {
+
+        $kind = 'video';
+        $ext  = $videos[$mime];
+        $max  = 20 * 1024 * 1024;
+
+    } else {
+
+        throw new Exception('Unsupported file. Please upload a JPG, PNG or WebP image, or an MP4 video.');
+    }
+
+    if ($size < 1 || $size > $max) {
+        throw new Exception('The file is too large (max ' . ($max / 1024 / 1024) . ' MB for ' . $kind . 's).');
+    }
+
+    $dir = rtrim((string) Env::get('MEDIA_INCOMING_DIR', '/var/lib/janpoultry/incoming'), '/');
+
+    if (!is_dir($dir) || !is_writable($dir)) {
+        throw new Exception('Media storage is not available right now. Please try again later.');
+    }
+
+    $base  = 'product_' . bin2hex(random_bytes(16));
+    $final = $base . ($kind === 'image' ? '.webp' : '.mp4');
+    $dest  = $dir . '/' . $base . '.' . $ext;
+
+    if (!move_uploaded_file($file['tmp_name'], $dest)) {
+        throw new Exception('Upload failed.');
+    }
+
+    chmod($dest, 0640);
+
+    try {
+
+        require_once __DIR__ . '/MediaQueue.php';
+
+        MediaQueue::publish([
+            'v'     => 1,
+            'kind'  => $kind,
+            'base'  => $base,
+            'input' => $dest,
+            'ts'    => time(),
+        ]);
+
+    } catch (Throwable $e) {
+
+        @unlink($dest);
+
+        if (function_exists('jan_log')) {
+            jan_log('ERROR', 'Media job could not be queued: ' . $e->getMessage());
+        }
+
+        throw new Exception('The media service is busy. Please try again in a moment.');
+    }
+
+    return $final;
+}
+
+private function validateUpload(
         array $file
     ): void {
 

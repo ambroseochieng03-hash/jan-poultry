@@ -177,7 +177,7 @@ href="/assets/css/auth-response-modal.css">
 
                     data-name="<?= htmlspecialchars($product['name']) ?>"
 
-                    data-image="/uploads/products/<?= htmlspecialchars($product['image']) ?>"
+                    data-image="<?= htmlspecialchars(Media::url($product['image'])) ?>"
 
                     data-category="<?= htmlspecialchars($product['category']) ?>"
 
@@ -206,7 +206,7 @@ href="/assets/css/auth-response-modal.css">
                                 preload="metadata">
 
                                 <source
-                                    src="/uploads/products/<?= htmlspecialchars($product['image']) ?>"
+                                    src="<?= htmlspecialchars(Media::url($product['image'])) ?>"
                                     type="video/mp4">
 
                             </video>
@@ -214,7 +214,7 @@ href="/assets/css/auth-response-modal.css">
                         <?php else: ?>
 
                             <img
-                                src="/uploads/products/<?= htmlspecialchars($product['image']) ?>"
+                                src="<?= htmlspecialchars(Media::thumbUrl($product['image'])) ?>"
                                 alt="<?= htmlspecialchars($product['name']) ?>">
 
                         <?php endif; ?>

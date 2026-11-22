@@ -242,9 +242,7 @@ controls
 preload="metadata">
 
     <source
-    src="/uploads/products/<?= htmlspecialchars(
-        $item['image']
-    ) ?>"
+    src="<?= htmlspecialchars(Media::url($item['image'])) ?>"
     type="video/mp4">
 
 </video>
@@ -254,9 +252,7 @@ preload="metadata">
 
 
 <img
-src="/uploads/products/<?= htmlspecialchars(
-    $item['image']
-) ?>"
+src="<?= htmlspecialchars(Media::url($item['image'])) ?>"
 alt="<?= htmlspecialchars(
     $item['name']
 ) ?>">
