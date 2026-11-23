@@ -86,10 +86,10 @@ function jp_type_label(string $t): string
     <meta name="twitter:card" content="summary_large_image">
     <meta name="csrf-token" content="<?= htmlspecialchars($csrf) ?>">
     <meta name="jp-media-base" content="<?= htmlspecialchars(Media::baseUrl()) ?>">
-    <link rel="stylesheet" href="/assets/css/jp-home.css">
-    <link rel="stylesheet" href="/assets/css/auth.css">
-    <script src="/assets/js/jp-media.js" defer></script>
-    <script src="/assets/js/jp-home.js" defer></script>
+    <link rel="stylesheet" href="/assets/css/jp-home.css?v=<?= (int) @filemtime(__DIR__ . '/public/assets/css/jp-home.css') ?>">
+    <link rel="stylesheet" href="/assets/css/auth.css?v=<?= (int) @filemtime(__DIR__ . '/public/assets/css/auth.css') ?>">
+    <script src="/assets/js/jp-media.js?v=<?= (int) @filemtime(__DIR__ . '/public/assets/js/jp-media.js') ?>" defer></script>
+    <script src="/assets/js/jp-home.js?v=<?= (int) @filemtime(__DIR__ . '/public/assets/js/jp-home.js') ?>" defer></script>
 </head>
 <body>
 
