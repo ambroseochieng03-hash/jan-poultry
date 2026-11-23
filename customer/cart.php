@@ -419,6 +419,8 @@ __DIR__ .
 '/../includes/app-response-modal.php';
 ?>
 
+<script src="/assets/js/cart.js?v=<?= (int) @filemtime(__DIR__ . '/../public/assets/js/cart.js') ?>" defer></script>
+
 <?php if ($flash): ?>
 
 <script>

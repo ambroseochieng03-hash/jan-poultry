@@ -330,8 +330,7 @@ __DIR__ .
 
     </h3>
 
-    <form method="POST"
-    class="jp-checkout-form">
+    <form method="POST" class="jp-checkout-form" data-ajax-checkout novalidate>
 
 
     <input
@@ -435,6 +434,8 @@ document.addEventListener(
 </script>
 
 <?php endif; ?>
+
+<script src="/assets/js/cart.js?v=<?= (int) @filemtime(__DIR__ . '/../public/assets/js/cart.js') ?>" defer></script>
 
 <?php
 

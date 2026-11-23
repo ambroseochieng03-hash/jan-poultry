@@ -20,6 +20,30 @@ require_once
 __DIR__ .
 '/../app/controllers/CartController.php';
 
+/*
+| Plain form posts still redirect back to the cart. Requests from cart.js
+| (X-Requested-With: fetch, or Accept: application/json) get JSON instead.
+*/
+function jp_cart_finish(): never
+{
+    $ajax = (($_SERVER['HTTP_X_REQUESTED_WITH'] ?? '') === 'fetch')
+        || str_contains((string) ($_SERVER['HTTP_ACCEPT'] ?? ''), 'application/json');
+
+    if ($ajax) {
+        $flash = Flash::get();
+        header('Content-Type: application/json; charset=utf-8');
+        header('Cache-Control: no-store');
+        echo json_encode([
+            'success' => ($flash['type'] ?? '') === 'success',
+            'message' => (string) ($flash['message'] ?? ''),
+        ]);
+        exit;
+    }
+
+    header('Location: cart');
+    exit;
+}
+
 Auth::requireLogin();
 
 
@@ -28,11 +52,7 @@ if (
     !== 'POST'
 ) {
 
-    header(
-        'Location: cart'
-    );
-
-    exit;
+    jp_cart_finish();
 }
 
 
@@ -48,11 +68,7 @@ if (
         'Invalid security token.'
     );
 
-    header(
-        'Location: cart'
-    );
-
-    exit;
+    jp_cart_finish();
 }
 
 
@@ -76,11 +92,7 @@ if (
         'Invalid cart item.'
     );
 
-    header(
-        'Location: cart'
-    );
-
-    exit;
+    jp_cart_finish();
 }
 
 
@@ -189,8 +201,4 @@ switch ($action) {
 
 }
 
-header(
-    'Location: cart'
-);
-
-exit;
+jp_cart_finish();

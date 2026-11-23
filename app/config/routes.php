@@ -51,6 +51,7 @@ return [
     '/cart-update' => 'customer/cart-update.php',
     '/change-password' => 'customer/change-password.php',
     '/checkout' => 'customer/checkout.php',
+    '/checkout-place' => 'customer/checkout-place.php',
     '/dashboard' => 'customer/dashboard.php',
     '/edit-profile' => 'customer/edit-profile.php',
     '/forgot-password-ajax' => 'auth/forgot-password-ajax.php',
