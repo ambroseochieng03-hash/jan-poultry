@@ -37,6 +37,7 @@ href="/assets/css/auth-response-modal.css">
 rel="stylesheet"
 href="/assets/css/auth.css">
 
+<?php include __DIR__ . '/pwa-head.php'; ?>
 </head>
 
 <body class="auth-body">

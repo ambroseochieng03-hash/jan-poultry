@@ -99,6 +99,7 @@ function jp_type_label(string $t): string
     <link rel="stylesheet" href="/assets/css/jp-home.css?v=<?= (int) @filemtime(__DIR__ . '/public/assets/css/jp-home.css') ?>">
     <script src="/assets/js/jp-media.js?v=<?= (int) @filemtime(__DIR__ . '/public/assets/js/jp-media.js') ?>" defer></script>
     <script src="/assets/js/jp-home.js?v=<?= (int) @filemtime(__DIR__ . '/public/assets/js/jp-home.js') ?>" defer></script>
+<?php include __DIR__ . '/includes/pwa-head.php'; ?>
 </head>
 <body>
 

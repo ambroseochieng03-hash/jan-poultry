@@ -1,0 +1,16 @@
+/* Install-app dialog */
+.jp-pwa { position: fixed; inset: 0; z-index: 300; display: grid; align-items: end; justify-items: center; padding: 14px; background: rgba(5, 40, 20, .6); animation: jpPwaFade .2s ease-out; }
+.jp-pwa-card { width: min(440px, 100%); background: #fff; color: #10261a; border-radius: 26px; padding: 26px 22px 18px; text-align: center; box-shadow: 0 24px 60px -20px rgba(0, 0, 0, .6); animation: jpPwaRise .25s ease-out; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.jp-pwa-icon { width: 72px; height: 72px; margin: 0 auto 14px; border-radius: 18px; display: block; }
+.jp-pwa-card h2 { margin: 0 0 8px; font-size: 22px; color: #0b4a24; }
+.jp-pwa-card p { margin: 0 0 18px; color: #55675b; line-height: 1.55; font-size: 15px; }
+.jp-pwa-steps { text-align: left; margin: 0 0 18px; padding-left: 22px; color: #10261a; line-height: 1.8; font-size: 15px; }
+.jp-pwa-go, .jp-pwa-later { display: block; width: 100%; font: inherit; font-weight: 700; border-radius: 999px; padding: 13px 20px; cursor: pointer; }
+.jp-pwa-go { border: 0; background: #fbbf0f; color: #2b2200; margin-bottom: 8px; }
+.jp-pwa-go:hover { background: #e0a800; }
+.jp-pwa-later { border: 0; background: transparent; color: #55675b; }
+.jp-pwa-go:focus-visible, .jp-pwa-later:focus-visible { outline: 3px solid #0b4a24; outline-offset: 2px; }
+@keyframes jpPwaFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes jpPwaRise { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+@media (min-width: 700px) { .jp-pwa { align-items: center; } }
+@media (prefers-reduced-motion: reduce) { .jp-pwa, .jp-pwa-card { animation: none; } }

@@ -58,6 +58,7 @@ href="/assets/css/<?= htmlspecialchars($pageCss) ?>">
 
 <meta name="jp-media-base" content="<?= htmlspecialchars(Media::baseUrl()) ?>">
 <script src="/assets/js/jp-media.js" defer></script>
+<?php include __DIR__ . '/pwa-head.php'; ?>
 </head>
 
 <body>
