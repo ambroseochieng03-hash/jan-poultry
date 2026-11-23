@@ -52,6 +52,7 @@ return [
     '/change-password' => 'customer/change-password.php',
     '/checkout' => 'customer/checkout.php',
     '/checkout-place' => 'customer/checkout-place.php',
+    '/push-subscribe' => 'customer/push-subscribe.php',
     '/dashboard' => 'customer/dashboard.php',
     '/edit-profile' => 'customer/edit-profile.php',
     '/forgot-password-ajax' => 'auth/forgot-password-ajax.php',

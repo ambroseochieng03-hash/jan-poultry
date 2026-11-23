@@ -54,3 +54,27 @@ self.addEventListener('fetch', (event) => {
     }
     // Everything else (forms, JSON endpoints) goes straight to the network.
 });
+
+/* Web push: show the notification, and open the right page when it is tapped. */
+self.addEventListener('push', (event) => {
+    let data = {};
+    try { data = event.data ? event.data.json() : {}; } catch (e) { data = { body: event.data ? event.data.text() : '' }; }
+    event.waitUntil(self.registration.showNotification(data.title || 'JAN Poultry', {
+        body: data.body || '',
+        icon: '/assets/icons/icon-192.png',
+        badge: '/assets/icons/badge-96.png',
+        tag: data.tag || undefined,
+        renotify: !!data.tag,
+        data: { url: data.url || '/orders' }
+    }));
+});
+
+self.addEventListener('notificationclick', (event) => {
+    event.notification.close();
+    const target = new URL((event.notification.data && event.notification.data.url) || '/orders', self.location.origin).href;
+    event.waitUntil(self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((list) => {
+        for (const c of list) { if (c.url === target && 'focus' in c) { return c.focus(); } }
+        for (const c of list) { if ('navigate' in c && 'focus' in c) { return c.focus().then((w) => w.navigate(target)); } }
+        return self.clients.openWindow(target);
+    }));
+});

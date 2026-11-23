@@ -193,23 +193,23 @@ $csrfToken = Security::generateCsrfToken();
             <div class="brand-features">
 
                 <div class="feature">
-                    🛡 Secure Administration
+                    Secure Administration
                 </div>
 
                 <div class="feature">
-                    📦 Product Management
+                    Product Management
                 </div>
 
                 <div class="feature">
-                    🛒 Order Management
+                    Order Management
                 </div>
 
                 <div class="feature">
-                    👥 Customer Management
+                    Customer Management
                 </div>
 
                 <div class="feature">
-                    🚚 Delivery Tracking
+                    Delivery Tracking
                 </div>
 
             </div>

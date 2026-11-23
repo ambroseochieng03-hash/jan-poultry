@@ -5,6 +5,7 @@ require_once __DIR__ . '/../config/app.php';
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../models/Notification.php';
 require_once __DIR__ . '/EmailQueue.php';
+require_once __DIR__ . '/PushQueue.php';
 
 /**
  * One place that tells people about an order: the in-app notification, the
@@ -134,6 +135,14 @@ final class OrderNotifier
             $type,
             $title,
             $message
+        );
+        PushQueue::add(
+            isset($order['user_id']) ? (int) $order['user_id'] : null,
+            $order['guest_id'] ?? null,
+            $title,
+            $message,
+            '/orders',
+            'order-' . (int) $order['id']
         );
     }
 
