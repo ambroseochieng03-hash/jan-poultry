@@ -1,0 +1,40 @@
+# /etc/systemd/system/janpoultry-email-worker.service
+# LUX comes first: this worker is niced, CPU-capped and memory-capped.
+[Unit]
+Description=JAN Poultry Email Worker (sends queued order emails)
+After=network.target mariadb.service
+
+[Service]
+Type=simple
+User=janpoultry
+Group=janpoultry
+WorkingDirectory=/srv/http/janpoultry
+ExecStart=/usr/bin/php -d memory_limit=192M /srv/http/janpoultry/workers/email_worker.php
+Restart=always
+RestartSec=10
+
+# resource limits (one email at a time, never more than 30% of one core)
+Nice=19
+CPUWeight=10
+CPUQuota=30%
+IOWeight=10
+IOSchedulingClass=idle
+MemoryHigh=150M
+MemoryMax=250M
+TasksMax=64
+OOMScoreAdjust=500
+
+# sandbox
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/janpoultry /var/log/janpoultry /srv/http/janpoultry/storage
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictRealtime=true
+LockPersonality=true
+
+[Install]
+WantedBy=multi-user.target

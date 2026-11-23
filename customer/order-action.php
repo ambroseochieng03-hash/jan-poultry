@@ -11,6 +11,7 @@ __DIR__ .
 require_once
 __DIR__ .
 '/../app/helpers/Flash.php';
+require_once __DIR__ . '/../app/services/OrderNotifier.php';
 
 require_once
 __DIR__ .
@@ -154,6 +155,14 @@ switch ($action) {
         );
 
     break;
+}
+
+// Tell the customer (and admin) when a cancel really went through.
+if ($action === 'cancel' && !empty($order) && ($order['status'] ?? '') !== 'cancelled') {
+    $after = $controller->getSingleOrder($orderId, $userId, $guestId);
+    if ($after && ($after['status'] ?? '') === 'cancelled') {
+        OrderNotifier::statusChanged($orderId, 'cancelled');
+    }
 }
 
 header(

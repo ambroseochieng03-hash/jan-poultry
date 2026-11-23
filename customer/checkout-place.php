@@ -13,6 +13,7 @@ require_once __DIR__ . '/../app/helpers/Auth.php';
 require_once __DIR__ . '/../app/helpers/Security.php';
 require_once __DIR__ . '/../app/models/Cart.php';
 require_once __DIR__ . '/../app/models/Order.php';
+require_once __DIR__ . '/../app/services/OrderNotifier.php';
 
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
@@ -118,6 +119,8 @@ try {
     error_log('checkout-place failed: ' . $e->getMessage());
     jp_checkout_json(['success' => false, 'message' => 'We could not place your order. Nothing was charged. Please try again.'], 500);
 }
+
+OrderNotifier::placed((int) $orderId); // queues the emails, never throws
 
 jp_checkout_json([
     'success'  => true,
