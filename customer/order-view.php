@@ -266,7 +266,7 @@ alt="<?= htmlspecialchars(
 
 <div class="jp-order-item-placeholder">
 
-    🐔
+    <img src="/assets/img/no-image.svg" alt="" width="48" height="48">
 
 </div>
 

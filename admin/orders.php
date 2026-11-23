@@ -413,8 +413,8 @@ document.addEventListener(
 
             icon:
                 <?= $appResponse['success']
-                    ? json_encode('✅')
-                    : json_encode('⚠️') ?>,
+                    ? json_encode('✓')
+                    : json_encode('!') ?>,
 
             title:
                 <?= json_encode(

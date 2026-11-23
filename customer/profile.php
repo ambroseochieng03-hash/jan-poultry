@@ -83,7 +83,7 @@ if (
 
     $appModal = [
 
-        'icon' => '✅',
+        'icon' => '✓',
 
         'title' => 'Success',
 
@@ -104,7 +104,7 @@ if (
 
     $appModal = [
 
-        'icon' => '❌',
+        'icon' => '✕',
 
         'title' => 'Error',
 

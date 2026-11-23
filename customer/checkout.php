@@ -415,7 +415,7 @@ document.addEventListener(
 
         showAppResponseModal({
 
-            icon: '✅',
+            icon: '✓',
 
             title: <?= json_encode($modalTitle) ?>,
 

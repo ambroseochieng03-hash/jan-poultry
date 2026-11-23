@@ -3,6 +3,9 @@
 require_once
 __DIR__ .
 '/../includes/init.php';
+require_once __DIR__ . '/../app/models/Category.php';
+$categoryNames = (new Category())->allNames();
+
 
 require_once
 __DIR__ .
@@ -77,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$postRejected) {
             $imageName,
 
             'category' =>
-            trim($_POST['category']),
+            (new Category())->canonical((string) ($_POST['category'] ?? '')),
 
             'product_type' =>
             $_POST['product_type'],
@@ -153,10 +156,12 @@ class="product-form">
     placeholder="Price (KES)"
     required>
 
-    <input
-    type="text"
-    name="category"
-    placeholder="Category">
+    <select name="category">
+    <option value="">No category</option>
+    <?php foreach ($categoryNames as $categoryName): ?>
+        <option value="<?= htmlspecialchars($categoryName) ?>"><?= htmlspecialchars($categoryName) ?></option>
+    <?php endforeach; ?>
+</select>
 
     <select
     name="product_type"

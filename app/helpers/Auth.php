@@ -2,6 +2,15 @@
 
 class Auth
 {
+    /** Where a customer lands after signing in: their cart if they had started an order, otherwise the products page. */
+    public static function landingPath(): string
+    {
+        $merged = (int) ($_SESSION['pending_merged'] ?? 0);
+        unset($_SESSION['pending_merged']);
+
+        return $merged > 0 ? '/cart' : '/products';
+    }
+
     public static function check(): bool
     {
         return

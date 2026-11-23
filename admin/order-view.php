@@ -390,7 +390,7 @@ alt="<?= htmlspecialchars($item['name']) ?>">
 
 <div class="jp-admin-product-placeholder">
 
-🐔
+<img src="/assets/img/no-image.svg" alt="" width="48" height="48">
 
 </div>
 

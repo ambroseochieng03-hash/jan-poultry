@@ -724,3 +724,10 @@
     }
 
 }
+
+/* Continue with Google */
+.jp-google { margin-top: 14px; text-align: center; }
+.jp-google-or { display: flex; align-items: center; gap: 10px; color: #64748b; font-size: 13px; margin-bottom: 12px; }
+.jp-google-or::before, .jp-google-or::after { content: ""; flex: 1; height: 1px; background: #e2e8f0; }
+.jp-google .g_id_signin { display: flex; justify-content: center; }
+.jp-google-msg { color: #b91c1c; font-size: 13px; margin: 8px 0 0; }

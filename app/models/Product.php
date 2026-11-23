@@ -227,6 +227,22 @@ class Product
        FOR HOME PAGE
     ====================== */
 
+    /** Products shown on the public home page: available ones only, newest first. */
+    public function getForHome(int $limit = 48): array
+    {
+        $stmt = $this->db->prepare(
+            "SELECT id, name, description, price, image, category, product_type, breed,
+                    age_weeks, weight_kg, stock_quantity
+             FROM products
+             WHERE is_available = 1
+             ORDER BY id DESC
+             LIMIT :limit"
+        );
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function getLatestForHomepage(
         int $limit = 6
     ): array {

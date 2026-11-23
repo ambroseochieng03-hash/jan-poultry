@@ -3,6 +3,8 @@
 require_once
 __DIR__ .
 '/../includes/init.php';
+require_once __DIR__ . '/../app/models/Category.php';
+
 
 require_once
 __DIR__ .
@@ -80,8 +82,7 @@ trim($_POST['name'] ?? '');
 $description =
 trim($_POST['description'] ?? '');
 
-$category =
-trim($_POST['category'] ?? '');
+$category = (new Category())->canonical((string) ($_POST['category'] ?? ''));
 
 $breed =
 trim($_POST['breed'] ?? '');

@@ -5,6 +5,8 @@ declare(strict_types=1);
 require_once
 __DIR__ .
 '/../includes/init.php';
+require_once __DIR__ . '/../app/models/Category.php';
+
 
 require_once
 __DIR__ .
@@ -104,7 +106,7 @@ try {
         $imageName,
 
         'category' =>
-        trim($_POST['category']),
+        (new Category())->canonical((string) ($_POST['category'] ?? '')),
 
         'product_type' =>
         $_POST['product_type'],

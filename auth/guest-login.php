@@ -3,6 +3,11 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/../includes/init.php';
+if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'GET') {
+    header('Location: /?auth=guest');
+    exit;
+}
+
 require_once __DIR__ . '/../app/helpers/Auth.php';
 require_once __DIR__ . '/../app/helpers/Validator.php';
 require_once __DIR__ . '/../app/helpers/Flash.php';
@@ -10,7 +15,7 @@ require_once __DIR__ . '/../app/services/AuthService.php';
 
 if (Auth::check()) {
 
-    header('Location: /dashboard');
+    header('Location: ' . Auth::landingPath());
 
     exit;
 }
@@ -90,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     Security::resetCsrfToken();
 
-    header('Location: /dashboard');
+    header('Location: ' . Auth::landingPath());
 
     exit;
 }

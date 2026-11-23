@@ -89,7 +89,7 @@ document.addEventListener(
             if(passed){
 
                 element.innerHTML =
-                    "✅ " + text;
+                    "✓ " + text;
 
                 element.style.color =
                     "#28a745";
@@ -99,7 +99,7 @@ document.addEventListener(
 
 
                 element.innerHTML =
-                    "❌ " + text;
+                    "✕ " + text;
 
 
                 element.style.color =
@@ -336,7 +336,7 @@ document.addEventListener(
             if (!el) return;
 
             el.textContent =
-                (passed ? "✓ " : "✖ ") + text;
+                (passed ? "✓ " : "✕ ") + text;
 
             el.style.color =
                 passed ? "#28a745" : "#c5cedb";

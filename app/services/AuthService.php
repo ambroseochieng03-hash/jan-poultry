@@ -1,6 +1,8 @@
 <?php
 
 require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../helpers/RememberMe.php';
+require_once __DIR__ . '/../helpers/PendingCart.php';
 
 class AuthService
 {
@@ -18,7 +20,7 @@ class AuthService
         unset($_SESSION['guest']);
     }
 
-    private function authenticateUser(array $user): void
+    private function authenticateUser(array $user, bool $issueRemember = true): void
     {
         /*
         ----------------------------------------
@@ -73,11 +75,20 @@ class AuthService
             (int) $user['id'],
             $sessionToken
         );
+
+        /* Customers: keep them signed in on this device and move anything they
+           chose before signing in (the pending order) into their real cart. */
+        if ($sessionKey === 'customer') {
+            if ($issueRemember) {
+                RememberMe::issue($this->db, (int) $user['id']);
+            }
+            PendingCart::merge((int) $user['id'], null);
+        }
     }
 
-    public function authenticate(array $user): void
+    public function authenticate(array $user, bool $issueRemember = true): void
     {
-        $this->authenticateUser($user);
+        $this->authenticateUser($user, $issueRemember);
     }
 
     /* ======================
@@ -192,6 +203,7 @@ class AuthService
             'authenticated_at' => time()
 
         ];
+        PendingCart::merge(null, (string) $_SESSION['guest']['id']);
     }
 
     /*------------------------
@@ -199,6 +211,7 @@ class AuthService
     ------------------------ */
     public function logout(): void
     {
+        RememberMe::forget($this->db);
         $this->clearAuthSession();
 
         Session::destroy();
@@ -383,10 +396,15 @@ class AuthService
             $sql
         );
 
-        return $stmt->execute([
+        $ok = $stmt->execute([
             ':hash' => $hash,
             ':id'   => $userId
         ]);
+
+        /* A password reset signs the account out everywhere. */
+        RememberMe::forgetAll($this->db, (int) $userId);
+
+        return $ok;
     }
 
     /* ======================

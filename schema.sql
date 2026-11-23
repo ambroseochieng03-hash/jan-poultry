@@ -53,6 +53,16 @@ CREATE TABLE IF NOT EXISTS `carts` (
   KEY `idx_cart_user` (`user_id`),
   KEY `idx_cart_guest` (`guest_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE IF NOT EXISTS `categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `sort_order` int(11) NOT NULL DEFAULT 0,
+  `is_active` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uq_categories_name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 CREATE TABLE IF NOT EXISTS `contact_messages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(150) DEFAULT NULL,
@@ -193,10 +203,12 @@ CREATE TABLE IF NOT EXISTS `users` (
   `is_guest` tinyint(1) DEFAULT 0,
   `last_login` datetime DEFAULT NULL,
   `session_token` char(64) DEFAULT NULL,
+  `google_id` varchar(64) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `uq_users_google_id` (`google_id`),
   KEY `idx_users_email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

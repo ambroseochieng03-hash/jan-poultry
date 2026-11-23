@@ -1,767 +1,328 @@
 <?php
+declare(strict_types=1);
 
-require_once
-__DIR__ .
-'/includes/init.php';
+require_once __DIR__ . '/includes/init.php';
+require_once __DIR__ . '/app/helpers/Auth.php';
+require_once __DIR__ . '/app/helpers/PendingCart.php';
+require_once __DIR__ . '/app/models/Product.php';
+require_once __DIR__ . '/app/models/Category.php';
 
-require_once
-__DIR__ .
-'/app/models/Product.php';
+$products   = (new Product())->getForHome(48);
+$categories = (new Category())->forHome();
 
-$productModel =
-    new Product();
+/* Contact details come from Admin > Settings. */
+$settings = [];
+foreach ($pdo->query('SELECT setting_key, setting_value FROM settings')->fetchAll(PDO::FETCH_ASSOC) as $row) {
+    $settings[$row['setting_key']] = trim((string) $row['setting_value']);
+}
+$contactPhone   = (isset($settings['contact_phone']) && !str_contains($settings['contact_phone'], 'XXX')) ? $settings['contact_phone'] : '';
+$contactEmail   = $settings['contact_email'] ?? '';
+$contactAddress = $settings['contact_address'] ?? '';
+$businessHours  = $settings['business_hours'] ?? '';
 
-/*
-|--------------------------------------------------------------------------
-| Latest Products
-|--------------------------------------------------------------------------
-*/
+/* Who is looking at the page. */
+$isCustomer = Auth::isCustomer();
+$isGuest    = Auth::isGuest();
+$isStaff    = Auth::isUser() && !$isCustomer;
+$googleId   = (string) Env::get('GOOGLE_CLIENT_ID', '');
 
-$products =
-    $productModel->getLatestForHomepage(
-        6
-    );
+$cartCount = 0;
+if ($isCustomer || $isGuest) {
+    $q = $isCustomer
+        ? $pdo->prepare('SELECT COALESCE(SUM(ci.quantity),0) FROM cart_items ci JOIN carts c ON c.id = ci.cart_id WHERE c.user_id = ?')
+        : $pdo->prepare('SELECT COALESCE(SUM(ci.quantity),0) FROM cart_items ci JOIN carts c ON c.id = ci.cart_id WHERE c.guest_id = ?');
+    $q->execute([$isCustomer ? Auth::userId() : Auth::guestId()]);
+    $cartCount = (int) $q->fetchColumn();
+} else {
+    $cartCount = PendingCart::count();
+}
 
-/*
-|--------------------------------------------------------------------------
-| Session
-|--------------------------------------------------------------------------
-*/
+$authNotice = '';
+$authNoticeType = 'error';
+foreach (['login_error', 'auth_error'] as $k) {
+    if (!empty($_SESSION[$k])) { $authNotice = (string) $_SESSION[$k]; unset($_SESSION[$k]); }
+}
+if ($authNotice === '' && !empty($_SESSION['auth_success'])) {
+    $authNotice = (string) $_SESSION['auth_success'];
+    $authNoticeType = 'success';
+    unset($_SESSION['auth_success']);
+}
+$anonymous = !$isCustomer && !$isGuest && !$isStaff;
+$openAuth  = ($anonymous && in_array($_GET['auth'] ?? '', ['login', 'register', 'guest'], true)) ? $_GET['auth'] : ($authNotice !== '' && $anonymous ? 'login' : '');
 
-$isLoggedIn =
-    isset($_SESSION['customer']);
+$csrf    = Security::generateCsrfToken();
+$baseUrl = APP_URL;
+$title   = 'JAN Poultry | Live chicken and fresh chicken meat, delivered';
+$desc    = 'Order live chicken and fresh chicken meat online from JAN Poultry. Browse what is available, order with or without an account and have it delivered to your address.';
 
-$isGuest =
-    isset($_SESSION['guest']);
+$heroProduct = null;
+foreach ($products as $p) {
+    if (!empty($p['image']) && !Media::isVideo($p['image'])) { $heroProduct = $p; break; }
+}
 
-include
-__DIR__ .
-'/includes/header.php';
-
+function jp_type_label(string $t): string
+{
+    return $t === 'live_chicken' ? 'Live chicken' : ($t === 'meat' ? 'Chicken meat' : '');
+}
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><?= htmlspecialchars($title) ?></title>
+    <meta name="description" content="<?= htmlspecialchars($desc) ?>">
+    <meta name="theme-color" content="#166534">
+    <link rel="canonical" href="<?= htmlspecialchars($baseUrl) ?>/">
+    <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="JAN Poultry">
+    <meta property="og:title" content="<?= htmlspecialchars($title) ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($desc) ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($baseUrl) ?>/">
+    <meta property="og:image" content="<?= htmlspecialchars($baseUrl) ?>/assets/img/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="csrf-token" content="<?= htmlspecialchars($csrf) ?>">
+    <meta name="jp-media-base" content="<?= htmlspecialchars(Media::baseUrl()) ?>">
+    <link rel="stylesheet" href="/assets/css/jp-home.css">
+    <link rel="stylesheet" href="/assets/css/auth.css">
+    <script src="/assets/js/jp-media.js" defer></script>
+    <script src="/assets/js/jp-home.js" defer></script>
+</head>
+<body>
 
-<link
-rel="stylesheet"
-href="/assets/css/admin-forgot-password.css">
-
-<link
-rel="stylesheet"
-href="/assets/css/auth-response-modal.css">
-
-<main class="home-page">
-
-    <!-- =======================================
-    HERO
-    ======================================== -->
-
-    <section class="hero-section">
-
-        <div class="hero-content">
-
-            <span class="hero-badge">
-
-                Fresh Every Day
-
-            </span>
-
-            <h1>
-
-                Fresh Poultry.
-
-                <span>
-
-                    Trusted Farmers.
-
-                </span>
-
-                Delivered With Care.
-
-            </h1>
-
-            <p>
-
-                Browse our latest poultry products,
-                discover premium quality,
-                and enjoy a smooth shopping experience
-                whether you're a returning customer,
-                a first-time visitor,
-                or simply exploring as a guest.
-
-            </p>
-
-            <div class="hero-buttons">
-
-                <a
-                    href="#featured-products"
-                    class="btn-primary">
-
-                    Explore Products
-
-                </a>
-
-                <?php if (!$isLoggedIn): ?>
-
-                <a
-                    href="/guest-login"
-                    class="btn-outline">
-
-                    Continue as Guest
-
-                </a>
-
-                <?php else: ?>
-
-                <a
-                    href="/dashboard"
-                    class="btn-outline">
-
-                    Open Dashboard
-
-                </a>
-
-                <?php endif; ?>
-
-            </div>
-
+<header class="jp-nav">
+    <div class="jp-wrap jp-nav-row">
+        <a href="/" class="jp-brand">
+            <img src="/assets/img/logo.svg" alt="" width="36" height="36">
+            <span>JAN Poultry</span>
+        </a>
+        <nav class="jp-links" aria-label="Main">
+            <a href="#shop">Shop</a>
+            <a href="#how">How it works</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="jp-actions">
+            <?php if ($isCustomer || $isGuest): ?>
+                <a class="jp-btn jp-btn-ghost" href="/cart">Cart<span class="jp-badge" data-cart-count <?= $cartCount ? '' : 'hidden' ?>><?= $cartCount ?></span></a>
+                <?php if ($isCustomer): ?><a class="jp-btn jp-btn-ghost" href="/dashboard">My account</a><?php endif; ?>
+                <a class="jp-btn jp-btn-line" href="/logout">Log out</a>
+            <?php elseif ($isStaff): ?>
+                <a class="jp-btn jp-btn-primary" href="/admin/dashboard">Admin panel</a>
+            <?php else: ?>
+                <button type="button" class="jp-btn jp-btn-ghost" data-auth="guest">Your order<span class="jp-badge" data-cart-count <?= $cartCount ? '' : 'hidden' ?>><?= $cartCount ?></span></button>
+                <a class="jp-btn jp-btn-line" href="/?auth=login" data-auth="login">Sign in</a>
+                <a class="jp-btn jp-btn-primary" href="/?auth=register" data-auth="register">Create account</a>
+            <?php endif; ?>
         </div>
-
-    </section>
-
-    <!-- =======================================
-    FEATURED PRODUCTS
-    ======================================= -->
-
-    <section  id="featured-products" class="home-products">
-
-        <div class="section-header">
-
-            <div>
-
-                <span class="section-tag">
-
-                    Fresh From Our Farm
-
-                </span>
-
-                <h2>
-
-                    Recently Added Products
-
-                </h2>
-
-                <p>
-
-                    Discover some of our newest poultry products.
-                    Create an account or continue as a guest to browse the full catalogue.
-
-                </p>
-
-            </div>
-
-            <a
-                href="/register"
-                class="section-link">
-
-                View Everything →
-
-            </a>
-
-        </div>
-
-        <div class="home-product-grid">
-
-            <?php foreach ($products as $product): ?>
-
-                <article
-                    class="home-product-card"
-
-                    data-name="<?= htmlspecialchars($product['name']) ?>"
-
-                    data-image="<?= htmlspecialchars(Media::url($product['image'])) ?>"
-
-                    data-category="<?= htmlspecialchars($product['category']) ?>"
-
-                    data-type="<?= htmlspecialchars($product['product_type']) ?>"
-
-                    data-breed="<?= htmlspecialchars($product['breed']) ?>"
-
-                    data-description="<?= htmlspecialchars($product['description']) ?>"
-
-                    data-available="<?= $product['is_available'] ? 'Available' : 'Coming Soon' ?>">
-
-                    <div class="product-image">
-
-                        <?php if (
-                            pathinfo(
-                                $product['image'],
-                                PATHINFO_EXTENSION
-                            ) === 'mp4'
-                        ): ?>
-
-                            <video
-                                autoplay
-                                muted
-                                loop
-                                playsinline
-                                preload="metadata">
-
-                                <source
-                                    src="<?= htmlspecialchars(Media::url($product['image'])) ?>"
-                                    type="video/mp4">
-
-                            </video>
-
-                        <?php else: ?>
-
-                            <img
-                                src="<?= htmlspecialchars(Media::thumbUrl($product['image'])) ?>"
-                                alt="<?= htmlspecialchars($product['name']) ?>">
-
-                        <?php endif; ?>
-
-                        <span class="availability">
-
-                            <?= $product['is_available']
-                                ? 'Available'
-                                : 'Coming Soon'
-                            ?>
-
-                        </span>
-
-                    </div>
-
-                    <div class="product-content">
-
-                        <h3>
-
-                            <?= htmlspecialchars($product['name']) ?>
-
-                        </h3>
-
-                        <p>
-
-                            <?= htmlspecialchars($product['category']) ?>
-
-                        </p>
-
-                        <div class="product-tags">
-
-                            <span>
-
-                                <?= htmlspecialchars($product['breed']) ?>
-
-                            </span>
-
-                            <span>
-
-                                <?= htmlspecialchars($product['product_type']) ?>
-
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-            <?php endforeach; ?>
-
-        </div>
-
-    </section>
-
-
-    <!-- =======================================
-    WHY CHOOSE US
-    ======================================== -->
-
-    <section class="why-section reveal">
-
-        <div class="section-header">
-
-            <h2>
-
-                Why Customers Choose JAN Poultry
-
-            </h2>
-
-        </div>
-
-        <div class="why-grid">
-
-            <div class="why-card">
-
-                🐔
-
-                <h3>
-
-                    Farm Fresh
-
-                </h3>
-
-                <p>
-
-                    Carefully selected poultry
-                    sourced from trusted farms.
-
-                </p>
-
-            </div>
-
-            <div class="why-card">
-
-                🚚
-
-                <h3>
-
-                    Fast Delivery
-
-                </h3>
-
-                <p>
-
-                    Reliable deliveries to your
-                    doorstep.
-
-                </p>
-
-            </div>
-
-            <div class="why-card">
-
-                🛡
-
-                <h3>
-
-                    Premium Quality
-
-                </h3>
-
-                <p>
-
-                    Every product is inspected
-                    before delivery.
-
-                </p>
-
-            </div>
-
-            <div class="why-card">
-
-                💬
-
-                <h3>
-
-                    Friendly Support
-
-                </h3>
-
-                <p>
-
-                    We're always ready to help
-                    when you need us.
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- =======================================
-    STATISTICS
-    ======================================== -->
-
-    <section class="home-stats reveal">
-
-        <div class="stat-card">
-
-            <h2
-                class="counter"
-                data-target="500">
-
-                0
-
-            </h2>
-
-            <p>
-
-                Deliveries
-
-            </p>
-
-        </div>
-
-        <div class="stat-card">
-
-            <h2
-                class="counter"
-                data-target="98">
-
-                0
-
-            </h2>
-
-            <p>
-
-                Satisfaction %
-
-            </p>
-
-        </div>
-
-        <div class="stat-card">
-
-            <h2
-                class="counter"
-                data-target="24">
-
-                0
-
-            </h2>
-
-            <p>
-
-                Support
-
-            </p>
-
-        </div>
-
-        <div class="stat-card">
-
-            <h2
-                class="counter"
-                data-target="<?= count($products) ?>">
-
-                0
-
-            </h2>
-
-            <p>
-
-                Featured Products
-
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- =======================================
-    ACCOUNT OPTIONS
-    ======================================== -->
-
-    <section class="account-options reveal">
-
-        <div class="section-header">
-
-            <h2>
-
-                Continue Your Journey
-
-            </h2>
-
-        </div>
-
-        <div class="account-grid">
-
-            <div class="account-card">
-
-                <h3>
-
-                    Already Shopping?
-
-                </h3>
-
-                <p>
-
-                    Sign in and continue where
-                    you left off.
-
-                </p>
-
-                <a
-                    href="/login">
-
-                    Sign In
-
-                </a>
-
-            </div>
-
-            <div class="account-card">
-
-                <h3>
-
-                    New Here?
-
-                </h3>
-
-                <p>
-
-                    Create your free customer
-                    account today.
-
-                </p>
-
-                <a
-                    href="/register">
-
-                    Create Account
-
-                </a>
-
-            </div>
-
-            <div class="account-card">
-
-                <h3>
-
-                    Just Exploring?
-
-                </h3>
-
-                <p>
-
-                    Browse products before
-                    creating an account.
-
-                </p>
-
-                <a
-                    href="/guest-login">
-
-                    Continue as Guest
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- =======================================
-    RECOVER ACCOUNT
-    ======================================== -->
-
-    <section class="recover-account reveal">
-
-        <h2>
-
-            Need Help Accessing Your Account?
-
-        </h2>
-
-        <p>
-
-            Forgotten your password?
-            We'll securely send a password reset
-            link if your account exists.
-
-        </p>
-
-        <button
-
-            id="openForgotPasswordModal"
-
-            class="btn-primary">
-
-            Recover My Account
-
-        </button>
-
-    </section>
-
-    <!--=====================================
-    FEATURED PRODUCT MODAL
-    ======================================-->
-
-    <div
-        id="featuredProductModal"
-        class="product-preview-modal">
-
-        <div class="product-preview-card">
-
-            <button
-                class="preview-close"
-                id="closePreviewModal">
-
-                &times;
-
-            </button>
-
-            <div class="preview-image">
-
-                <img
-                    id="previewImage"
-                    src=""
-                    alt=""
-                    style="display:none;">
-
-                <video
-                    id="previewVideo"
-                    controls
-                    autoplay
-                    muted
-                    loop
-                    playsinline
-                    style="display:none; width:100%; height:100%; object-fit:cover;">
-
-                    <source
-                        id="previewVideoSource"
-                        src=""
-                        type="video/mp4">
-
-                </video>
-
-            </div>
-
-            <div class="preview-content">
-
-                <span
-                    class="preview-badge"
-                    id="previewAvailability">
-
-                </span>
-
-                <h2 id="previewName">
-
-                </h2>
-
-                <p
-                    class="preview-category"
-                    id="previewCategory">
-
-                </p>
-
-                <p
-                    class="preview-description"
-                    id="previewDescription">
-
-                </p>
-
-                <div class="preview-tags">
-
-                    <span id="previewBreed"></span>
-
-                    <span id="previewType"></span>
-
-                </div>
-
-                <div class="preview-message">
-
-                    <h3>
-
-                        Continue Your Journey
-
-                    </h3>
-
-                    <p>
-
-                        Create a free account to browse our complete catalogue, place orders, track deliveries and enjoy the full JAN Poultry experience.
-
-                    </p>
-
-                </div>
-
-                <div class="preview-buttons">
-
-                    <a
-                        href="/register"
-                        class="preview-primary">
-
-                        Create Free Account
-
-                    </a>
-
-                    <a
-                        href="/guest-login"
-                        class="preview-secondary">
-
-                        Continue as Guest
-
-                    </a>
-
-                    <a
-                        href="/login"
-                        class="preview-login">
-
-                        Sign In
-
-                    </a>
-
-                </div>
-
-                <button
-
-                    id="recoverAccountButton"
-
-                    class="recover-account-link">
-
-                    Forgot your password?
-                    Recover your account
-
-                </button>
-
-            </div>
-
-        </div>
-
     </div>
+</header>
 
+<main>
+    <section class="jp-hero">
+        <div class="jp-wrap jp-hero-grid">
+            <div>
+                <p class="jp-eyebrow">JAN Poultry</p>
+                <h1>Live chicken and fresh chicken meat, delivered to your door.</h1>
+                <p class="jp-lead">See what is available today, add it to your order and we bring it to your address. You do not need an account to start.</p>
+                <div class="jp-hero-cta">
+                    <a class="jp-btn jp-btn-primary jp-btn-lg" href="#shop">Shop now</a>
+                    <?php if (!$isCustomer && !$isGuest && !$isStaff): ?>
+                        <a class="jp-btn jp-btn-line jp-btn-lg" href="/?auth=guest" data-auth="guest">Continue as guest</a>
+                    <?php endif; ?>
+                </div>
+                <ul class="jp-points">
+                    <li>No account needed to order</li>
+                    <li>Track your order after you place it</li>
+                    <li>Delivered to your address</li>
+                </ul>
+            </div>
+            <div class="jp-hero-media" aria-hidden="true">
+                <?php if ($heroProduct): ?>
+                    <img src="<?= htmlspecialchars(Media::url($heroProduct['image'])) ?>" alt="" fetchpriority="high">
+                <?php else: ?>
+                    <img class="jp-hero-logo" src="/assets/img/logo.svg" alt="">
+                <?php endif; ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="jp-section" id="shop">
+        <div class="jp-wrap">
+            <div class="jp-head">
+                <h2>What is available</h2>
+                <?php if ($isCustomer || $isGuest): ?><a class="jp-link" href="/products">Open the full shop</a><?php endif; ?>
+            </div>
+
+            <?php if ($categories): ?>
+                <div class="jp-chips" role="tablist" aria-label="Categories">
+                    <button type="button" class="jp-chip is-active" data-filter="*">All</button>
+                    <?php foreach ($categories as $c): ?>
+                        <button type="button" class="jp-chip" data-filter="<?= htmlspecialchars($c) ?>"><?= htmlspecialchars($c) ?></button>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if (!$products): ?>
+                <p class="jp-empty">Nothing is on sale right now. Please check back soon.</p>
+            <?php else: ?>
+            <div class="jp-grid" id="jpGrid">
+                <?php foreach ($products as $p):
+                    $stock = (int) $p['stock_quantity'];
+                    $meta  = array_filter([
+                        $p['breed'] ?: null,
+                        $p['weight_kg'] !== null && (float) $p['weight_kg'] > 0 ? rtrim(rtrim(number_format((float) $p['weight_kg'], 2), '0'), '.') . ' kg' : null,
+                        $p['age_weeks'] ? (int) $p['age_weeks'] . ' weeks' : null,
+                    ]);
+                ?>
+                <article class="jp-card" data-category="<?= htmlspecialchars((string) $p['category']) ?>">
+                    <div class="jp-card-img">
+                        <?php if (!empty($p['image'])): ?>
+                            <?php if (Media::isVideo($p['image'])): ?>
+                                <img src="<?= htmlspecialchars(Media::posterUrl($p['image'])) ?>" alt="<?= htmlspecialchars($p['name']) ?>" loading="lazy">
+                            <?php else: ?>
+                                <img src="<?= htmlspecialchars(Media::thumbUrl($p['image'])) ?>" alt="<?= htmlspecialchars($p['name']) ?>" loading="lazy">
+                            <?php endif; ?>
+                        <?php else: ?>
+                            <img class="jp-noimg" src="/assets/img/no-image.svg" alt="" loading="lazy">
+                        <?php endif; ?>
+                        <?php if (trim((string) $p['category']) !== ''): ?>
+                            <span class="jp-tag"><?= htmlspecialchars($p['category']) ?></span>
+                        <?php endif; ?>
+                    </div>
+                    <div class="jp-card-body">
+                        <p class="jp-kind"><?= htmlspecialchars(jp_type_label((string) $p['product_type'])) ?></p>
+                        <h3><?= htmlspecialchars($p['name']) ?></h3>
+                        <?php if ($meta): ?><p class="jp-meta"><?= htmlspecialchars(implode(' / ', $meta)) ?></p><?php endif; ?>
+                        <div class="jp-card-foot">
+                            <p class="jp-price">KES <?= number_format((float) $p['price']) ?></p>
+                            <?php if ($stock <= 0): ?>
+                                <button type="button" class="jp-btn jp-btn-disabled" disabled>Out of stock</button>
+                            <?php else: ?>
+                                <button type="button" class="jp-btn jp-btn-primary" data-add="<?= (int) $p['id'] ?>">Add to order</button>
+                            <?php endif; ?>
+                        </div>
+                        <?php if ($stock > 0 && $stock <= 5): ?><p class="jp-low">Only <?= $stock ?> left</p><?php endif; ?>
+                    </div>
+                </article>
+                <?php endforeach; ?>
+            </div>
+            <p class="jp-empty" id="jpNoMatch" hidden>No products in this category right now.</p>
+            <?php endif; ?>
+        </div>
+    </section>
+
+    <section class="jp-section jp-alt" id="how">
+        <div class="jp-wrap">
+            <div class="jp-head"><h2>How ordering works</h2></div>
+            <ol class="jp-steps">
+                <li><span>1</span><h3>Choose</h3><p>Pick live chicken or fresh meat and add it to your order.</p></li>
+                <li><span>2</span><h3>Confirm</h3><p>Continue as a guest or create an account. Your order is kept either way.</p></li>
+                <li><span>3</span><h3>Receive</h3><p>We deliver to your address and you can follow the order status.</p></li>
+            </ol>
+        </div>
+    </section>
+
+    <?php if (!$isCustomer && !$isGuest && !$isStaff): ?>
+    <section class="jp-section">
+        <div class="jp-wrap jp-cta">
+            <div>
+                <h2>Order faster next time</h2>
+                <p>An account keeps your details and order history, and you stay signed in on your device.</p>
+            </div>
+            <div class="jp-cta-actions">
+                <a class="jp-btn jp-btn-primary jp-btn-lg" href="/?auth=register" data-auth="register">Create account</a>
+                <a class="jp-btn jp-btn-line jp-btn-lg" href="/?auth=login" data-auth="login">Sign in</a>
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
 </main>
 
-<?php
+<footer class="jp-footer" id="contact">
+    <div class="jp-wrap jp-foot-grid">
+        <div>
+            <a href="/" class="jp-brand jp-brand-light"><img src="/assets/img/logo.svg" alt="" width="32" height="32"><span>JAN Poultry</span></a>
+            <p>Live chicken and fresh chicken meat, delivered.</p>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <?php if ($contactPhone): ?><p><a href="tel:<?= htmlspecialchars(preg_replace('/[^0-9+]/', '', $contactPhone)) ?>"><?= htmlspecialchars($contactPhone) ?></a></p><?php endif; ?>
+            <?php if ($contactEmail): ?><p><a href="mailto:<?= htmlspecialchars($contactEmail) ?>"><?= htmlspecialchars($contactEmail) ?></a></p><?php endif; ?>
+            <?php if ($contactAddress): ?><p><?= htmlspecialchars($contactAddress) ?></p><?php endif; ?>
+            <?php if ($businessHours): ?><p><?= htmlspecialchars($businessHours) ?></p><?php endif; ?>
+        </div>
+        <div>
+            <h4>Account</h4>
+            <p><a href="/?auth=login" data-auth="login">Sign in</a></p>
+            <p><a href="/?auth=register" data-auth="register">Create account</a></p>
+            <p><a href="/?auth=guest" data-auth="guest">Continue as guest</a></p>
+        </div>
+    </div>
+    <div class="jp-wrap jp-copy">&copy; <?= date('Y') ?> JAN Poultry</div>
+</footer>
 
-include
-__DIR__ .
-'/includes/auth-response-modal.php';
+<div class="jp-toasts" id="jpToasts" aria-live="polite"></div>
 
-?>
+<?php if ($anonymous): ?>
+<div class="jp-modal" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle" data-open="<?= htmlspecialchars($openAuth) ?>" hidden>
+    <div class="jp-modal-card">
+        <button type="button" class="jp-modal-x" data-close-auth aria-label="Close">&times;</button>
+        <h2 id="authTitle">Welcome to JAN Poultry</h2>
+        <p class="jp-modal-sub" id="authOrderNote" <?= $cartCount ? '' : 'hidden' ?>><strong data-cart-count-text><?= $cartCount ?></strong> item(s) in your order are saved. Sign in, register or continue as a guest. Nothing is lost.</p>
+        <p class="jp-notice jp-notice-<?= $authNoticeType ?>" id="authNotice" <?= $authNotice === '' ? 'hidden' : '' ?>><?= htmlspecialchars($authNotice) ?></p>
 
-<?php
+        <div class="jp-tabs" role="tablist">
+            <button type="button" role="tab" data-tab="login">Sign in</button>
+            <button type="button" role="tab" data-tab="register">Create account</button>
+            <button type="button" role="tab" data-tab="guest">Guest</button>
+        </div>
 
-include
-__DIR__ .
-'/includes/admin-forgot-password-modal.php';
+        <form class="jp-form" data-panel="login" data-endpoint="/auth-ajax" novalidate>
+            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
+            <input type="hidden" name="action" value="login">
+            <label>Email<input type="email" name="email" autocomplete="email" required></label>
+            <label>Password<input type="password" name="password" autocomplete="current-password" required></label>
+            <p class="jp-form-msg" role="alert" hidden></p>
+            <button type="submit" class="jp-btn jp-btn-primary jp-btn-lg">Sign in</button>
+            <button type="button" class="jp-textbtn" data-tab="forgot">Forgot password?</button>
+        </form>
 
-?>
+        <form class="jp-form" data-panel="register" data-endpoint="/auth-ajax" novalidate hidden>
+            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
+            <input type="hidden" name="action" value="register">
+            <label>Full name<input type="text" name="name" autocomplete="name" maxlength="100" required></label>
+            <label>Email<input type="email" name="email" autocomplete="email" maxlength="150" required></label>
+            <label>Phone<input type="tel" name="phone" autocomplete="tel" placeholder="0712345678" required></label>
+            <label>Password (8+ characters)<input type="password" name="password" autocomplete="new-password" minlength="8" required></label>
+            <p class="jp-form-msg" role="alert" hidden></p>
+            <button type="submit" class="jp-btn jp-btn-primary jp-btn-lg">Create account</button>
+        </form>
 
-<script>
+        <form class="jp-form" data-panel="guest" data-endpoint="/auth-ajax" novalidate hidden>
+            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
+            <input type="hidden" name="action" value="guest">
+            <label>Your name<input type="text" name="name" autocomplete="name" maxlength="60" required></label>
+            <label>Phone<input type="tel" name="phone" autocomplete="tel" placeholder="0712345678" required></label>
+            <p class="jp-form-msg" role="alert" hidden></p>
+            <button type="submit" class="jp-btn jp-btn-primary jp-btn-lg">Continue as guest</button>
+        </form>
 
-window.addEventListener(
+        <form class="jp-form" data-panel="forgot" data-endpoint="/forgot-password-ajax" novalidate hidden>
+            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
+            <label>Account email<input type="email" name="email" autocomplete="email" required></label>
+            <p class="jp-form-msg" role="alert" hidden></p>
+            <button type="submit" class="jp-btn jp-btn-primary jp-btn-lg">Send reset link</button>
+            <button type="button" class="jp-textbtn" data-tab="login">Back to sign in</button>
+        </form>
 
-    'DOMContentLoaded',
+        <?php if ($googleId !== ''): include __DIR__ . '/includes/google-signin.php'; endif; ?>
+        <button type="button" class="jp-modal-keep" data-close-auth>Keep shopping</button>
+    </div>
+</div>
+<?php endif; ?>
 
-    function () {
-
-        const form =
-
-            document.getElementById(
-                'forgotPasswordForm'
-            );
-
-        if (form) {
-
-            form.action =
-
-                '/forgot-password-ajax';
-
-        }
-
-    }
-
-);
-
-</script>
-
-<?php
-
-include
-__DIR__ .
-'/includes/footer.php';
-
-?>
+</body>
+</html>

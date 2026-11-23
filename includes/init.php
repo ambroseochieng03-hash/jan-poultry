@@ -216,6 +216,32 @@ Session::validateDatabaseSession(
     $pdo
 );
 
+/*
+|--------------------------------------------------------------------------
+| Long-lasting customer sessions
+|--------------------------------------------------------------------------
+| If the PHP session is gone (browser closed, idle cleanup, network change)
+| but the customer has a valid remember-me cookie, sign them back in.
+*/
+require_once __DIR__ . '/../app/helpers/RememberMe.php';
+if (
+    !isset($_SESSION['admin'])
+    && !isset($_SESSION['customer'])
+    && !isset($_SESSION['guest'])
+    && !empty($_COOKIE[RememberMe::cookieName()])
+    && ($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'OPTIONS'
+) {
+    $rememberedUser = RememberMe::restore($pdo);
+    if ($rememberedUser !== null) {
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            Session::start();
+        }
+        unset($_SESSION['session_expired']);
+        require_once __DIR__ . '/../app/services/AuthService.php';
+        (new AuthService())->authenticate($rememberedUser, false);
+    }
+}
+
 if (isset($_SESSION['session_expired'])) {
 
     unset($_SESSION['session_expired']);

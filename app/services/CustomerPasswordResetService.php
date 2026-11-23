@@ -294,7 +294,7 @@ class CustomerPasswordResetService
                         color:#071426;
                     '>
 
-                    Hello, {$user['name']} 👋
+                    Hello, {$user['name']}
 
                 </h2>
 

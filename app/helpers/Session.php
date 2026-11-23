@@ -125,7 +125,7 @@ class Session
 
         if (
             time() - $_SESSION['last_activity']
-            <= SESSION_IDLE_TIMEOUT
+            <= (isset($_SESSION['customer']) ? CUSTOMER_SESSION_IDLE_TIMEOUT : SESSION_IDLE_TIMEOUT)
         ) {
             return;
         }
@@ -150,7 +150,7 @@ class Session
 
         if (
             time() - $_SESSION['created_at']
-            <= SESSION_ABSOLUTE_TIMEOUT
+            <= (isset($_SESSION['customer']) ? CUSTOMER_SESSION_ABSOLUTE_TIMEOUT : SESSION_ABSOLUTE_TIMEOUT)
         ) {
             return;
         }

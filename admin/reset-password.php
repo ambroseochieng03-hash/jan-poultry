@@ -332,7 +332,7 @@ window.addEventListener(
 
         <div class="reset-icon">
 
-            🔐
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
 
         </div>
 
@@ -377,7 +377,7 @@ window.addEventListener(
                         class="toggle-password"
                         onclick="togglePassword('password')">
 
-                        👁
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
 
                     </button>
 
@@ -412,7 +412,7 @@ window.addEventListener(
                         class="toggle-password"
                         onclick="togglePassword('password_confirmation')">
 
-                        👁
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
 
                     </button>
 
@@ -437,27 +437,27 @@ window.addEventListener(
 
 
                     <li id="lengthRule">
-                        ❌ At least 12 characters
+                        ✕ At least 12 characters
                     </li>
 
 
                     <li id="upperRule">
-                        ❌ One uppercase letter
+                        ✕ One uppercase letter
                     </li>
 
 
                     <li id="lowerRule">
-                        ❌ One lowercase letter
+                        ✕ One lowercase letter
                     </li>
 
 
                     <li id="numberRule">
-                        ❌ One number
+                        ✕ One number
                     </li>
 
 
                     <li id="symbolRule">
-                        ❌ One special character
+                        ✕ One special character
                     </li>
 
 

@@ -132,7 +132,7 @@ if (
 
             <div class="jp-cart-placeholder">
 
-                🐔
+                <img src="/assets/img/no-image.svg" alt="" width="48" height="48">
 
             </div>
 
@@ -433,8 +433,8 @@ document.addEventListener(
             icon:
                 <?= json_encode(
                     $flash['type'] === 'error'
-                        ? '⚠️'
-                        : '✅'
+                        ? '!'
+                        : '✓'
                 ) ?>,
 
             title:

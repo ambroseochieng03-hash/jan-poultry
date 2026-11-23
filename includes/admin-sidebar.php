@@ -16,6 +16,10 @@
             Products
         </a>
 
+        <a href="/admin/categories">
+            Categories
+        </a>
+
         <a href="/admin/orders">
             Orders
         </a>

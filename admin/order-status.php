@@ -191,8 +191,8 @@ if ($newStatus === 'accepted') {
 
             (
                 $result['success']
-                ? '✅'
-                : '⚠️'
+                ? '✓'
+                : '!'
             ),
 
         'autoClose' =>

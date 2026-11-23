@@ -5,6 +5,11 @@ declare(strict_types=1);
 require_once
 __DIR__ .
 '/../includes/init.php';
+if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'GET') {
+    header('Location: /?auth=login');
+    exit;
+}
+
 
 require_once
 __DIR__ .
@@ -83,7 +88,7 @@ if (
     ) {
 
         header(
-            'Location: /dashboard'
+            'Location: ' . Auth::landingPath()
         );
 
         exit;
@@ -144,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ) {
 
                 header(
-                    'Location: /dashboard'
+                    'Location: ' . Auth::landingPath()
                 );
 
                 exit;
@@ -210,7 +215,7 @@ __DIR__ .
             class="password-toggle"
             onclick="togglePassword('password')">
 
-            👁
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
 
         </span>
 
@@ -225,6 +230,8 @@ __DIR__ .
     </button>
 
 </form>
+
+<?php include __DIR__ . '/../includes/google-signin.php'; ?>
 
 <div class="auth-links">
 

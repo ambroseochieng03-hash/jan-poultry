@@ -229,7 +229,7 @@ class InventoryService
 
                     Increase the stock before accepting this order.',
 
-                'icon' => '⚠️',
+                'icon' => '!',
 
                 'autoClose' => 4000
 
@@ -281,7 +281,7 @@ class InventoryService
 
                         '" and increase the stock quantity.',
 
-                'icon' => '⚠️',
+                'icon' => '!',
 
                 'autoClose' => 4000
 

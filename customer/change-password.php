@@ -140,6 +140,10 @@ try {
 
     ]);
 
+    /* Sign out every other device, keep this one signed in. */
+    RememberMe::forgetAll($db, (int) $userId);
+    RememberMe::issue($db, (int) $userId);
+
     $_SESSION['profile_message'] =
 
         "Password updated successfully.";

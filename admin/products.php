@@ -3,6 +3,9 @@
 require_once
 __DIR__ .
 '/../includes/init.php';
+require_once __DIR__ . '/../app/models/Category.php';
+$categoryNames = (new Category())->allNames();
+
 
 require_once
 __DIR__ .
@@ -140,7 +143,7 @@ unset(
 
             <div class="products-admin-placeholder">
 
-                🐔
+                <img src="/assets/img/no-image.svg" alt="" width="48" height="48">
 
             </div>
 
@@ -364,10 +367,12 @@ class="products-edit-modal">
             id="edit-price"
             required>
 
-            <input
-            type="text"
-            name="category"
-            id="edit-category">
+            <select name="category" id="edit-category">
+    <option value="">No category</option>
+    <?php foreach ($categoryNames as $categoryName): ?>
+        <option value="<?= htmlspecialchars($categoryName) ?>"><?= htmlspecialchars($categoryName) ?></option>
+    <?php endforeach; ?>
+</select>
 
             <select
             name="product_type"
@@ -688,10 +693,12 @@ class="products-edit-modal">
             placeholder="Description"
             required></textarea>
 
-            <input
-            type="text"
-            name="category"
-            placeholder="Category">
+            <select name="category">
+    <option value="">No category</option>
+    <?php foreach ($categoryNames as $categoryName): ?>
+        <option value="<?= htmlspecialchars($categoryName) ?>"><?= htmlspecialchars($categoryName) ?></option>
+    <?php endforeach; ?>
+</select>
 
             <select
             name="product_type"

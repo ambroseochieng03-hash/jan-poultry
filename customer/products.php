@@ -56,8 +56,8 @@ id="flashModal">
 
             <?=
             $flash['type'] === 'success'
-            ? '✅'
-            : '⚠️'
+            ? '✓'
+            : '!'
             ?>
 
         </div>
@@ -163,7 +163,7 @@ id="flashModal">
             <?php else: ?>
 
             <div class="product-placeholder">
-            🐔
+            <img src="/assets/img/no-image.svg" alt="" width="48" height="48">
             </div>
 
             <?php endif; ?>

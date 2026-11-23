@@ -83,8 +83,8 @@
                 ??
                 (
                     options.success
-                        ? "✅"
-                        : "⚠️"
+                        ? "✓"
+                        : "!"
                 );
 
             title.textContent =

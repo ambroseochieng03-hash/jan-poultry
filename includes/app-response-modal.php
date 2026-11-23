@@ -8,7 +8,7 @@ class="jp-app-modal">
         id="jpAppModalIcon"
         class="jp-app-modal-icon">
 
-            ✅
+            ✓
 
         </div>
 

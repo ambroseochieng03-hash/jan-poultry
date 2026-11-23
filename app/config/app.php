@@ -55,6 +55,11 @@ define(
     60 * 60 * 8
 );
 
+/* Registered customers stay signed in much longer than staff (they also get a
+   90-day remember-me cookie, see RememberMe). Admin timeouts above are unchanged. */
+define('CUSTOMER_SESSION_IDLE_TIMEOUT', 60 * 60 * 24 * 30);
+define('CUSTOMER_SESSION_ABSOLUTE_TIMEOUT', 60 * 60 * 24 * 90);
+
 define(
     'SESSION_NAME',
     'JANPOULTRYSESSID'
