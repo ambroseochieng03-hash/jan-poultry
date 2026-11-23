@@ -188,3 +188,6 @@ h1, h2, h3, h4, p { margin: 0; }
 .jp-menu-links a { display: block; padding: 15px 6px; border-bottom: 1px solid var(--line); font-size: 19px; font-weight: 700; color: var(--g900); text-decoration: none; }
 .jp-menu-actions { display: grid; gap: 10px; margin-top: 18px; }
 @media (min-width: 901px) { .jp-menu { display: none !important; } }
+
+.jp-link-btn { background: none; border: 0; padding: 0; font: inherit; color: inherit; text-decoration: underline; cursor: pointer; }
+.jp-link-btn[hidden] { display: none; }

@@ -151,6 +151,7 @@ function jp_type_label(string $t): string
                 <a class="jp-btn jp-btn-line jp-btn-lg" href="/?auth=login" data-auth="login">Sign in</a>
                 <a class="jp-btn jp-btn-primary jp-btn-lg" href="/?auth=register" data-auth="register">Create account</a>
             <?php endif; ?>
+            <button type="button" class="jp-btn jp-btn-line jp-btn-lg" data-install-app hidden>Install the app</button>
         </div>
     </div>
 </div>
@@ -307,6 +308,7 @@ function jp_type_label(string $t): string
             <p><a href="/?auth=login" data-auth="login">Sign in</a></p>
             <p><a href="/?auth=register" data-auth="register">Create account</a></p>
             <p><a href="/?auth=guest" data-auth="guest">Continue as guest</a></p>
+            <p><button type="button" class="jp-link-btn" data-install-app hidden>Install the app</button></p>
         </div>
     </div>
     <div class="jp-wrap jp-copy">&copy; <?= date('Y') ?> JAN Poultry</div>
