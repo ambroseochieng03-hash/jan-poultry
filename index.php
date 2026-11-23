@@ -72,7 +72,7 @@ function jp_type_label(string $t): string
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= htmlspecialchars($title) ?></title>
     <meta name="description" content="<?= htmlspecialchars($desc) ?>">
-    <meta name="theme-color" content="#166534">
+    <meta name="theme-color" content="#0b4a24">
     <link rel="canonical" href="<?= htmlspecialchars($baseUrl) ?>/">
     <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
     <meta property="og:type" content="website">
@@ -93,7 +93,7 @@ function jp_type_label(string $t): string
 </head>
 <body>
 
-<header class="jp-nav">
+<header class="jp-nav" id="jpNav">
     <div class="jp-wrap jp-nav-row">
         <a href="/" class="jp-brand">
             <img src="/assets/img/logo.svg" alt="" width="36" height="36">
@@ -117,35 +117,37 @@ function jp_type_label(string $t): string
                 <a class="jp-btn jp-btn-primary" href="/?auth=register" data-auth="register">Create account</a>
             <?php endif; ?>
         </div>
+        <button type="button" class="jp-burger" id="jpBurger" aria-label="Menu" aria-expanded="false" aria-controls="jpNav"><span></span></button>
     </div>
 </header>
 
 <main>
     <section class="jp-hero">
+        <img class="jp-hero-img" src="/assets/img/hero.webp" alt="" width="1112" height="400" fetchpriority="high">
         <div class="jp-wrap jp-hero-grid">
-            <div>
-                <p class="jp-eyebrow">JAN Poultry</p>
-                <h1>Live chicken and fresh chicken meat, delivered to your door.</h1>
-                <p class="jp-lead">See what is available today, add it to your order and we bring it to your address. You do not need an account to start.</p>
+            <div class="jp-hero-copy">
+                <h1>Fresh from our farm to your door.</h1>
+                <p class="jp-lead">Live chicken and fresh chicken meat, ordered in minutes. No account needed to start.</p>
                 <div class="jp-hero-cta">
-                    <a class="jp-btn jp-btn-primary jp-btn-lg" href="#shop">Shop now</a>
+                    <a class="jp-btn jp-btn-gold jp-btn-lg" href="#shop">Shop now</a>
                     <?php if (!$isCustomer && !$isGuest && !$isStaff): ?>
-                        <a class="jp-btn jp-btn-line jp-btn-lg" href="/?auth=guest" data-auth="guest">Continue as guest</a>
+                        <a class="jp-btn jp-btn-outline jp-btn-lg" href="/?auth=guest" data-auth="guest">Continue as guest</a>
+                    <?php else: ?>
+                        <a class="jp-btn jp-btn-outline jp-btn-lg" href="#how">How it works</a>
                     <?php endif; ?>
                 </div>
-                <ul class="jp-points">
-                    <li>No account needed to order</li>
-                    <li>Track your order after you place it</li>
-                    <li>Delivered to your address</li>
-                </ul>
             </div>
-            <div class="jp-hero-media" aria-hidden="true">
-                <?php if ($heroProduct): ?>
-                    <img src="<?= htmlspecialchars(Media::url($heroProduct['image'])) ?>" alt="" fetchpriority="high">
-                <?php else: ?>
-                    <img class="jp-hero-logo" src="/assets/img/logo.svg" alt="">
-                <?php endif; ?>
-            </div>
+        </div>
+    </section>
+
+    <section class="jp-trust" aria-label="Why order from us">
+        <div class="jp-wrap">
+            <ul class="jp-trust-grid">
+                <li><span class="jp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Zm-1.2 14-3.6-3.6 1.4-1.4 2.2 2.2 4.6-4.6 1.4 1.4L10.8 16Z"/></svg></span><h3>Farm fresh</h3><p>Raised and handled with care</p></li>
+                <li><span class="jp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h12v9h1.2l1.3-4H20l2 3v5h-2a2.5 2.5 0 0 1-5 0H9.5a2.5 2.5 0 0 1-5 0H2V5Zm15.2 6-.7 2H20l-1-2h-1.8ZM7 17a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm10 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM0 7h4v2H0V7Zm1 4h3v2H1v-2Z"/></svg></span><h3>Delivered to you</h3><p>Straight to your address</p></li>
+                <li><span class="jp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 2h3.5l.7 3H22l-2.4 9H7.4l.4 2H20v2H6.2L3 4H1V2Zm7 18a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm9 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/></svg></span><h3>Easy ordering</h3><p>Add to order, no sign-up</p></li>
+                <li><span class="jp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a8 8 0 0 0-8 8v6a3 3 0 0 0 3 3h1v-8H6v-1a6 6 0 0 1 12 0v1h-2v8h2v1h-5v2h5a3 3 0 0 0 3-3v-9a8 8 0 0 0-8-8Z"/></svg></span><h3>We are here to help</h3><p>Reach us from the footer</p></li>
+            </ul>
         </div>
     </section>
 
@@ -155,6 +157,18 @@ function jp_type_label(string $t): string
                 <h2>What is available</h2>
                 <?php if ($isCustomer || $isGuest): ?><a class="jp-link" href="/products">Open the full shop</a><?php endif; ?>
             </div>
+
+            <?php
+            $types = [];
+            foreach ($products as $p) { $types[(string) $p['product_type']] = true; }
+            $tileImg = ['live_chicken' => '/assets/img/tile-live.webp', 'meat' => '/assets/img/tile-meat.webp'];
+            if (count(array_intersect_key($types, $tileImg)) > 1): ?>
+                <div class="jp-tiles">
+                    <?php foreach ($tileImg as $t => $img): if (!isset($types[$t])) { continue; } ?>
+                        <button type="button" class="jp-tile" data-type="<?= htmlspecialchars($t) ?>" aria-pressed="false"><img src="<?= $img ?>" alt="" loading="lazy"><span><?= htmlspecialchars(jp_type_label($t)) ?></span></button>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
 
             <?php if ($categories): ?>
                 <div class="jp-chips" role="tablist" aria-label="Categories">
@@ -177,7 +191,7 @@ function jp_type_label(string $t): string
                         $p['age_weeks'] ? (int) $p['age_weeks'] . ' weeks' : null,
                     ]);
                 ?>
-                <article class="jp-card" data-category="<?= htmlspecialchars((string) $p['category']) ?>">
+                <article class="jp-card" data-type="<?= htmlspecialchars((string) $p['product_type']) ?>" data-category="<?= htmlspecialchars((string) $p['category']) ?>">
                     <div class="jp-card-img">
                         <?php if (!empty($p['image'])): ?>
                             <?php if (Media::isVideo($p['image'])): ?>

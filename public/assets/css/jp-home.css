@@ -1,8 +1,8 @@
-/* JAN Poultry public home page */
+/* JAN Poultry public home page: farm green and golden yellow */
 :root {
-    --g900: #14532d; --g700: #166534; --g600: #15803d; --g100: #dcfce7; --g50: #f0fdf4;
-    --amber: #f59e0b; --ink: #14231a; --muted: #5b6b61; --line: #e3eae5; --bg: #fafcfa; --white: #fff;
-    --radius: 14px;
+    --g900: #0b4a24; --g700: #0f5c2e; --g600: #1a7a3e; --g100: #dff1e3; --g50: #f0f7f1;
+    --amber: #fbbf0f; --amber-d: #e0a800; --ink: #10261a; --muted: #55675b; --line: #dfe9e1; --bg: #f7fbf8; --white: #fff;
+    --radius: 18px; --nav-h: 64px;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -10,44 +10,70 @@ body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, san
 img { max-width: 100%; display: block; }
 a { color: inherit; }
 h1, h2, h3, h4, p { margin: 0; }
-.jp-wrap { width: min(1140px, 100% - 32px); margin-inline: auto; }
+.jp-wrap { width: min(1180px, 100% - 32px); margin-inline: auto; }
 
 /* buttons */
-.jp-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 16px; border-radius: 10px; border: 1px solid transparent; font: inherit; font-size: 14px; font-weight: 600; text-decoration: none; cursor: pointer; transition: background .15s, border-color .15s, transform .05s; white-space: nowrap; }
+.jp-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 18px; border-radius: 999px; border: 1px solid transparent; font: inherit; font-size: 14px; font-weight: 700; text-decoration: none; cursor: pointer; transition: background .15s, border-color .15s, transform .05s; white-space: nowrap; }
 .jp-btn:active { transform: translateY(1px); }
+.jp-btn:focus-visible, .jp-chip:focus-visible, .jp-burger:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
 .jp-btn-primary { background: var(--g700); color: #fff; }
 .jp-btn-primary:hover { background: var(--g900); }
+.jp-btn-gold { background: var(--amber); color: #2b2200; }
+.jp-btn-gold:hover { background: var(--amber-d); }
 .jp-btn-line { background: #fff; color: var(--g700); border-color: #b9d9c4; }
 .jp-btn-line:hover { background: var(--g50); }
 .jp-btn-ghost { background: transparent; color: var(--ink); }
 .jp-btn-ghost:hover { background: var(--g50); }
-.jp-btn-lg { padding: 12px 22px; font-size: 15px; }
+.jp-btn-lg { padding: 13px 28px; font-size: 15px; }
 .jp-btn-disabled { background: #eef1ef; color: #8a978f; cursor: not-allowed; }
-.jp-badge { min-width: 20px; height: 20px; padding: 0 6px; border-radius: 10px; background: var(--amber); color: #3b2500; font-size: 12px; display: inline-flex; align-items: center; justify-content: center; }
+.jp-badge { min-width: 20px; height: 20px; padding: 0 6px; border-radius: 10px; background: var(--amber); color: #2b2200; font-size: 12px; display: inline-flex; align-items: center; justify-content: center; }
 .jp-badge[hidden] { display: none; }
 
-/* nav */
-.jp-nav { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-.jp-nav-row { display: flex; align-items: center; gap: 20px; min-height: 60px; }
+/* floating nav */
+.jp-nav { position: sticky; top: 10px; z-index: 30; width: min(1240px, 100% - 20px); margin: 10px auto 0; background: #fff; border-radius: 30px; box-shadow: 0 10px 30px -14px rgba(5,40,20,.55); }
+.jp-nav-row { display: flex; align-items: center; gap: 18px; min-height: var(--nav-h); padding: 0 14px 0 18px; }
 .jp-brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; text-decoration: none; color: var(--g900); }
+.jp-brand img { border-radius: 10px; }
 .jp-brand-light { color: #fff; }
-.jp-links { display: flex; gap: 6px; margin-left: 8px; }
-.jp-links a { padding: 8px 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--muted); }
+.jp-links { display: flex; gap: 4px; margin-left: 8px; }
+.jp-links a { padding: 8px 14px; border-radius: 999px; text-decoration: none; font-size: 14px; font-weight: 600; color: var(--muted); }
 .jp-links a:hover { color: var(--g900); background: var(--g50); }
 .jp-actions { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+.jp-burger { display: none; margin-left: 8px; width: 44px; height: 44px; border: 0; border-radius: 14px; background: var(--g50); cursor: pointer; padding: 0; place-items: center; }
+.jp-burger span, .jp-burger span::before, .jp-burger span::after { display: block; width: 22px; height: 3px; border-radius: 2px; background: var(--g900); content: ""; position: relative; }
+.jp-burger span::before { position: absolute; top: -7px; }
+.jp-burger span::after { position: absolute; top: 7px; }
 
 /* hero */
-.jp-hero { background: linear-gradient(180deg, var(--g50), #fff); border-bottom: 1px solid var(--line); }
-.jp-hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items: center; padding: 40px 0; }
-.jp-eyebrow { color: var(--g600); font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
-.jp-hero h1 { font-size: clamp(28px, 4.2vw, 44px); line-height: 1.12; letter-spacing: -.02em; color: var(--g900); }
-.jp-lead { margin-top: 14px; font-size: 17px; color: var(--muted); max-width: 520px; }
-.jp-hero-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
-.jp-points { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--muted); font-size: 14px; }
+.jp-hero { position: relative; overflow: hidden; background: var(--g900); color: #fff; margin-top: calc(-1 * (var(--nav-h) + 10px)); padding: calc(var(--nav-h) + 10px + 56px) 0 112px; border-radius: 0 0 50% 50% / 0 0 56px 56px; }
+.jp-hero-img { position: absolute; top: 0; right: 0; width: 66%; height: 100%; object-fit: cover; object-position: 30% 50%; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 38%); mask-image: linear-gradient(90deg, transparent 0, #000 38%); }
+.jp-hero-grid { position: relative; z-index: 1; }
+.jp-hero-copy { max-width: 520px; }
+.jp-hero h1 { font-size: clamp(32px, 5vw, 56px); line-height: 1.06; letter-spacing: -.025em; font-weight: 800; }
+.jp-lead { margin-top: 16px; font-size: 18px; color: #d3e8d9; max-width: 460px; }
+.jp-hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.jp-btn-outline { background: transparent; color: #fff; border-color: rgba(255,255,255,.85); }
+.jp-btn-outline:hover { background: rgba(255,255,255,.12); }
+.jp-points { list-style: none; padding: 0; margin: 24px 0 0; display: flex; flex-wrap: wrap; gap: 8px 20px; color: #bcd9c5; font-size: 14px; }
 .jp-points li::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--amber); margin-right: 8px; }
-.jp-hero-media { aspect-ratio: 4 / 3; border-radius: 20px; overflow: hidden; background: var(--g100); box-shadow: 0 18px 40px -22px rgba(20,83,45,.5); }
-.jp-hero-media img { width: 100%; height: 100%; object-fit: cover; }
-.jp-hero-media .jp-hero-logo { width: 38%; height: auto; margin: 16% auto 0; object-fit: contain; }
+
+/* trust cards */
+.jp-trust { position: relative; z-index: 2; margin-top: -64px; }
+.jp-trust-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.jp-trust-grid li { background: #fff; border-radius: var(--radius); padding: 18px 16px; text-align: center; box-shadow: 0 14px 30px -22px rgba(5,40,20,.6); }
+.jp-ico { display: grid; place-items: center; width: 64px; height: 64px; margin: 0 auto 10px; border-radius: 46% 54% 50% 50% / 55% 45% 55% 45%; background: #fdf3c4; color: var(--g900); }
+.jp-ico svg { width: 34px; height: 34px; fill: currentColor; }
+.jp-trust-grid h3 { font-size: 16px; }
+.jp-trust-grid p { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+/* type tiles */
+.jp-tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 22px; }
+.jp-tile { position: relative; display: block; width: 100%; padding: 0; border: 0; border-radius: var(--radius); overflow: hidden; aspect-ratio: 16 / 7; cursor: pointer; background: var(--g100); text-align: left; font: inherit; color: #fff; }
+.jp-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+.jp-tile:hover img { transform: scale(1.03); }
+.jp-tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(8,45,22,.78), transparent 60%); }
+.jp-tile span { position: absolute; left: 16px; bottom: 12px; z-index: 1; font-weight: 800; font-size: 20px; }
+.jp-tile.is-active { outline: 4px solid var(--amber); outline-offset: -4px; }
 
 /* sections */
 .jp-section { padding: 36px 0; }
@@ -90,10 +116,10 @@ h1, h2, h3, h4, p { margin: 0; }
 .jp-cta-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 .jp-cta .jp-btn-line { background: transparent; color: #fff; border-color: rgba(255,255,255,.5); }
 .jp-cta .jp-btn-line:hover { background: rgba(255,255,255,.1); }
-.jp-cta .jp-btn-primary { background: var(--amber); color: #3b2500; }
+.jp-cta .jp-btn-primary { background: var(--amber); color: #2b2200; }
 
 /* footer */
-.jp-footer { background: #0f2a1a; color: #cfe3d6; margin-top: 12px; padding-top: 32px; }
+.jp-footer { background: #072d17; color: #cfe3d6; margin-top: 12px; padding-top: 32px; }
 .jp-foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 24px; }
 .jp-footer h4 { color: #fff; margin-bottom: 8px; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; }
 .jp-footer p { font-size: 14px; margin-top: 4px; }
@@ -119,20 +145,27 @@ h1, h2, h3, h4, p { margin: 0; }
 .jp-modal-keep { display: block; margin: 14px auto 0; background: none; border: 0; color: var(--muted); font: inherit; font-size: 14px; cursor: pointer; text-decoration: underline; }
 
 /* responsive */
-@media (max-width: 860px) {
-    .jp-hero-grid { grid-template-columns: 1fr; padding: 28px 0; }
-    .jp-hero-media { order: -1; aspect-ratio: 16 / 9; }
+@media (max-width: 900px) {
+    .jp-burger { display: grid; }
+    .jp-nav-row { flex-wrap: wrap; }
+    .jp-links, .jp-actions { display: none; width: 100%; }
+    .jp-nav.is-open .jp-links { display: flex; flex-direction: column; margin: 0; order: 3; }
+    .jp-nav.is-open .jp-actions { display: flex; flex-wrap: wrap; order: 4; padding-bottom: 14px; }
+    .jp-nav.is-open { border-radius: 24px; }
+    .jp-hero-img { width: 100%; opacity: .55; -webkit-mask-image: none; mask-image: none; }
+    .jp-hero { padding-bottom: 96px; }
+    .jp-trust-grid { grid-template-columns: repeat(2, 1fr); }
     .jp-steps, .jp-foot-grid { grid-template-columns: 1fr; }
-    .jp-links { display: none; }
 }
 @media (max-width: 560px) {
-    .jp-nav-row { gap: 8px; }
-    .jp-brand span { display: none; }
-    .jp-actions .jp-btn { padding: 8px 10px; font-size: 13px; }
+    .jp-brand span { font-size: 16px; }
+    .jp-tiles { grid-template-columns: 1fr; }
+    .jp-tile { aspect-ratio: 16 / 8; }
     .jp-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .jp-card-foot { flex-direction: column; align-items: stretch; }
     .jp-card-foot .jp-btn { width: 100%; }
     .jp-section { padding: 26px 0; }
+    .jp-hero-cta .jp-btn { flex: 1 1 100%; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
 

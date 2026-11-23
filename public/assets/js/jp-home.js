@@ -25,23 +25,53 @@
         document.querySelectorAll('[data-cart-count-text]').forEach(function (b) { b.textContent = n; });
     }
 
-    /* Category filter */
+    /* Category and type filter */
     var chips = document.querySelectorAll('.jp-chip');
+    var tiles = document.querySelectorAll('.jp-tile');
     var cards = document.querySelectorAll('.jp-card');
     var noMatch = document.getElementById('jpNoMatch');
+    var curCat = '*';
+    var curType = '';
+    function applyFilter() {
+        var shown = 0;
+        cards.forEach(function (card) {
+            var show = (curCat === '*' || card.dataset.category === curCat) && (curType === '' || card.dataset.type === curType);
+            card.hidden = !show;
+            if (show) { shown++; }
+        });
+        if (noMatch) { noMatch.hidden = shown > 0; }
+    }
     chips.forEach(function (chip) {
         chip.addEventListener('click', function () {
-            var f = chip.dataset.filter;
+            curCat = chip.dataset.filter;
             chips.forEach(function (c) { c.classList.toggle('is-active', c === chip); });
-            var shown = 0;
-            cards.forEach(function (card) {
-                var show = f === '*' || card.dataset.category === f;
-                card.hidden = !show;
-                if (show) { shown++; }
-            });
-            if (noMatch) { noMatch.hidden = shown > 0; }
+            applyFilter();
         });
     });
+    tiles.forEach(function (tile) {
+        tile.addEventListener('click', function () {
+            curType = curType === tile.dataset.type ? '' : tile.dataset.type;
+            tiles.forEach(function (t) {
+                var on = t.dataset.type === curType;
+                t.classList.toggle('is-active', on);
+                t.setAttribute('aria-pressed', on ? 'true' : 'false');
+            });
+            applyFilter();
+        });
+    });
+
+    /* Mobile menu */
+    var nav = document.getElementById('jpNav');
+    var burger = document.getElementById('jpBurger');
+    if (nav && burger) {
+        burger.addEventListener('click', function () {
+            var open = nav.classList.toggle('is-open');
+            burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        nav.querySelectorAll('.jp-links a').forEach(function (a) {
+            a.addEventListener('click', function () { nav.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false'); });
+        });
+    }
 
     /* Sign-in modal: tabs, forms, open/close */
     var tabs = modal ? modal.querySelectorAll('.jp-tabs [data-tab]') : [];
