@@ -11,7 +11,7 @@
 
     inset:0;
 
-    background:rgba(5,12,20,.78);
+    background:rgba(5,20,12,.78);
 
     backdrop-filter:blur(8px);
 
@@ -85,7 +85,7 @@
 
     padding:22px 26px;
 
-    background:#071426;
+    background:#092416;
 
     color:#ffffff;
 
@@ -95,7 +95,7 @@
 
     margin:0;
 
-    color:#d4af37;
+    color:#fbbf0f;
 
     font-size:1.5rem;
 
@@ -197,7 +197,7 @@
 
 .jp-location-info strong{
 
-    color:#071426;
+    color:#092416;
 
 }
 
@@ -257,7 +257,7 @@
 
 .jp-location-secondary{
 
-    background:#071426;
+    background:#092416;
 
     color:#ffffff;
 

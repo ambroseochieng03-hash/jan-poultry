@@ -8,10 +8,10 @@
 
 :root{
 
-    --gold:#d4af37;
-    --gold-light:#e7c766;
-    --navy:#081320;
-    --navy-2:#10233d;
+    --gold:#fbbf0f;
+    --gold-light:#fcd151;
+    --navy:#082013;
+    --navy-2:#103d25;
     --glass:rgba(255,255,255,.06);
     --glass-border:rgba(255,255,255,.12);
     --text:#ffffff;
@@ -40,7 +40,7 @@
     padding:32px;
 
     background:
-        radial-gradient(circle at top,#1d3355,#081320);
+        radial-gradient(circle at top,#1d5537,#082013);
 
     overflow-x:hidden;
 
@@ -70,7 +70,7 @@
 
         0 20px 60px rgba(0,0,0,.45),
 
-        0 0 35px rgba(212,175,55,.08);
+        0 0 35px rgba(248,191,19,.08);
     
     animation:authFade .7s ease;
     
@@ -91,7 +91,7 @@
 
         0 35px 80px rgba(0,0,0,.55),
 
-        0 0 45px rgba(212,175,55,.16);
+        0 0 45px rgba(248,191,19,.16);
 
 }
 
@@ -157,7 +157,7 @@
 
     text-shadow:
 
-        0 0 18px rgba(212,175,55,.25);
+        0 0 18px rgba(248,191,19,.25);
 
 }
 
@@ -225,7 +225,7 @@
 
     border-color:
 
-        rgba(212,175,55,.45);
+        rgba(248,191,19,.45);
 
     box-shadow:
 
@@ -255,7 +255,7 @@
 
             transparent,
 
-            rgba(212,175,55,.35),
+            rgba(248,191,19,.35),
 
             transparent
 
@@ -354,7 +354,7 @@
     border-color:var(--gold);
 
     box-shadow:
-        0 0 0 3px rgba(212,175,55,.18);
+        0 0 0 3px rgba(248,191,19,.18);
 
     transform:
         translateY(-1px);    
@@ -431,7 +431,7 @@
 
     box-shadow:
 
-        0 12px 24px rgba(212,175,55,.25);
+        0 12px 24px rgba(248,191,19,.25);
 
 }
 
@@ -594,7 +594,7 @@
 
     background:
 
-        rgba(212,175,55,.15);
+        rgba(248,191,19,.15);
 
     color:var(--gold);
 
@@ -635,7 +635,7 @@
 
     background:
 
-        rgba(212,175,55,.22);
+        rgba(248,191,19,.22);
 
 }
 
@@ -661,7 +661,7 @@
 
     background:
 
-        rgba(212,175,55,.05);
+        rgba(248,191,19,.05);
 
     top:-120px;
 

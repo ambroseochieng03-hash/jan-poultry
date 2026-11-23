@@ -10,7 +10,7 @@
 
 .customer-sidebar {
     width: 260px;
-    background: #08111f;
+    background: #081f13;
     border-right: 1px solid rgba(255,255,255,.08);
     padding: 25px;
     height: 100vh;
@@ -23,7 +23,7 @@
 
     font-weight: bold;
 
-    color: #d4af37;
+    color: #fbbf0f;
 
     margin-bottom: 40px;
 }
@@ -57,9 +57,9 @@
 .sidebar-menu a:hover {
 
     background:
-    rgba(212,175,55,.15);
+    rgba(248,191,19,.15);
 
-    color: #d4af37;
+    color: #fbbf0f;
 }
 
 /* =======================
@@ -79,7 +79,7 @@
     align-items: center;
     position: sticky;
     top: 0;
-    background: #0b1524; /* Make sure this matches your exact global body background color if it's slightly different */
+    background: #0b2417; /* Make sure this matches your exact global body background color if it's slightly different */
     padding: 30px 0 20px 0; /* Extra top padding seals the gap completely to the absolute top edge */
     margin-bottom: 30px;
     z-index: 100;
@@ -124,7 +124,7 @@
 
     font-size: 2rem;
 
-    color: #d4af37;
+    color: #fbbf0f;
 
     font-weight: bold;
 }
@@ -201,7 +201,7 @@
         gap: 15px;
         position: sticky;
         top: 0;
-        background: #0b1524;
+        background: #0b2417;
         padding: 20px 0 15px 0;
         z-index: 100;
         justify-content: flex-start !important; /* Overrides space-between to bring the text right next to the button */
@@ -217,7 +217,7 @@
 
     display: none;
 
-    background: #d4af37;
+    background: #fbbf0f;
 
     border: none;
 
@@ -334,7 +334,7 @@
     margin-bottom: 8px;
 
     color:
-    #d4af37;
+    #fbbf0f;
 }
 
 .product-price {
@@ -372,7 +372,7 @@
 
     padding:12px 18px;
 
-    background:#d4af37;
+    background:#fbbf0f;
 
     color:black;
 

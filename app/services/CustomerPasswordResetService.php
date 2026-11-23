@@ -252,7 +252,7 @@ class CustomerPasswordResetService
 
             <div
                 style='
-                    background:#071426;
+                    background:#092416;
                     padding:35px;
                     text-align:center;
                 '>
@@ -260,7 +260,7 @@ class CustomerPasswordResetService
                 <h1
                     style='
                         margin:0;
-                        color:#d4af37;
+                        color:#fbbf0f;
                         letter-spacing:1px;
                     '>
 
@@ -291,7 +291,7 @@ class CustomerPasswordResetService
                 <h2
                     style='
                         margin-top:0;
-                        color:#071426;
+                        color:#092416;
                     '>
 
                     Hello, {$user['name']}
@@ -323,8 +323,8 @@ class CustomerPasswordResetService
 
                         style='
                             display:inline-block;
-                            background:#d4af37;
-                            color:#071426;
+                            background:#fbbf0f;
+                            color:#092416;
                             text-decoration:none;
                             font-weight:700;
                             padding:16px 34px;
@@ -366,7 +366,7 @@ class CustomerPasswordResetService
                 <div
                     style='
                         background:#fff8e5;
-                        border-left:4px solid #d4af37;
+                        border-left:4px solid #fbbf0f;
                         padding:16px;
                         margin-top:30px;
                         border-radius:6px;

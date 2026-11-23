@@ -4,13 +4,13 @@
 
 :root {
 
-    --jp-bg: #071426;
-    --jp-bg-light: #10233d;
-    --jp-card: #0f1d31;
-    --jp-card-light: #162845;
+    --jp-bg: #092416;
+    --jp-bg-light: #103d25;
+    --jp-card: #0f311f;
+    --jp-card-light: #16452c;
 
-    --jp-gold: #d4af37;
-    --jp-gold-hover: #e7c75f;
+    --jp-gold: #fbbf0f;
+    --jp-gold-hover: #fcd04a;
 
     --jp-text: #ffffff;
     --jp-muted: #b8c2d1;
@@ -41,9 +41,9 @@ body.admin-login-body{
     background:
         linear-gradient(
             135deg,
-            #071426,
-            #0d213d,
-            #071426
+            #092416,
+            #0e3c23,
+            #092416
         );
 
     font-family:
@@ -186,7 +186,7 @@ body.admin-login-body{
 
     background:
 
-        rgba(212,175,55,.08);
+        rgba(248,191,19,.08);
 
     top:-150px;
 
@@ -277,14 +277,14 @@ body.admin-login-body{
     max-width:500px;
 
     background:
-        rgba(15,29,49,.88);
+        rgba(15,49,31,.88);
 
     backdrop-filter:blur(20px);
 
     border:
 
         1px solid
-        rgba(212,175,55,.15);
+        rgba(248,191,19,.15);
 
     border-radius:22px;
 
@@ -342,7 +342,7 @@ body.admin-login-body{
 
     padding:16px 18px;
 
-    background:#132640;
+    background:#134028;
 
     color:white;
 
@@ -374,7 +374,7 @@ body.admin-login-body{
     box-shadow:
 
         0 0 0 4px
-        rgba(212,175,55,.15);
+        rgba(248,191,19,.15);
 
 }
 
@@ -430,7 +430,7 @@ body.admin-login-body{
 
     font-weight:700;
 
-    color:#071426;
+    color:#092416;
 
     background:
 
@@ -438,9 +438,9 @@ body.admin-login-body{
 
             135deg,
 
-            #d4af37,
+            #fbbf0f,
 
-            #f0d77a
+            #fdd96d
 
         );
 
@@ -455,7 +455,7 @@ body.admin-login-body{
     box-shadow:
 
         0 15px 35px
-        rgba(212,175,55,.35);
+        rgba(248,191,19,.35);
 
 }
 

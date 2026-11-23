@@ -193,7 +193,7 @@ class AdminController
 
             <div
             style="
-            background:#07111d;
+            background:#071d11;
             padding:30px;
             text-align:center;
             ">
@@ -201,7 +201,7 @@ class AdminController
                 <h1
                 style="
                 margin:0;
-                color:#d4af37;
+                color:#fbbf0f;
                 ">
 
                 JAN POULTRY

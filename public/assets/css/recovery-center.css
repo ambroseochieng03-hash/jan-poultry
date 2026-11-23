@@ -13,12 +13,9 @@
     flex:1;
     min-width:220px;
 
-    background:#111827;
+    background:#11271b;
 
-    border:1px solid rgba(
-        212,
-        175,
-        55,
+    border:1px solid rgba(248,191,19,
         0.2
     );
 
@@ -47,7 +44,7 @@
 
 .recovery-card
 {
-    background:#111827;
+    background:#11271b;
 
     border:1px solid rgba(
         220,
@@ -130,9 +127,9 @@
 
     border-radius:999px;
 
-    background:#1e293b;
+    background:#1e3b2c;
 
-    color:#d4af37;
+    color:#fbbf0f;
 
     font-size:12px;
     font-weight:600;
@@ -218,7 +215,7 @@
 {
     grid-column:1/-1;
 
-    background:#111827;
+    background:#11271b;
 
     border-radius:16px;
 
@@ -256,23 +253,20 @@
 
     border-radius:10px;
 
-    background:#111827;
+    background:#11271b;
 
     color:#cbd5e1;
 
-    border:1px solid rgba(
-        212,
-        175,
-        55,
+    border:1px solid rgba(248,191,19,
         0.15
     );
 }
 
 .recovery-pagination a.active
 {
-    background:#d4af37;
+    background:#fbbf0f;
 
-    color:#07111d;
+    color:#071d11;
 
     font-weight:700;
 }
@@ -338,12 +332,9 @@
     width:90%;
     max-width:600px;
 
-    background:#0f172a;
+    background:#0f2a1c;
 
-    border:1px solid rgba(
-        212,
-        175,
-        55,
+    border:1px solid rgba(248,191,19,
         0.25
     );
 
@@ -362,7 +353,7 @@
 
     margin-bottom:20px;
 
-    color:#d4af37;
+    color:#fbbf0f;
 }
 
 .recovery-modal-close
@@ -427,7 +418,7 @@
 
     border-radius:10px;
 
-    background:#334155;
+    background:#335543;
 
     color:#ffffff;
 

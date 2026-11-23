@@ -35,7 +35,7 @@
 
     min-width:220px;
 
-    background:#d4af37;
+    background:#fbbf0f;
 
     color:#111;
 
@@ -67,7 +67,7 @@
 
 .products-admin-card{
 
-    background:#0d1724;
+    background:#0d2418;
     border:1px solid rgba(255,255,255,.08);
     border-radius:18px;
     overflow:hidden;
@@ -76,7 +76,7 @@
 .products-admin-media{
 
     height:240px;
-    background:#07111d;
+    background:#071d11;
 }
 
 .products-admin-media img,
@@ -113,7 +113,7 @@
 
 .products-admin-price{
 
-    color:#d4af37;
+    color:#fbbf0f;
     font-size:1.2rem;
     font-weight:700;
     margin-bottom:12px;
@@ -218,7 +218,7 @@ button.products-admin-edit{
 
 .products-admin-empty{
 
-    background:#0d1724;
+    background:#0d2418;
     padding:30px;
     border-radius:16px;
 }
@@ -324,13 +324,10 @@ PRODUCT EDIT MODAL
 
     overflow-y:auto;
 
-    background:#0b1624;
+    background:#0b2417;
 
     border:
-    1px solid rgba(
-        212,
-        175,
-        55,
+    1px solid rgba(248,191,19,
         .2
     );
 
@@ -347,7 +344,7 @@ PRODUCT EDIT MODAL
 
 .products-edit-modal-content h2{
 
-    color:#d4af37;
+    color:#fbbf0f;
 
     margin-bottom:25px;
 }
@@ -536,7 +533,7 @@ BUTTONS
 
     width:auto;
 
-    background:#d4af37;
+    background:#fbbf0f;
 
     color:black;
 
@@ -565,7 +562,7 @@ SCROLLBAR
 
 .products-edit-modal-content::-webkit-scrollbar-thumb{
 
-    background:#d4af37;
+    background:#fbbf0f;
 
     border-radius:999px;
 }
@@ -615,7 +612,7 @@ DELETE MODAL
     width:100%;
     max-width:520px;
 
-    background:#0b1624;
+    background:#0b2417;
 
     border:
     1px solid rgba(

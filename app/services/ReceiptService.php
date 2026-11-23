@@ -181,7 +181,7 @@ class ReceiptService
         }
 
         .jp-header{
-            background:#07111d;
+            background:#071d11;
             color:white;
             padding:25px;
             border-radius:8px;
@@ -190,7 +190,7 @@ class ReceiptService
         .jp-logo{
             font-size:28px;
             font-weight:bold;
-            color:#d4af37;
+            color:#fbbf0f;
         }
 
         .jp-subtitle{
@@ -203,8 +203,8 @@ class ReceiptService
         }
 
         .jp-section-title{
-            background:#d4af37;
-            color:#07111d;
+            background:#fbbf0f;
+            color:#071d11;
             padding:8px 12px;
             font-weight:bold;
         }
@@ -246,7 +246,7 @@ class ReceiptService
         }
 
         .jp-table th{
-            background:#07111d;
+            background:#071d11;
             color:white;
             padding:10px;
         }
@@ -261,7 +261,7 @@ class ReceiptService
             text-align:right;
             font-size:18px;
             font-weight:bold;
-            color:#07111d;
+            color:#071d11;
         }
 
         .jp-barcode
@@ -273,7 +273,7 @@ class ReceiptService
         .jp-barcode-title
         {
             font-weight: bold;
-            color: #07111d;
+            color: #071d11;
             margin-bottom: 8px;
         }
 

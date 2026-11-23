@@ -198,7 +198,7 @@
 
     border-radius:10px;
 
-    background:#d4af37;
+    background:#fbbf0f;
 
     color:black;
 
@@ -281,7 +281,7 @@
 
     font-weight:bold;
 
-    color:#d4af37;
+    color:#fbbf0f;
 
     margin:20px 0;
 
@@ -390,7 +390,7 @@
     width: 100%;
     max-width: 420px;
     background: #ffffff;
-    color: #111827;
+    color: #11271b;
     border-radius: 18px;
     padding: 30px;
     text-align: center;
@@ -404,7 +404,7 @@
 
 .jp-cart-modal h2 {
     margin-bottom: 15px;
-    color: #111827;
+    color: #11271b;
 }
 
 .jp-cart-modal p {
@@ -415,7 +415,7 @@
 
 .jp-cart-modal-btn {
     border: none;
-    background: #d4af37;
+    background: #fbbf0f;
     color: #000;
     font-weight: 700;
     padding: 12px 20px;

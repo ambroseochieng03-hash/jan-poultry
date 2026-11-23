@@ -102,7 +102,7 @@
 
 
     border-color:
-    rgba(212,175,55,.35);
+    rgba(248,191,19,.35);
 }
 
 
@@ -146,7 +146,7 @@
 
 
     background:
-    rgba(212,175,55,.15);
+    rgba(248,191,19,.15);
 
 
     font-size:24px;
@@ -160,7 +160,7 @@
 {
     margin:0;
 
-    color:#d4af37;
+    color:#fbbf0f;
 
     font-size:1.15rem;
 }
@@ -290,7 +290,7 @@
     text-decoration:none;
 
 
-    background:#d4af37;
+    background:#fbbf0f;
 
 
     color:#000;
@@ -407,7 +407,7 @@
 
 .jp-notification-empty h3
 {
-    color:#d4af37;
+    color:#fbbf0f;
 
     margin-bottom:10px;
 }

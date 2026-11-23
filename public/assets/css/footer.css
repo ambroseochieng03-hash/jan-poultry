@@ -10,8 +10,8 @@
     background:
         linear-gradient(
             180deg,
-            #08172b 0%,
-            #07111f 100%
+            #0a2918 0%,
+            #071f12 100%
         );
 
     color:#ffffff;
@@ -20,7 +20,7 @@
 
     border-top:
         1px solid
-        rgba(212,175,55,.18);
+        rgba(248,191,19,.18);
 
 }
 
@@ -81,7 +81,7 @@
 
     margin:0;
 
-    color:#d4af37;
+    color:#fbbf0f;
 
     font-size:2.4rem;
 
@@ -93,7 +93,7 @@
 
     text-shadow:
         0 2px 10px
-        rgba(212,175,55,.25);
+        rgba(248,191,19,.25);
 
 }
 
@@ -115,7 +115,7 @@
 
 .footer-brand p span{
 
-    color:#d4af37;
+    color:#fbbf0f;
 
     font-weight:700;
 
@@ -137,7 +137,7 @@
 
 .footer-brand h2{
 
-    color:#d4af37;
+    color:#fbbf0f;
 
     font-size:2rem;
 
@@ -207,7 +207,7 @@
 
     transition:.3s;
 
-    background:#18262f;
+    background:#182f23;
 
 }
 
@@ -309,15 +309,15 @@
 
 .footer-actions a:hover{
 
-    background:#d4af37;
+    background:#fbbf0f;
 
-    color:#071426;
+    color:#092416;
 
     transform:translateY(-3px);
 
     box-shadow:
         0 10px 25px
-        rgba(212,175,55,.30);
+        rgba(248,191,19,.30);
 
 }
 
@@ -359,7 +359,7 @@
 
 .footer-bottom span{
 
-    color:#d4af37;
+    color:#fbbf0f;
 
     letter-spacing:1px;
 
@@ -459,7 +459,7 @@
 
     border-radius:16px;
 
-    background:#15263d;
+    background:#153d28;
 
     color:#e8eef5;
 
@@ -473,7 +473,7 @@
 
     transform:translateY(-4px);
 
-    background:#1d3557;
+    background:#1d5738;
 
     box-shadow:
         0 10px 24px
@@ -511,7 +511,7 @@
 
 .footer-contact-item .fa-clock{
 
-    color:#F4B400;
+    color:#f0b504;
 
 }
 
@@ -540,12 +540,12 @@
 
     color:#ffffff;
 
-    background:#15263d;
+    background:#153d28;
 
     transition:.25s;
 }
 
 .footer-actions a:hover{
-    background:#1d3557;
+    background:#1d5738;
     color:#58c472;
 }

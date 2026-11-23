@@ -39,7 +39,7 @@
     align-items:center;
     justify-content:center;
 
-    background:#d4af37;
+    background:#fbbf0f;
     color:#111;
 
     text-decoration:none;
@@ -79,7 +79,7 @@
         33.333% - 25px
     );
 
-    background:#0d1724;
+    background:#0d2418;
 
     border:
     1px solid rgba(
@@ -101,10 +101,7 @@
     transform:translateY(-3px);
 
     border-color:
-    rgba(
-        212,
-        175,
-        55,
+    rgba(248,191,19,
         .25
     );
 }
@@ -112,10 +109,7 @@
 .staff-card-current{
 
     border:
-    1px solid rgba(
-        212,
-        175,
-        55,
+    1px solid rgba(248,191,19,
         .35
     );
 }
@@ -138,7 +132,7 @@
 
     border-radius:50%;
 
-    background:#d4af37;
+    background:#fbbf0f;
 
     color:#111;
 
@@ -203,9 +197,9 @@
 .staff-badge-current{
 
     background:
-    rgba(212,175,55,.15);
+    rgba(248,191,19,.15);
 
-    color:#d4af37;
+    color:#fbbf0f;
 }
 
 .staff-badge-super{
@@ -300,7 +294,7 @@
 
 .staff-btn-profile{
 
-    background:#d4af37;
+    background:#fbbf0f;
 
     color:#111;
 }
@@ -405,7 +399,7 @@
 
     max-width:550px;
 
-    background:#0b1624;
+    background:#0b2417;
 
     border:
     1px solid rgba(
@@ -482,7 +476,7 @@
 
 .staff-modal-message strong{
 
-    color:#d4af37;
+    color:#fbbf0f;
 }
 
 .staff-modal-warning{
@@ -596,7 +590,7 @@
 
     width:100%;
 
-    background:#07111d;
+    background:#071d11;
 
     border:
     1px solid rgba(
@@ -619,12 +613,12 @@
 
     outline:none;
 
-    border-color:#d4af37;
+    border-color:#fbbf0f;
 }
 
 #staffResponseTitle{
 
-    color:#d4af37;
+    color:#fbbf0f;
 
     margin-bottom:15px;
 }
@@ -650,9 +644,9 @@ STYLING FOT THE BUTTON
 
     padding:12px 24px;
 
-    background:#d4af37;
+    background:#fbbf0f;
 
-    color:#08111f;
+    color:#081f13;
 
     border:none;
 
@@ -669,7 +663,7 @@ STYLING FOT THE BUTTON
 
     transform:translateY(-2px);
 
-    background:#e5c14a;
+    background:#fcca33;
 }
 
 @media(max-width:768px){
@@ -713,9 +707,9 @@ STYLING FOT THE BUTTON
 
     padding:12px 24px;
 
-    background:#d4af37;
+    background:#fbbf0f;
 
-    color:#08111f;
+    color:#081f13;
 
     border:none;
 

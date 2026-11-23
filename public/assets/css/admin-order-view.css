@@ -83,7 +83,7 @@
 {
     margin:0;
 
-    color:#d4af37;
+    color:#fbbf0f;
 
     font-size:1.6rem;
 }
@@ -113,7 +113,7 @@
     background:
     rgba(245,158,11,.15);
 
-    color:#fbbf24;
+    color:#fcc623;
 }
 
 
@@ -173,7 +173,7 @@
 
 .jp-admin-order-view-section h2
 {
-    color:#d4af37;
+    color:#fbbf0f;
 
     font-size:1.1rem;
 
@@ -247,7 +247,7 @@
 
 .jp-admin-customer-grid a
 {
-    color:#d4af37;
+    color:#fbbf0f;
 
     text-decoration:none;
 
@@ -390,7 +390,7 @@
 
 .jp-admin-product-details strong
 {
-    color:#d4af37;
+    color:#fbbf0f;
 }
 
 
@@ -414,7 +414,7 @@
 
     border-radius:12px;
 
-    background:#d4af37;
+    background:#fbbf0f;
 
     color:#000;
 

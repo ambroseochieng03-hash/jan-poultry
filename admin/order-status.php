@@ -362,7 +362,7 @@ if ($updated) {
 
         <div
         style="
-        background:#07111d;
+        background:#071d11;
         padding:30px;
         text-align:center;
         ">
@@ -370,7 +370,7 @@ if ($updated) {
             <h1
             style="
             margin:0;
-            color:#d4af37;
+            color:#fbbf0f;
             ">
 
             JAN POULTRY
@@ -396,7 +396,7 @@ if ($updated) {
 
             <h2
             style="
-            color:#07111d;
+            color:#071d11;
             ">
 
             ' .
@@ -425,7 +425,7 @@ if ($updated) {
             style="
             background:#f8f8f8;
             padding:20px;
-            border-left:4px solid #d4af37;
+            border-left:4px solid #fbbf0f;
             margin-top:20px;
             ">
 
@@ -444,7 +444,7 @@ if ($updated) {
 
         <div
         style="
-        background:#07111d;
+        background:#071d11;
         color:#ffffff;
         text-align:center;
         padding:20px;

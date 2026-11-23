@@ -75,7 +75,7 @@
 }
 
 .jp-delivery-stat-card h2{
-    color:#d4af37;
+    color:#fbbf0f;
 
     font-size:1.8rem;
 
@@ -158,10 +158,7 @@
     translateY(-4px);
 
     border-color:
-    rgba(
-        212,
-        175,
-        55,
+    rgba(248,191,19,
         .25
     );
 }
@@ -211,7 +208,7 @@
 .jp-delivery-info strong{
     display:block;
 
-    color:#d4af37;
+    color:#fbbf0f;
 
     font-size:.85rem;
 
@@ -255,9 +252,9 @@
 
     border-radius:12px;
 
-    background:#d4af37;
+    background:#fbbf0f;
 
-    color:#111827;
+    color:#11271b;
 
     text-decoration:none;
 

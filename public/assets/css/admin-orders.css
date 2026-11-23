@@ -127,7 +127,7 @@
 {
     margin:0;
 
-    color:#d4af37;
+    color:#fbbf0f;
 
     font-size:1.3rem;
 }
@@ -159,7 +159,7 @@
     background:
     rgba(245,158,11,.15);
 
-    color:#fbbf24;
+    color:#fcc623;
 }
 
 
@@ -272,7 +272,7 @@
 
 .jp-admin-order-info a
 {
-    color:#d4af37;
+    color:#fbbf0f;
 
     text-decoration:none;
 
@@ -351,7 +351,7 @@
 
 .jp-admin-view-btn
 {
-    background:#d4af37;
+    background:#fbbf0f;
 
     color:#000;
 }

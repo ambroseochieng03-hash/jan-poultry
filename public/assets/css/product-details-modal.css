@@ -55,9 +55,9 @@
 
     overflow-y: auto;
 
-    background: #101827;
+    background: #10271b;
 
-    border: 1px solid #d4af37;
+    border: 1px solid #fbbf0f;
 
     border-radius: 16px;
 
@@ -96,9 +96,9 @@
 
     border-radius: 50%;
 
-    background: #d4af37;
+    background: #fbbf0f;
 
-    color: #101827;
+    color: #10271b;
 
     font-size: 1.6rem;
 
@@ -156,7 +156,7 @@
 
 .product-details-content h2 {
 
-    color: #d4af37;
+    color: #fbbf0f;
 
     margin-bottom: 1rem;
 
@@ -187,7 +187,7 @@
 
 .product-details-info div {
 
-    background: #172233;
+    background: #173324;
 
     padding: .9rem;
 
@@ -199,7 +199,7 @@
 
 .product-details-info strong {
 
-    color: #d4af37;
+    color: #fbbf0f;
 
 }
 

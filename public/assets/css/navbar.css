@@ -4,7 +4,7 @@
     width: 100%;
     z-index: 9999;
 
-    background: rgba(15, 23, 42, 0.75);
+    background: rgba(15,42,28, 0.75);
 
     backdrop-filter: blur(16px);
 
@@ -32,7 +32,7 @@
 
     font-size: 1.3rem;
 
-    color: #d4af37;
+    color: #fbbf0f;
 
     letter-spacing: 1px;
 }
@@ -56,7 +56,7 @@
 }
 
 .nav-links a:hover {
-    color: #d4af37;
+    color: #fbbf0f;
 }
 
 .mobile-toggle {
@@ -172,7 +172,7 @@
 
     padding:0 22px;
 
-    color:#1f2937;
+    color:#1f372a;
 
     text-decoration:none;
 
@@ -188,7 +188,7 @@
 
     background:#f7f7f7;
 
-    color:#d4af37;
+    color:#fbbf0f;
 
     padding-left:30px;
 
@@ -206,7 +206,7 @@
 
 #recoverAccountLink{
 
-    color:#c58e00;
+    color:#c29203;
 
     font-weight:700;
 

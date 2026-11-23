@@ -60,17 +60,25 @@
         });
     });
 
-    /* Mobile menu */
-    var nav = document.getElementById('jpNav');
+    /* Mobile menu (modal) */
+    var menu = document.getElementById('jpMenu');
     var burger = document.getElementById('jpBurger');
-    if (nav && burger) {
+    function closeMenu() {
+        if (!menu) { return; }
+        menu.hidden = true;
+        var am = document.getElementById('authModal');
+        document.body.style.overflow = (am && !am.hidden) ? 'hidden' : '';
+    }
+    if (menu && burger) {
         burger.addEventListener('click', function () {
-            var open = nav.classList.toggle('is-open');
-            burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            menu.hidden = false;
+            document.body.style.overflow = 'hidden';
         });
-        nav.querySelectorAll('.jp-links a').forEach(function (a) {
-            a.addEventListener('click', function () { nav.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false'); });
+        menu.addEventListener('click', function (e) {
+            if (e.target === menu || e.target.closest('[data-close-menu]') || e.target.closest('.jp-menu-links a')) { closeMenu(); }
         });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.hidden) { closeMenu(); } });
+        menu.querySelectorAll('[data-auth]').forEach(function (el) { el.addEventListener('click', closeMenu); });
     }
 
     /* Sign-in modal: tabs, forms, open/close */

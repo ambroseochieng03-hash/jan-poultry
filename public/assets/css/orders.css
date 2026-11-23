@@ -83,7 +83,7 @@
 {
     margin: 0;
 
-    color: #d4af37;
+    color: #fbbf0f;
 
     font-size: 1.2rem;
 }
@@ -112,7 +112,7 @@
     background:
     rgba(245,158,11,.15);
 
-    color: #fbbf24;
+    color: #fcc623;
 }
 
 .jp-status-accepted
@@ -210,7 +210,7 @@
 
 .jp-order-address strong
 {
-    color: #d4af37;
+    color: #fbbf0f;
 }
 
 .jp-order-address p
@@ -253,7 +253,7 @@
 .jp-order-card:hover
 .jp-order-footer
 {
-    color: #d4af37;
+    color: #fbbf0f;
 }
 
 
@@ -328,7 +328,7 @@
 
     border-radius: 12px;
 
-    background: #d4af37;
+    background: #fbbf0f;
 
     color: #000;
 

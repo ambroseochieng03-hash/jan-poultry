@@ -43,7 +43,7 @@
 
     margin-top:20px;
 
-    background:#d4af37;
+    background:#fbbf0f;
 
     color:black;
 
@@ -96,7 +96,7 @@
 
     border-radius:8px;
 
-    background:#d4af37;
+    background:#fbbf0f;
 
     color:black;
 
@@ -173,7 +173,7 @@ CUSTOMER ORDERS.PHP
 
     margin-top:10px;
 
-    background:#d4af37;
+    background:#fbbf0f;
 
     color:black;
 
@@ -214,10 +214,7 @@ CREATE ADMIN
 
     background:#181818;
 
-    border:1px solid rgba(
-        212,
-        175,
-        55,
+    border:1px solid rgba(248,191,19,
         .25
     );
 
@@ -292,9 +289,9 @@ CREATE ADMIN
 
     background:#111;
 
-    border:1px solid #d4af37;
+    border:1px solid #fbbf0f;
 
-    color:#d4af37;
+    color:#fbbf0f;
 
     padding:20px;
 
@@ -316,7 +313,7 @@ LOGS
 
     display:inline-block;
 
-    background:#d4af37;
+    background:#fbbf0f;
 
     color:#111;
 
@@ -343,10 +340,7 @@ ADMIN/USERS.PHP
 
     margin-bottom:25px;
 
-    border:1px solid rgba(
-        212,
-        175,
-        55,
+    border:1px solid rgba(248,191,19,
         .2
     );
 }
@@ -390,14 +384,14 @@ CUSTOMER PROFILE
     padding: 25px;
     border-radius: 15px;
     text-align: center;
-    border: 1px solid rgba(212,175,55,0.2);
+    border: 1px solid rgba(248,191,19,0.2);
 }
 
 .profile-avatar{
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: #d4af37;
+    background: #fbbf0f;
     color: #111;
     font-size: 32px;
     display: flex;
@@ -421,7 +415,7 @@ CUSTOMER ADRESSES.PHP
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 12px;
-    border: 1px solid rgba(212,175,55,0.15);
+    border: 1px solid rgba(248,191,19,0.15);
 }
 
 .card input,
@@ -526,7 +520,7 @@ CUSTOMER ADRESSES.PHP
 
     border-color:
 
-    rgba(212,175,55,.5);
+    rgba(248,191,19,.5);
 
 }
 
@@ -549,7 +543,7 @@ CUSTOMER ADRESSES.PHP
 
     background:
 
-    rgba(212,175,55,.15);
+    rgba(248,191,19,.15);
 
 
     border-radius:50%;
@@ -564,7 +558,7 @@ CUSTOMER ADRESSES.PHP
 .notification-content h3 {
 
 
-    color:#d4af37;
+    color:#fbbf0f;
 
     margin-bottom:8px;
 
@@ -633,7 +627,7 @@ CUSTOMER ADRESSES.PHP
 
     margin-top:15px;
 
-    color:#d4af37;
+    color:#fbbf0f;
 
 }
 

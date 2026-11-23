@@ -8,7 +8,16 @@ require_once __DIR__ . '/app/models/Product.php';
 require_once __DIR__ . '/app/models/Category.php';
 
 $products   = (new Product())->getForHome(48);
-$categories = (new Category())->forHome();
+$categories = array_values(array_filter(
+    (new Category())->forHome(),
+    static fn ($c) => !in_array(strtolower(trim((string) $c)), ['', 'none', 'n/a', 'null'], true)
+));
+foreach ($products as &$jpProd) {
+    if (in_array(strtolower(trim((string) ($jpProd['category'] ?? ''))), ['none', 'n/a', 'null'], true)) {
+        $jpProd['category'] = '';
+    }
+}
+unset($jpProd);
 
 /* Contact details come from Admin > Settings. */
 $settings = [];
@@ -86,8 +95,8 @@ function jp_type_label(string $t): string
     <meta name="twitter:card" content="summary_large_image">
     <meta name="csrf-token" content="<?= htmlspecialchars($csrf) ?>">
     <meta name="jp-media-base" content="<?= htmlspecialchars(Media::baseUrl()) ?>">
-    <link rel="stylesheet" href="/assets/css/jp-home.css?v=<?= (int) @filemtime(__DIR__ . '/public/assets/css/jp-home.css') ?>">
     <link rel="stylesheet" href="/assets/css/auth.css?v=<?= (int) @filemtime(__DIR__ . '/public/assets/css/auth.css') ?>">
+    <link rel="stylesheet" href="/assets/css/jp-home.css?v=<?= (int) @filemtime(__DIR__ . '/public/assets/css/jp-home.css') ?>">
     <script src="/assets/js/jp-media.js?v=<?= (int) @filemtime(__DIR__ . '/public/assets/js/jp-media.js') ?>" defer></script>
     <script src="/assets/js/jp-home.js?v=<?= (int) @filemtime(__DIR__ . '/public/assets/js/jp-home.js') ?>" defer></script>
 </head>
@@ -112,7 +121,7 @@ function jp_type_label(string $t): string
             <?php elseif ($isStaff): ?>
                 <a class="jp-btn jp-btn-primary" href="/admin/dashboard">Admin panel</a>
             <?php else: ?>
-                <button type="button" class="jp-btn jp-btn-ghost" data-auth="guest">Your order<span class="jp-badge" data-cart-count <?= $cartCount ? '' : 'hidden' ?>><?= $cartCount ?></span></button>
+                <button type="button" class="jp-btn jp-btn-ghost" data-auth="guest">Continue as guest<span class="jp-badge" data-cart-count <?= $cartCount ? '' : 'hidden' ?>><?= $cartCount ?></span></button>
                 <a class="jp-btn jp-btn-line" href="/?auth=login" data-auth="login">Sign in</a>
                 <a class="jp-btn jp-btn-primary" href="/?auth=register" data-auth="register">Create account</a>
             <?php endif; ?>
@@ -121,9 +130,33 @@ function jp_type_label(string $t): string
     </div>
 </header>
 
+<div class="jp-modal jp-menu" id="jpMenu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+    <div class="jp-modal-card">
+        <button type="button" class="jp-modal-x" data-close-menu aria-label="Close">&times;</button>
+        <nav class="jp-menu-links" aria-label="Menu">
+            <a href="#shop">Shop</a>
+            <a href="#how">How it works</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="jp-menu-actions">
+            <?php if ($isCustomer || $isGuest): ?>
+                <a class="jp-btn jp-btn-gold jp-btn-lg" href="/cart">Cart<span class="jp-badge" data-cart-count <?= $cartCount ? '' : 'hidden' ?>><?= $cartCount ?></span></a>
+                <?php if ($isCustomer): ?><a class="jp-btn jp-btn-line jp-btn-lg" href="/dashboard">My account</a><?php endif; ?>
+                <a class="jp-btn jp-btn-line jp-btn-lg" href="/logout">Log out</a>
+            <?php elseif ($isStaff): ?>
+                <a class="jp-btn jp-btn-primary jp-btn-lg" href="/admin/dashboard">Admin panel</a>
+            <?php else: ?>
+                <button type="button" class="jp-btn jp-btn-gold jp-btn-lg" data-auth="guest">Continue as guest<span class="jp-badge" data-cart-count <?= $cartCount ? '' : 'hidden' ?>><?= $cartCount ?></span></button>
+                <a class="jp-btn jp-btn-line jp-btn-lg" href="/?auth=login" data-auth="login">Sign in</a>
+                <a class="jp-btn jp-btn-primary jp-btn-lg" href="/?auth=register" data-auth="register">Create account</a>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+
 <main>
     <section class="jp-hero">
-        <img class="jp-hero-img" src="/assets/img/hero.webp" alt="" width="1112" height="400" fetchpriority="high">
+        <img class="jp-hero-img" src="/assets/img/hero.webp" alt="" width="1672" height="392" fetchpriority="high">
         <div class="jp-wrap jp-hero-grid">
             <div class="jp-hero-copy">
                 <h1>Fresh from our farm to your door.</h1>

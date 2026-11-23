@@ -112,7 +112,7 @@ $stmt->fetchAll();
 
     margin-bottom: 25px;
 
-    color: #d4af37;
+    color: #fbbf0f;
 
 }
 
@@ -174,7 +174,7 @@ $stmt->fetchAll();
 
     outline: none;
 
-    border-color: #d4af37;
+    border-color: #fbbf0f;
 
 }
 
@@ -187,7 +187,7 @@ $stmt->fetchAll();
 
     border-radius: 12px;
 
-    background: #d4af37;
+    background: #fbbf0f;
 
     color: #111;
 

@@ -45,8 +45,8 @@
     background:
     linear-gradient(
         135deg,
-        #d4af37,
-        #f6d365
+        #fbbf0f,
+        #fdd55e
     );
 
     display:flex;
@@ -55,7 +55,7 @@
 
     justify-content:center;
 
-    color:#08111f;
+    color:#081f13;
 
     font-size:2rem;
 
@@ -78,9 +78,9 @@
     border-radius:30px;
 
     background:
-    rgba(212,175,55,.15);
+    rgba(248,191,19,.15);
 
-    color:#d4af37;
+    color:#fbbf0f;
 
     font-size:.85rem;
 
@@ -151,9 +151,9 @@
 
 .primary-btn{
 
-    background:#d4af37;
+    background:#fbbf0f;
 
-    color:#08111f;
+    color:#081f13;
 }
 
 .secondary-btn{
@@ -211,10 +211,10 @@
 
     max-width:450px;
 
-    background:#08111f;
+    background:#081f13;
 
     border:
-    1px solid rgba(212,175,55,.3);
+    1px solid rgba(248,191,19,.3);
 
     border-radius:20px;
 
@@ -225,7 +225,7 @@
 
 .modal-box h2{
 
-    color:#d4af37;
+    color:#fbbf0f;
 
     margin-bottom:20px;
 

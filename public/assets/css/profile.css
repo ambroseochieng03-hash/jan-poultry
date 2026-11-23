@@ -29,12 +29,9 @@
 
     gap:15px;
 
-    background:#0d1724;
+    background:#0d2418;
 
-    border:1px solid rgba(
-        212,
-        175,
-        55,
+    border:1px solid rgba(248,191,19,
         .15
     );
 
@@ -86,7 +83,7 @@
 
     border-radius:50%;
 
-    background:#d4af37;
+    background:#fbbf0f;
 
     color:#111;
 
@@ -143,14 +140,11 @@
 .profile-role{
 
     background:
-    rgba(
-        212,
-        175,
-        55,
+    rgba(248,191,19,
         .15
     );
 
-    color:#d4af37;
+    color:#fbbf0f;
 }
 
 .profile-status-active{
@@ -209,7 +203,7 @@
 
 .profile-card{
 
-    background:#0d1724;
+    background:#0d2418;
 
     border:1px solid rgba(
         255,
@@ -225,7 +219,7 @@
 
 .profile-card h2{
 
-    color:#d4af37;
+    color:#fbbf0f;
 
     margin-bottom:20px;
 
@@ -316,7 +310,7 @@
 
 .profile-btn-primary{
 
-    background:#d4af37;
+    background:#fbbf0f;
 
     color:#111;
 }
@@ -377,12 +371,9 @@
 
     overflow-y:auto;
 
-    background:#0b1624;
+    background:#0b2417;
 
-    border:1px solid rgba(
-        212,
-        175,
-        55,
+    border:1px solid rgba(248,191,19,
         .15
     );
 
@@ -404,7 +395,7 @@
 
 .profile-modal-content h2{
 
-    color:#d4af37;
+    color:#fbbf0f;
 
     margin-bottom:18px;
 }
@@ -510,7 +501,7 @@
 .profile-modal-content input:focus{
 
     border:
-    1px solid #d4af37;
+    1px solid #fbbf0f;
 }
 
 /* ==================================================
@@ -581,7 +572,7 @@
 
     cursor:pointer;
 
-    background:#d4af37;
+    background:#fbbf0f;
 
     color:#111;
 
@@ -636,7 +627,7 @@
 
 .profile-modal-content::-webkit-scrollbar-thumb{
 
-    background:#d4af37;
+    background:#fbbf0f;
 
     border-radius:999px;
 }

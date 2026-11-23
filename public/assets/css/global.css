@@ -6,12 +6,12 @@
 
     /* BRAND COLORS */
 
-    --color-primary: #d4af37;
-    --color-primary-hover: #e6c75a;
+    --color-primary: #fbbf0f;
+    --color-primary-hover: #fcce44;
 
-    --color-bg: #0b1220;
+    --color-bg: #0b2015;
 
-    --color-surface: #111827;
+    --color-surface: #11271b;
 
     --color-surface-light:
     rgba(255,255,255,.05);

@@ -16,11 +16,8 @@
 
 .user-card
 {
-    background:#111827;
-    border:1px solid rgba(
-        212,
-        175,
-        55,
+    background:#11271b;
+    border:1px solid rgba(248,191,19,
         0.15
     );
 
@@ -38,7 +35,7 @@
     transform:
     translateY(-3px);
 
-    border-color:#d4af37;
+    border-color:#fbbf0f;
 }
 
 .user-avatar
@@ -48,9 +45,9 @@
 
     border-radius:50%;
 
-    background:#d4af37;
+    background:#fbbf0f;
 
-    color:#07111d;
+    color:#071d11;
 
     font-size:24px;
     font-weight:700;
@@ -108,8 +105,8 @@
 
 .user-badge-role
 {
-    background:#1e293b;
-    color:#d4af37;
+    background:#1e3b2c;
+    color:#fbbf0f;
 }
 
 .user-badge-active
@@ -171,8 +168,8 @@
 
 .user-btn-view
 {
-    background:#d4af37;
-    color:#07111d;
+    background:#fbbf0f;
+    color:#071d11;
 }
 
 .user-btn-suspend
@@ -202,7 +199,7 @@
 {
     grid-column:1/-1;
 
-    background:#111827;
+    background:#11271b;
 
     padding:40px;
 
@@ -228,7 +225,7 @@
 
 .user-view-content strong
 {
-    color:#d4af37;
+    color:#fbbf0f;
 }
 
 .staff-modal
@@ -266,13 +263,10 @@
     width:90%;
     max-width:600px;
 
-    background:#0f172a;
+    background:#0f2a1c;
 
     border:1px solid
-    rgba(
-        212,
-        175,
-        55,
+    rgba(248,191,19,
         0.3
     );
 
@@ -334,7 +328,7 @@
 
 .staff-modal-cancel
 {
-    background:#334155;
+    background:#335543;
 
     color:#ffffff;
 }
@@ -372,7 +366,7 @@
 
     margin-bottom:20px;
 
-    color:#d4af37;
+    color:#fbbf0f;
 }
 
 @media (
@@ -432,7 +426,7 @@ SEARCH AREA
 
     border-radius:10px;
 
-    background:#111827;
+    background:#11271b;
 
     color:#fff;
 
@@ -446,9 +440,9 @@ SEARCH AREA
 .filter-card input:focus,
 .filter-card select:focus{
 
-    border-color:#d4af37;
+    border-color:#fbbf0f;
 
-    box-shadow:0 0 0 3px rgba(212,175,55,.15);
+    box-shadow:0 0 0 3px rgba(248,191,19,.15);
 }
 
 .users-search-btn{
@@ -463,9 +457,9 @@ SEARCH AREA
 
     border-radius:10px;
 
-    background:#d4af37;
+    background:#fbbf0f;
 
-    color:#08111f;
+    color:#081f13;
 
     font-weight:700;
 
@@ -478,7 +472,7 @@ SEARCH AREA
 
 .users-search-btn:hover{
 
-    background:#e6bf47;
+    background:#fcc931;
 
     transform:translateY(-2px);
 }
